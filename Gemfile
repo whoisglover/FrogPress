@@ -1,8 +1,11 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
+
+
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
-
 # Use postgresql as the database for Active Record
 gem 'pg'
 
@@ -27,10 +30,38 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# Devise for user auth
+gem 'devise'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
+
+group :development, :test do
+  gem 'rspec-rails', '~>2.14'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'jasmine-rails'
+  gem 'dotenv'
+end
+
+group :test do
+  gem 'database_cleaner'
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
