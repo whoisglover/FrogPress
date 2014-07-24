@@ -43,7 +43,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'jasmine-rails'
-  gem 'dotenv'
+  gem 'dotenv-rails'
 end
 
 group :test do
