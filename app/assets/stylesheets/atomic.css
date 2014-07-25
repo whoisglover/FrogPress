@@ -20,6 +20,7 @@
 .bkg-grn{ background-color: green; }
 
 .w-400{ width: 400px; }
+.w-300{ width: 300px; }
 .w-100per{ width: 100%; }
 
 .h-50{ height: 50px; }
@@ -28,6 +29,7 @@
 .mrg-auto{ margin: auto; }
 .mrg-btm-0{ margin-bottom: 0px; }
 .mrg-top-0{ margin-top: 0px; }
+.mrg-top-10{ margin-top: 10px; }
 .mrg-l-0{ margin-left: 0px; }
 .mrg-r-0{ margin-right: 0px; }
 .mrg-r-15{ margin-right: 15px; }
@@ -39,9 +41,8 @@
 
 .inln-bk{ display: inline-block; }
 .no-blt{ list-style: none; }
-.fxd{ position: fixed;
-top: 50%;
-left: 50%; }
+.no-txt-dec{ text-decoration: none; }
+.hidden{ visibility: hidden; }
 
 .flt-r{ float: right; }
 
