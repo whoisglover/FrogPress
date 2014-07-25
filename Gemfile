@@ -9,6 +9,8 @@ gem 'rails', '4.0.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -50,7 +52,10 @@ group :test do
   gem 'database_cleaner'
 end
 
-
+# group :assets do
+#   gem 'jquery-ui-rails'
+#   gem 'jquery-modal-rails'
+# end
 
 
 
