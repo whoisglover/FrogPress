@@ -47,6 +47,7 @@
 .brd-rad-5{ border-radius: 5px; }
 
 .inln-bk{ display: inline-block; }
+.inline{ display: inline;}
 .hidden{ visibility: hidden; }
 .flt-r{ float: right; }
 
