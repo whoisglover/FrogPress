@@ -1,0 +1,56 @@
+.txt-ctr{ text-align: center; }
+.txt-rt{ text-align: right; }
+
+.gill{ font-family: Gill Sans; }
+.sacramento{ font-family: 'Sacramento', cursive;}
+
+.ft-lite{ font-weight: lighter; }
+.ft-itl{ font-style: italic; }
+
+.ft-sz-5{ font-size: 5rem; }
+.ft-sz-2{ font-size: 2rem; }
+
+.ft-sz-1half{ font-size: 1.5rem; }
+.ft-sz-1{ font-size: 1rem; }
+.ln-h-50 { line-height: 50px; }
+
+.white { color: white; }
+
+.bkg-red{ background-color: red; }
+.bkg-grn{ background-color: green; }
+
+.w-400{ width: 400px; }
+.w-300{ width: 300px; }
+.w-100per{ width: 100%; }
+
+.h-50{ height: 50px; }
+.h-100per{height: 100%; }
+
+.mrg-auto{ margin: auto; }
+.mrg-btm-0{ margin-bottom: 0px; }
+.mrg-top-0{ margin-top: 0px; }
+.mrg-top-10{ margin-top: 10px; }
+.mrg-l-0{ margin-left: 0px; }
+.mrg-r-0{ margin-right: 0px; }
+.mrg-r-15{ margin-right: 15px; }
+
+.pad-l-5{ padding-left: 5px; }
+
+.brd-none{ border: none; }
+.brd-rad-5{ border-radius: 5px; }
+
+.inln-bk{ display: inline-block; }
+.no-blt{ list-style: none; }
+.no-txt-dec{ text-decoration: none; }
+.hidden{ visibility: hidden; }
+
+.flt-r{ float: right; }
+
+.vert-top{ vertical-align: top; }
+
+
+
+
+
+
+
