@@ -55,8 +55,25 @@
 
 .vert-top{ vertical-align: top; }
 
+.col-L {
+  padding-right: 10px;
+  width: 47.5%;
+  display: inline-block;
+}
 
+.col-R {
+  width: 47.5%;
+  padding-left: 10px;
+  display: inline-block;
+}
 
+@media only screen and (max-width : 775px){
+  .col-R, .col-L{
+    display: block;
+    width: 100%;
+    padding: 0px;
+  }
+}
 
 
 
