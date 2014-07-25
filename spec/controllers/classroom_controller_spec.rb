@@ -24,16 +24,45 @@ describe ClassroomController do
       #assert
         expect(assigns(:classrooms)).to include(teacher.classrooms.first)
     end
-  end #end index
+    it 'return all classrooms for current student' do
+      #arrange
+        login = login_student
+        #grab student id from login_student helper function
+        student_id = login[0][0]
+        #grab the student using the student id
+        student = User.find_by_id(student_id)
+        #create a new classroom
+        classroom = FactoryGirl.create(:classroom)
+        #assign the new classroom to the student
+        student.classrooms << classroom
 
-  # describe '#create' do
-  #   it 'adds a valid classroom to the database' do
+      #act
+        get :index
 
-  #   end
-  #   it 'does not add an invalid classroom to the database' do
+      #assert
+        expect(assigns(:classrooms)).to include(student.classrooms.first)
+    end
 
-  #   end
-  # end #end create
+    it 'should show the next 5 assignments due'
+
+
+
+  end
+
+  describe '#create' do
+    it 'adds a valid classroom to the database' do
+      #arrange
+      classroom = FactoryGirl.create(:classroom)
+      #act
+      post :create, classroom: classroom
+      #assert
+      expect(Classroom.count).to eq
+
+    end
+    it 'does not add an invalid classroom to the database' do
+
+    end
+  end
 
   # describe '#update' do
   #   it 'update the classroom in the database' do
