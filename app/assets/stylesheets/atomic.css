@@ -39,6 +39,9 @@
 
 .inln-bk{ display: inline-block; }
 .no-blt{ list-style: none; }
+.fxd{ position: fixed;
+top: 50%;
+left: 50%; }
 
 .flt-r{ float: right; }
 
