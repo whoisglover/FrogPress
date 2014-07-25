@@ -8,14 +8,21 @@ describe ClassroomController do
     end
     it 'return all classrooms for current teacher' do
       #arrange
-      teacher = FactoryGirl.create(:teacher)
-      classroom = FactoryGirl.create(:classroom)
-      classroom.teacher_id = teacher.id
-      current_user = teacher
+        login = login_teacher
+        #grab teacher id from login_teacher helper function
+        teacher_id = login[0][0]
+        #grab the teacher using the teacher id
+        teacher = User.find_by_id(teacher_id)
+        #create a new classroom
+        classroom = FactoryGirl.create(:classroom)
+        #assign the new classroom to the teacher
+        teacher.classrooms << classroom
+
       #act
-      get :index
+        get :index
+
       #assert
-      expect(assigns(:classrooms)).to include(classroom)
+        expect(assigns(:classrooms)).to include(teacher.classrooms.first)
     end
   end #end index
 
