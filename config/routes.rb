@@ -1,5 +1,9 @@
 FrogPress::Application.routes.draw do
   devise_for :users
+
+  devise_scope :user do
+    get 'users/sign_out' => 'devise/sessions#destroy'
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -19,7 +23,7 @@ FrogPress::Application.routes.draw do
   #   resources :products do
   #     member do
   #       get 'short'
-  #       post 'toggle'
+  #        post 'toggle'
   #     end
   #
   #     collection do
@@ -40,7 +44,7 @@ FrogPress::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
