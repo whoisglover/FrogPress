@@ -47,10 +47,10 @@ group :development, :test do
   gem 'faker'
   gem 'jasmine-rails'
   gem 'dotenv-rails'
+  gem 'database_cleaner'
 end
 
 group :test do
-  gem 'database_cleaner'
 end
 
 # group :assets do
