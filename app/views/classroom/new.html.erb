@@ -1,3 +1,4 @@
+
 <% if current_user.user_type == "student" %>
 
   <h1> Add a Class <h1><br>
@@ -9,10 +10,10 @@
 <% elsif current_user.user_type == "teacher" %>
 
   <h1> Create a New Class <h1><br>
-  <%= form_for :classroom, url: classroom_index_path do |f| %>
+  <%= form_for :classroom, url: {action: "create"} do |f| %>
     <%= f.text_field :name, placeholder: "Class Name" %><br>
-    <%= f.text_field :grade_level, placeholder: "Class Grade Level" %><br>
-    <%= f.text_field :class_code, placeholder: "Class Access Code" %><br>
+    <%= f.select :grade_level, [['K', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6], ['7', 7], ['8', 8], ['9', 9], ['10', 10], ['11', 11], ['12', 12]] %> <br>
+    <%= f.text_field :join_code, placeholder: "Class Access Code" %><br>
     <%= f.submit "Create Class" %>
   <% end %>
 <% end %>
