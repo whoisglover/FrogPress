@@ -17,10 +17,13 @@ class ClassroomController < ApplicationController
   end
 
   def create
-    @classroom = Classroom.create(name: params[:classroom][:name], grade_level: params[:classroom][:grade_level], join_code: params[:classroom][:join_code])
-    # @classroom = Classroom.create(params[:classroom])
-
-    redirect_to (classroom_path(@classroom.id))
+    if current_user.user_type == "teacher"
+      @classroom = Classroom.create(name: params[:classroom][:name], grade_level: params[:classroom][:grade_level], join_code: params[:classroom][:join_code])
+      redirect_to (classroom_path(@classroom.id))
+    else
+      Classroom.add_student_to_class(params[:classroom][:id], params[:classroom][:join_code])
+      redirect_to (user_path(params[:classroom][:id]))
+    end
   end
 
   def show
@@ -44,6 +47,10 @@ class ClassroomController < ApplicationController
   def destroy
     Classroom.find_by_id(params[:id]).destroy
     redirect_to(classroom_index_path)
+  end
+
+  def new
+
   end
 
   private
