@@ -37,6 +37,10 @@ class ClassroomController < ApplicationController
     redirect_to(classroom_index_path)
   end
 
+  def new
+
+  end
+
   private
   def verify_user
     if current_user.user_type == 'teacher'
