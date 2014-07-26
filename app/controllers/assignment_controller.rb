@@ -42,7 +42,7 @@ class AssignmentController < ApplicationController
 
 private
   def verify_user
-    if current_user.user_type == 'teacher'
+    if current_user.user_type == 'teacher' || current_user.user_type == 'student'
     else
       redirect_to (root_path)
     end
