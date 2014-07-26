@@ -7,7 +7,7 @@ FrogPress::Application.routes.draw do
   end
   resources :classroom
   resources :assignment, except: :index
-
+  resources :submission, except: :index
   resources :users, only: [:show]
 
 end
