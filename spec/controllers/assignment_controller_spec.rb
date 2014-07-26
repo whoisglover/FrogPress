@@ -1,6 +1,20 @@
 require 'spec_helper'
 
 describe AssignmentController do
+  describe "#show" do
+    it 'show assignment if user is teacher' do
+      # arrange
+        login = login_teacher
+        classroom = FactoryGirl.create(:classroom)
+        assignment = FactoryGirl.create(:assignment)
+        classroom.assignments << assignment
+      # act
+         get :show, id: assignment.id
+      # assert
+        expect( assigns(:assignment) ).to eq(assignment)
+    end
+  end
+
   describe "#create" do
     let(:assignment_params) { FactoryGirl.attributes_for(:assignment)}
     let(:assignment_invalid_params) { FactoryGirl.attributes_for(:assignment_bad_params)}
