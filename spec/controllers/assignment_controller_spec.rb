@@ -35,8 +35,5 @@ describe AssignmentController do
       expect{
         post :create, assignment: assignment_invalid_params}.to change{Assignment.count}.by(0)
     end
-
   end
-
-
 end
