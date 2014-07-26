@@ -17,6 +17,10 @@ ActiveRecord::Schema.define(version: 20140725195620) do
   enable_extension "plpgsql"
 
   create_table "assignments", force: true do |t|
+    t.integer  "classroom_id"
+    t.string   "title"
+    t.string   "content"
+    t.date     "due_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
