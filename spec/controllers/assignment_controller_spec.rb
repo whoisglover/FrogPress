@@ -3,6 +3,7 @@ require 'spec_helper'
 describe AssignmentController do
   describe "#show" do
     it 'shows a specific assignment for a class'  do
+      AssignmentController.any_instance.stub(:authenticate_user!).and_return(4)
       login = login_teacher
       #grab teacher id from login_teacher helper function
       teacher_id = login[0][0]
