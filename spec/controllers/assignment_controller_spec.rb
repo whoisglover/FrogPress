@@ -1,53 +1,41 @@
 require 'spec_helper'
 
 describe AssignmentController do
-  describe "#show" do
-    it 'show assignment if user is teacher' do
-      # arrange
-        login = login_teacher
-        classroom = FactoryGirl.create(:classroom)
-        assignment = FactoryGirl.create(:assignment)
-        classroom.assignments << assignment
-      # act
-         get :show, id: assignment.id
-      # assert
-        expect( assigns(:assignment) ).to eq(assignment)
-    end
-  end
+
 
   describe "#create" do
     let(:assignment_params) { FactoryGirl.attributes_for(:assignment)}
     let(:assignment_invalid_params) { FactoryGirl.attributes_for(:assignment_bad_params)}
     it "creates a new assignment" do
       # arrange
-        login_teacher
-        classroom = FactoryGirl.create(:classroom)
-        assignment = FactoryGirl.create(:assignment)
-        classroom.assignments << assignment
-      #act/assert
-        expect{
-        post :create, assignment: assignment_params}.to change{Assignment.count}.by(1)
-    end
-
-    it 'does not create assignment without a classroom id' do
       login_teacher
+      classroom = FactoryGirl.create(:classroom)
+      assignment = FactoryGirl.create(:assignment)
+      classroom.assignments << assignment
+      #act/assert
       expect{
-        post :create, assignment: assignment_invalid_params}.to change{Assignment.count}.by(0)
-    end
-  end
+        post :create, assignment: assignment_params}.to change{Assignment.count}.by(1)
+      end
 
-
-  describe "#show" do
-    it 'adds assignment if user is teacher' do
-      # arrange
+      it 'does not create assignment without a classroom id' do
         login_teacher
-        classroom = FactoryGirl.create(:classroom)
-        assignment = FactoryGirl.create(:assignment)
-        classroom.assignments << assignment
+        expect{
+          post :create, assignment: assignment_invalid_params}.to change{Assignment.count}.by(0)
+      end
+    end
+
+
+    describe "#show" do
+      it 'adds assignment if user is teacher' do
+      # arrange
+      login_teacher
+      classroom = FactoryGirl.create(:classroom)
+      assignment = FactoryGirl.create(:assignment)
+      classroom.assignments << assignment
       # act
-         get :show, id: assignment.id
+      get :show, id: assignment.id
       # assert
-        expect( assigns(:assignment) ).to eq(assignment)
+      expect( assigns(:assignment) ).to eq(assignment)
     end
   end
 
@@ -56,13 +44,13 @@ describe AssignmentController do
     let(:assignment_params) { FactoryGirl.attributes_for(:assignment)}
     it "updates the specified assignment with new parameters in the database" do
       # arrange
-        login_teacher
-        original_assignment = Assignment.create(title: "test title", content: "test_content", due_date: "11-01-2014")
+      login_teacher
+      original_assignment = Assignment.create(title: "test title", content: "test_content", due_date: "11-01-2014")
       # act
-        put :update, { id: assignment.id, assignment: assignment_params }
-        assignment.reload
+      put :update, { id: assignment.id, assignment: assignment_params }
+      assignment.reload
       # assert
-        expect(assignment.title).to eq(assignment_params[:title])
+      expect(assignment.title).to eq(assignment_params[:title])
     end
 
     it "should redirect the user to the classroom_path" do
