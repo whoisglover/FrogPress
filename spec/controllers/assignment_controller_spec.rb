@@ -3,7 +3,7 @@ require 'spec_helper'
 describe AssignmentController do
   describe "#show" do
 
-    it 'directs to add assignment if user is teacher' do
+    it 'show assignment if user is teacher' do
       # arrange
         login = login_teacher
         classroom = FactoryGirl.create(:classroom)
