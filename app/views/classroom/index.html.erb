@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <div class = "gill w-400 mrg-auto">
+    <a href="/users/<%= current_user.id %>">Frog-a-lytics</a>
+    <a href="/classroom/new">Add a Class</a>
+
+    <h1>Your Classes</h1>
+    <ul>
+      <% @data[:classrooms].each do |klass| %>
+      <li><a href="/classroom/<%= klass.id %>"><%= klass.name %></a></li>
+      <% end %>
+    </ul>
+    <br>
+    <h1>Pending</h1>
+    <ul>
+      <% @data[:assignments][0..4].each do |assignments| %>
+      <li><a href="/assignment/<%= assignments.id %>"><%= assignments.title %></a>
+        <br>
+        <%= assignments.due_date %>
+      </li>
+
+      <% end %>
+    </ul>
+  </div>
+
+
+</body>
+</html>
+
