@@ -2,18 +2,17 @@
 
 FactoryGirl.define do
   factory :student, class: User do
-    first_name "Mario"
-    last_name "Bros"
-    email "mario@example.com"
+    first_name {Faker::Name.first_name} #=> "Kaci"
+    last_name {Faker::Name.last_name} #=> "Kaci"
+    email {Faker::Internet.email}
     user_type "student"
     password "abcdefgh"
-
   end
 
   factory :teacher, class: User do
-    first_name "Bowser"
-    last_name "Bros"
-    email "bowser@example.com"
+    first_name {Faker::Name.first_name} #=> "Kaci"
+    last_name {Faker::Name.last_name} #=> "Kaci"
+    email {Faker::Internet.email}
     user_type "teacher"
     password "abcdefgh"
   end

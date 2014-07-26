@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :classroom do
-    name "Period 1"
-    grade_level 5
-    join_code "hello"
+    name {Faker::Company.name}
+    grade_level {Faker::Number.digit}
+    join_code {Faker::Name.last_name}
   end
   factory :invalid_classroom, class: Classroom do
     name "Timmy Tisdale"
