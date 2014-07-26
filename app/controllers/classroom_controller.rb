@@ -5,6 +5,15 @@ class ClassroomController < ApplicationController
 
   def index
     @classrooms = current_user.classrooms
+    @assignments = []
+    @classrooms.each do |klass|
+      if klass.assignments[0]
+         @assignments << klass.assignments
+      end
+    end
+    @assignments.flatten!
+    @assignments = @assignments.sort_by(&:due_date).reverse
+    @data = {classrooms: @classrooms, assignments: @assignments}
   end
 
   def create
