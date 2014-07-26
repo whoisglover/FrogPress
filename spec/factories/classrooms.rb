@@ -6,4 +6,8 @@ FactoryGirl.define do
     grade_level 5
     join_code "hello"
   end
+  factory :invalid_classroom, class: Classroom do
+    name "Timmy Tisdale"
+    join_code "hello"
+  end
 end
