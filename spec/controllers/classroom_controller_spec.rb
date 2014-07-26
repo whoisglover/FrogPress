@@ -38,7 +38,6 @@ describe ClassroomController do
 
       #act
         get :index
-
       #assert
         expect(assigns(:classrooms)).to include(student.classrooms.first)
     end
@@ -50,29 +49,74 @@ describe ClassroomController do
   end
 
   describe '#create' do
+    let(:classroom_params) { FactoryGirl.attributes_for(:classroom) }
+    let(:bad_classroom_params) { FactoryGirl.attributes_for(:invalid_classroom) }
+
     it 'adds a valid classroom to the database' do
       #arrange
-      classroom = FactoryGirl.create(:classroom)
+      login = login_teacher
       #act
-      post :create, classroom: classroom
       #assert
-      expect(Classroom.count).to eq
-
+      expect{
+        post :create, classroom: classroom_params
+      }.to change{Classroom.count}.by(1)
     end
     it 'does not add an invalid classroom to the database' do
-
+      #arrange
+      login = login_teacher
+      #act
+      #assert
+      expect{
+        post :create, classroom: bad_classroom_params
+      }.to change{Classroom.count}.by(0)
     end
   end
 
-  # describe '#update' do
-  #   it 'update the classroom in the database' do
+  describe '#show' do
+    it 'returns the correct classroom' do
+      #arrange
+      login = login_teacher
+      #act
+      classroom = FactoryGirl.create(:classroom)
+      get :show, id: classroom.id
+      #assert
+      expect(assigns(:classroom)).to eq(classroom)
+    end
 
-  #   end
-  # end #end edit
+    it 'redirects to homepage if you are not logged in to the system' do
+      #arrange
+      #act
+      classroom = FactoryGirl.create(:classroom)
+      get :show, id: classroom.id
+      #assert
+      expect(response).to redirect_to(new_user_session_path)
+    end
 
-  # describe '#destroy' do
-  #   it 'should remove the classroom from the database' do
-  #   end
-  # end #end destroy
+  end
+  describe '#update' do
+    let(:classroom) { FactoryGirl.create(:classroom) }
+    it 'updates the classroom in the database' do
+      #arrange
+      login_teacher
+      original_classroom = classroom
+      #act
+      patch :update, id: classroom.id, attrs: {name: "Brennon", grade_level: 1}
+      new_classroom = Classroom.find_by_id(classroom.id)
+      #assert
+      expect(new_classroom.name).to_not eq(original_classroom.name)
+    end
+  end #end edit
+
+  describe '#destroy' do
+    let(:classroom) { FactoryGirl.create(:classroom) }
+    it 'should remove the classroom from the database' do
+      #arrange
+      login_teacher
+      #act
+      delete :destroy, id: classroom.id
+      #assert
+      expect(Classroom.count).to eq(0)
+    end
+  end #end destroy
 
 end #end ClassroomController
