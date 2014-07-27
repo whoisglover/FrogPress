@@ -14,7 +14,7 @@
       <% end %>
     </ul>
     <br>
-    <h1>Pending</h1>
+    <h1>Pending Assignments</h1>
     <ul>
       <% @data[:assignments][0..4].each do |assignments| %>
       <li><a href="/assignment/<%= assignments.id %>"><%= assignments.title %></a>
