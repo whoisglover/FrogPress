@@ -6,12 +6,12 @@
 
 <div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
   <table>
-    <%@students.each do |student|%>
     <tr>
       <th>Student</th>
       <th>Level</th>
       <th>Status</th>
     </tr>
+    <%@students.each do |student|%>
     <tr>
       <td><%= student.first_name %> <%= student.last_name %></td>
       <td>Level</td>

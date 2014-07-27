@@ -13,6 +13,4 @@ module AssignmentHelper
     end
     students
   end
-
-
 end
