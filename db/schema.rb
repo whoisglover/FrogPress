@@ -71,11 +71,6 @@ ActiveRecord::Schema.define(version: 20140727183844) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "users_classroom", force: true do |t|
-    t.integer "user_id"
-    t.integer "classroom_id"
-  end
-
   create_table "users_classrooms", force: true do |t|
     t.integer  "user_id"
     t.integer  "classroom_id"
