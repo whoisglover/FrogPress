@@ -5,7 +5,6 @@ class AssignmentController < ApplicationController
 
 
   def new
-    # pass classroom id to form. Pass from form in to create route.
   end
 
   def create
@@ -30,7 +29,6 @@ class AssignmentController < ApplicationController
     assignment_to_change = Assignment.find_by_id(params[:id])
     assignment_to_change.update(assignment_hash)
     redirect_to (classroom_path(assignment_to_change.classroom_id))
-
   end
 
   def destroy
