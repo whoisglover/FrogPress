@@ -33,6 +33,7 @@
 # teacher.classrooms << Classroom.all[0]
 # User.first.classrooms << Classroom.all
 
+# User(id: integer, first_name: string, last_name: string, user_type: string, email: string, encrypted_password: string, reset_password_token: string, reset_password_sent_at: datetime, remember_created_at: datetime, sign_in_count: integer, current_sign_in_at: datetime, last_sign_in_at: datetime, current_sign_in_ip: string, last_sign_in_ip: string, created_at: datetime, updated_at: datetime)
 # Teachers
 User.create( first_name: "Matthew", last_name: "Kuzio", user_type: "teacher", email: "Matthew@example.com", password: "password")
 User.create( first_name: "Danny", last_name: "Glover", user_type: "teacher", email: "Danny@example.com", password: "password")
@@ -60,3 +61,33 @@ User.create( first_name: "Val", last_name: "Mitchell", user_type: "student", ema
 User.create( first_name: "Andra", last_name: "Lally", user_type: "student", email: "Andra@example.com", password: "password")
 User.create( first_name: "Parjam", last_name: "Davoody", user_type: "student", email: "Parjam@example.com", password: "password")
 User.create( first_name: "Phillip", last_name: "Crawford", user_type: "student", email: "Phillip@example.com", password: "password")
+
+
+# Classroom(id: integer, name: string, grade_level: integer, join_code: string, created_at: datetime, updated_at: datetime)
+#Classrooms
+Classroom.create( name: "#{Faker::Hacker.ingverb} the #{Faker::Hacker.adjective} #{Faker::Hacker.noun}", grade_level: rand(0..12),  join_code: "#{Faker::Company.duns_number}")
+Classroom.create( name: "#{Faker::Hacker.ingverb} the #{Faker::Hacker.adjective} #{Faker::Hacker.noun}", grade_level: rand(0..12),  join_code: "#{Faker::Company.duns_number}")
+Classroom.create( name: "#{Faker::Hacker.ingverb} the #{Faker::Hacker.adjective} #{Faker::Hacker.noun}", grade_level: rand(0..12),  join_code: "#{Faker::Company.duns_number}")
+Classroom.create( name: "#{Faker::Hacker.ingverb} the #{Faker::Hacker.adjective} #{Faker::Hacker.noun}", grade_level: rand(0..12),  join_code: "#{Faker::Company.duns_number}")
+Classroom.create( name: "#{Faker::Hacker.ingverb} the #{Faker::Hacker.adjective} #{Faker::Hacker.noun}", grade_level: rand(0..12),  join_code: "#{Faker::Company.duns_number}")
+
+# add teachers to classrooms
+# Classroom.find(params[(rand(1...6)]).users << User.find(rand(1...6))
+Classroom.find_by_id((rand(1..5))).users << User.find_by_id((rand(1...6)))
+# add students to classrooms
+
+
+
+
+
+
+
+
+
+
+# <ActiveRecord::Associations::CollectionProxy [#<User id: 1, first_name: "Matthew", last_name: "Kuzio", user_type: "teacher", email: "matthew@example.com", encrypted_password: "$2a$10$yw.G4l3qZa2.rsptopDXoe8WMhaA1WlaEnzID99LK1iy...", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, created_at: "2014-07-27 20:21:46", updated_at: "2014-07-27 20:21:46">]>
+
+# UsersClassroom.first
+#<UsersClassroom id: 1, user_id: 1, classroom_id: 1, created_at: "2014-07-27 20:33:50", updated_at: "2014-07-27 20:33:50">
+
+
