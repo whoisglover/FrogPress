@@ -1,4 +1,5 @@
 class AssignmentController < ApplicationController
+  include AssignmentHelper
   before_filter :authenticate_user!
   before_filter :verify_user
   protect_from_forgery
@@ -17,6 +18,8 @@ class AssignmentController < ApplicationController
 
   def show
     @assignment = Assignment.find_by_id(params[:id])
+    @classroom = @assignment.classroom
+    @students = student_roster(@classroom)
   end
 
   def edit
