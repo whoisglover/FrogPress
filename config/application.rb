@@ -12,8 +12,8 @@ require "sprockets/railtie"
 Bundler.require(:default, Rails.env)
 
 # Ckeditor configurations
-config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
-config.assets.initialize_on_precompile = true
+# config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+# config.assets.initialize_on_precompile = true
 
 module FrogPress
   class Application < Rails::Application

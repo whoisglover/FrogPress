@@ -6,6 +6,7 @@ FactoryGirl.define do
     sub_content {Faker::Lorem.sentence}
     status "draft"
     assignment_id 1
+    user_id 1
   end
 end
 

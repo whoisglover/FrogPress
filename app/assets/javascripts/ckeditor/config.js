@@ -1,5 +1,5 @@
 // Dimensions
-CKEDITOR.config.height = 600
+CKEDITOR.config.height = 400
 CKEDITOR.config.width = 700
 
 // Functionality
