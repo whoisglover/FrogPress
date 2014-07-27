@@ -12,9 +12,7 @@ delete a student from a classroom
 <div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
   <div>
     <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Class: <%= @classroom.name %></h2>
-    <form name="input" action="#" method="get">
-      <input class = "gill w-100per brd-none ft-sz-1half brd-rad-5" type="submit" value="Create New Assignment">
-    </form>
+    <a class = "gill w-100per brd-none ft-sz-1half brd-rad-5" href="<%= new_assignment_path %>/?classroom_id=<%=@classroom.id%>">Create a new assignment</a>
     <h3>See Class Code - javascript here</h3>
     <p>Code:<%= @classroom.join_code %></p>
   </div>
