@@ -1,3 +1,4 @@
+
 class SubmissionController < ApplicationController
   before_filter :authenticate_user!
   before_filter :verify_user
@@ -13,12 +14,17 @@ class SubmissionController < ApplicationController
   end
 
   def create
-    @user_id = params[:user_id].to_i
-    submission_hash = params[:submission]
-    submission_hash = submission_hash.to_hash
-    submission_hash.symbolize_keys!
-    p submission_hash
-    submission = Submission.create(submission_hash)
+    puts "*"*100
+    puts params
+    puts @user_id = current_user.id.to_i
+    puts @assignment_id = params[:assignment_id]
+    puts @sub_title = params[:submission][:sub_title]
+    puts @sub_content = params[:submission][:sub_content]
+    # submission_hash = params[:submission]
+    # submission_hash = submission_hash.to_hash
+    # submission_hash.symbolize_keys!
+    # p submission_hash
+    submission = Submission.create(user_id: @user_id, assignment_id: @assignment_id, sub_title: @sub_title, sub_content: @sub_content)
     redirect_to (assignment_path(submission.assignment_id))
   end
 
