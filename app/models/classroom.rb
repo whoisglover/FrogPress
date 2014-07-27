@@ -7,6 +7,7 @@ class Classroom < ActiveRecord::Base
   validates :join_code, presence: true
   validates :join_code, uniqueness: true
 
+
   def all_assignments
     @these_assignments = self.assignments
   end
@@ -25,10 +26,10 @@ class Classroom < ActiveRecord::Base
     @these_students = self.users.where("user_type = ?", "student")
   end
 
+  def self.add_student_to_class(user_id, join_code)
+    @classroom_to_add_student = Classroom.find_by_join_code(join_code)
+    @classroom_to_add_student.users << User.find_by_id(user_id)
+  end
 
-
-  # def create_assignment
-
-  # end
 end
 
