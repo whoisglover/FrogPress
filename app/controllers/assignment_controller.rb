@@ -1,4 +1,5 @@
 class AssignmentController < ApplicationController
+  include AssignmentHelper
   before_filter :authenticate_user!
   before_filter :verify_user
   protect_from_forgery
@@ -17,6 +18,8 @@ class AssignmentController < ApplicationController
 
   def show
     @assignment = Assignment.find_by_id(params[:id])
+    @classroom = @assignment.classroom
+    @students = student_roster(@classroom)
   end
 
   def edit
@@ -40,7 +43,7 @@ class AssignmentController < ApplicationController
 
 private
   def verify_user
-    if current_user.user_type == 'teacher' || current_user.user_type == 'student'
+    if current_user.user_type == 'teacher'
     else
       redirect_to (root_path)
     end
