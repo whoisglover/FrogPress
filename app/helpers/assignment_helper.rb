@@ -7,12 +7,10 @@ module AssignmentHelper
   def return_students(user_array)
     students = []
     user_array.each do |user|
-      if user.user_type = "student"
+      if user.user_type == "student"
         students << user
       end
     end
     students
   end
-
-
 end
