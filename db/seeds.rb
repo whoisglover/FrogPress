@@ -10,7 +10,7 @@
 # Default Database Strategy
 # DatabaseCleaner.strategy = :truncation  - moved to Rspec Config
 
-
+test_submissions = []
 10.times do
   FactoryGirl.create(:classroom)
   FactoryGirl.create(:student)
