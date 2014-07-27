@@ -1,15 +1,12 @@
 class ClassroomController < ApplicationController
+  include ClassroomHelper
   before_filter :authenticate_user!
   before_filter :verify_user
   protect_from_forgery
 
   def remove_student
-    p "!"*100
-    p params
     classid = params[:classid].to_i
     userid = params[:userid].to_i
-    p "class id: #{classid}"
-    p "student id: #{userid}"
     this_class = Classroom.find_by_id(classid)
     this_class.users.delete(userid)
     redirect_to(classroom_path(params[:classid]))
@@ -32,10 +29,10 @@ class ClassroomController < ApplicationController
   def create
     if current_user.user_type == "teacher"
       @classroom = Classroom.create(name: params[:classroom][:name], grade_level: params[:classroom][:grade_level], join_code: params[:classroom][:join_code])
-      redirect_to (classroom_path(@classroom.id))
+      @classroom.users << current_user
+      classroom_create_redirect(@classroom)
     else
-      Classroom.add_student_to_class(params[:classroom][:id], params[:classroom][:join_code])
-      redirect_to (user_path(params[:classroom][:id]))
+      student_add_classroom(params[:classroom][:join_code])
     end
   end
 
