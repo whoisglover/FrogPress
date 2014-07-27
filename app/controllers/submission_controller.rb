@@ -9,7 +9,7 @@ class SubmissionController < ApplicationController
   end
 
   def show
-    @assignment = Assignment.find_by_id(params[:id])
+    @submission = Submission.find_by_id(params[:id])
   end
 
   def create
@@ -23,8 +23,11 @@ class SubmissionController < ApplicationController
   end
 
 
-  # def edit
-  # end
+  def edit
+
+    @submission = Submission.find_by_id(params[:id])
+    @assignment = Assignment.find_by_id(@submission.assignment_id)
+  end
 
   def update
     @subid = params[:id].to_i
