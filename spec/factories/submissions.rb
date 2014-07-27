@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :submission do
-    sub_title "My Summer at DevBootcamp"
-    sub_content "I made so many friends at DBC.  I was nervous because I am a bit shy"
+    sub_title {Faker::Company.name}
+    sub_content {Faker::Lorem.sentence}
     status "draft"
     assignment_id 1
   end
