@@ -32,8 +32,7 @@ class ClassroomController < ApplicationController
       @classroom.users << current_user
       classroom_create_redirect(@classroom)
     else
-      Classroom.add_student_to_class(params[:classroom][:id], params[:classroom][:join_code])
-      redirect_to (user_path(params[:classroom][:id]))
+      student_add_classroom(params[:classroom][:join_code])
     end
   end
 
