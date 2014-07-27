@@ -8,22 +8,23 @@
     <a href="/classroom/new">Add a Class</a>
 
     <h1>Your Classes</h1>
-    <ul>
+    <table>
       <% @data[:classrooms].each do |klass| %>
-      <li><a href="/classroom/<%= klass.id %>"><%= klass.name %></a></li>
+      <tr>
+        <td><a href="/classroom/<%= klass.id %>"><%= klass.name %></a></td>
+      </tr>
       <% end %>
-    </ul>
+    </table>
     <br>
     <h1>Pending Assignments</h1>
-    <ul>
+    <table>
       <% @data[:assignments][0..4].each do |assignments| %>
-      <li><a href="/assignment/<%= assignments.id %>"><%= assignments.title %></a>
-        <br>
-        <%= assignments.due_date %>
-      </li>
-
+      <tr>
+        <td><a href="/assignment/<%= assignments.id %>"><%= assignments.title %></a></td>
+        <td><%= assignments.due_date %></td>
+      </tr>
       <% end %>
-    </ul>
+    </table>
   </div>
 
 

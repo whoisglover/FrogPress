@@ -39,9 +39,9 @@ class ClassroomController < ApplicationController
   def show
     @classroom = Classroom.find_by_id(params[:id])
     if current_user.user_type == 'teacher'
-      render partial: 'teacher', locals: {classroom: @classroom}
+      render '_teacher', locals: {classroom: @classroom}
     else
-      render partial: 'student', locals: {classroom: @classroom}
+      render '_student', locals: {classroom: @classroom}
     end
 
   end

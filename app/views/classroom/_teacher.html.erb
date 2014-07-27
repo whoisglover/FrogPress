@@ -5,25 +5,20 @@ list of past due assignments
 list of student in the classroom
 delete a student from a classroom
 -->
+<% @roster = @classroom.student_roster %>
+<% @pending_assignments = @classroom.pending_assignments %>
+<% @past_due_assignments = @classroom.past_due_assignments %>
 
-<div class = "gill w-400 mrg-auto">
-  <nav class = "bkg-grn w-100per h-50">
-    <% @roster = @classroom.student_roster %>
-    <% @pending_assignments = @classroom.pending_assignments %>
-    <% @past_due_assignments = @classroom.past_due_assignments %>
-  </nav>
-  <div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
+<div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
     <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Class: <%= @classroom.name %></h2>
-    <a href="<%= new_assignment_path %>/?classroom_id=<%=@classroom.id%>">Create a new assignment</a>
+    <form name="input" action="#" method="get">
+      <input class = "gill w-100per brd-none ft-sz-1half brd-rad-5" type="submit" value="Create New Assignment">
+    </form>
     <div class = 'col-L vert-top'>
       <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Roster</h2>
       <ul>
         <% @roster.each do |student| %>
-        <li class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'><a class = "no-txt-dec" href = "<%= user_path(student.id) %>"><%= student.first_name %></a>
-          <%= form_tag(remove_student_path(classid: @classroom.id, userid: student.id), method: "delete") do %>
-            <%= submit_tag("Remove") %>
-          <% end %>
-      </li>
+        <li class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'><a class = "no-txt-dec" href = "<%= user_path(student.id) %>"><%= student.first_name %></a></li>
         <% end %>
       </ul>
     </div>
@@ -42,10 +37,5 @@ delete a student from a classroom
         <li class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'><a class = "no-txt-dec" href = "<%= assignment_path(assignment.id) %>"><%= assignment.title %></a></li>
         <% end %>
       </ul>
-
-
     </div>
-
-
   </div>
-</div>
