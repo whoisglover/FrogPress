@@ -1,10 +1,11 @@
 module ClassroomHelper
-
-# create new assignment
-# list of pending assignments
-# list of past due assignments
-# list of student in the classroom
-# delete a student from a classroom
+  def classroom_create_redirect(classroom)
+    if classroom.id
+      redirect_to classroom_index_path
+    else
+      redirect_to new_classroom_path
+    end
+  end
 
 
 end
