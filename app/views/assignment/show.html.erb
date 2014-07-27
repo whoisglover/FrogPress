@@ -5,8 +5,18 @@
 </div>
 
 <div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
-
-CREATE TABLE<br>
-  <%= @students%>
-
+  <table>
+    <%@students.each do |student|%>
+    <tr>
+      <th>Student</th>
+      <th>Level</th>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td><%= student.first_name %> <%= student.last_name %></td>
+      <td>Level</td>
+      <td>Assignment Status</td>
+    </tr>
+    <% end %>
+  </table>
 </div>
