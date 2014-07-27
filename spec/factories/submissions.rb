@@ -5,6 +5,7 @@ FactoryGirl.define do
     sub_title {Faker::Company.name}
     sub_content {Faker::Lorem.sentence}
     status "draft"
+    assignment_id 1
   end
 end
 
