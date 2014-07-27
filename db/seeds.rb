@@ -6,8 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-DatabaseCleaner.strategy = :truncation
-DatabaseCleaner.clean
+
+# Default Database Strategy
+# DatabaseCleaner.strategy = :truncation  - moved to Rspec Config
+
 
 10.times do
   FactoryGirl.create(:classroom)
