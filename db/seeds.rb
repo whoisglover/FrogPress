@@ -14,7 +14,19 @@ DatabaseCleaner.clean
   FactoryGirl.create(:student)
   FactoryGirl.create(:teacher)
   FactoryGirl.create(:assignment)
+  FactoryGirl.create(:submission)
 end
+teacher = FactoryGirl.create(:teacher)
+User.first.submissions << Submission.all
 
+Assignment.all[0].submissions << Submission.all
+# Assignment.all[1].submissions << Submission.all[5..9]
 
+paper_one = Assignment.all[0]
+paper_two = Assignment.all[1]
+
+Classroom.all[0].assignments << paper_one
+Classroom.all[1].assignments << paper_two
+
+teacher.classrooms << Classroom.all[0]
 User.first.classrooms << Classroom.all
