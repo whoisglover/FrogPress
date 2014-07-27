@@ -10,32 +10,45 @@ delete a student from a classroom
 <% @past_due_assignments = @classroom.past_due_assignments %>
 
 <div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
+  <div>
     <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Class: <%= @classroom.name %></h2>
     <form name="input" action="#" method="get">
       <input class = "gill w-100per brd-none ft-sz-1half brd-rad-5" type="submit" value="Create New Assignment">
     </form>
-    <div class = 'col-L vert-top'>
-      <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Roster</h2>
-      <ul>
-        <% @roster.each do |student| %>
-        <li class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'><a class = "no-txt-dec" href = "<%= user_path(student.id) %>"><%= student.first_name %></a></li>
-        <% end %>
-      </ul>
-    </div>
-
-    <div class = 'col-R'>
-      <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Active Assignments</h2>
-      <ul>
-        <% @pending_assignments.each do |assignment| %>
-        <li class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'><a class = "no-txt-dec" href = "<%= assignment_path(assignment.id) %>"><%= assignment.title %></a></li>
-        <% end %>
-      </ul>
-
-      <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Past Assignments</h2>
-      <ul>
-        <% @past_due_assignments.each do |assignment| %>
-        <li class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'><a class = "no-txt-dec" href = "<%= assignment_path(assignment.id) %>"><%= assignment.title %></a></li>
-        <% end %>
-      </ul>
-    </div>
+    <h3>See Class Code - javascript here</h3>
+    <p>Code:<%= @classroom.join_code %></p>
   </div>
+
+  <div class = 'col-L vert-top'>
+    <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Roster</h2>
+    <table>
+      <% @roster.each do |student| %>
+      <tr>
+        <td class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'><a class = "no-txt-dec" href = "<%= user_path(student.id) %>"><%= student.first_name %></a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <div class = 'col-R'>
+    <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Active Assignments</h2>
+    <table>
+      <% @pending_assignments.each do |assignment| %>
+      <tr>
+        <td class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'><a class = "no-txt-dec" href = "<%= assignment_path(assignment.id) %>"><%= assignment.title %></a></td>
+      </tr>
+      <% end %>
+    </table>
+
+    <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Past Assignments</h2>
+    <table>
+      <% @past_due_assignments.each do |assignment| %>
+      <tr>
+        <td class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'><a class = "no-txt-dec" href = "<%= assignment_path(assignment.id) %>"><%= assignment.title %></a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
