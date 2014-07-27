@@ -12,14 +12,14 @@
       <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Active Assignments</h2>
       <ul>
         <% @pending_assignments.each do |assignment| %>
-        <li class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'><a class = "no-txt-dec" href = "<%= assignment_path(assignment.id) %>"><%= assignment.title %></a></li>
+        <li class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'><a class = "no-txt-dec" href = "<%= submission_path(assignment.id) %>"><%= assignment.title %></a></li>
         <% end %>
       </ul>
 
       <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Past Assignments</h2>
       <ul>
         <% @past_due_assignments.each do |assignment| %>
-        <li class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'><a class = "no-txt-dec" href = "<%= assignment_path(assignment.id) %>"><%= assignment.title %></a></li>
+        <li class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'><a class = "no-txt-dec" href = "<%= submission_path(assignment.id) %>"><%= assignment.title %></a></li>
         <% end %>
       </ul>
     </div>
