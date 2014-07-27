@@ -10,6 +10,6 @@ class FeedbackController < ApplicationController
     if current_user.user_type == 'teacher'
       Feedback.create(submission_id: params[:submission_id], content: params[:content])
     end
-    redirect_to (submission_path(params[:submission_id]))
+      redirect_to (submission_path(params[:submission_id]))
   end
 end
