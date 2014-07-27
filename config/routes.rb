@@ -7,6 +7,10 @@ FrogPress::Application.routes.draw do
   end
   resources :classroom
   resources :assignment, except: :index
+<<<<<<< HEAD
+=======
+  resources :submission, except: :index
+>>>>>>> master
   resources :users, only: [:show]
 
   delete '/classroom/:classid/users/:userid' => 'classroom#remove_student', as: 'remove_student'
