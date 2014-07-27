@@ -168,15 +168,19 @@ Assignment.create(classroom_id: 5, title: "#{Faker::Hacker.say_something_smart}"
 
 #Submission(id: integer, assignment_id: integer, user_id: integer, sub_title: string, sub_content: string, status: string, created_at: datetime, updated_at: datetime)
 
+Submission.create( assignment_id: 1, user_id: 1, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
 
 
 
 
 
+# sub_title is unique content
+# sub_content is unique content
 
-
-
-
+# status for submissions
+# draft
+# complete
+# graded
 
 # <ActiveRecord::Associations::CollectionProxy [#<User id: 1, first_name: "Matthew", last_name: "Kuzio", user_type: "teacher", email: "matthew@example.com", encrypted_password: "$2a$10$yw.G4l3qZa2.rsptopDXoe8WMhaA1WlaEnzID99LK1iy...", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, created_at: "2014-07-27 20:21:46", updated_at: "2014-07-27 20:21:46">]>
 
