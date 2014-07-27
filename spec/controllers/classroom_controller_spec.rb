@@ -119,4 +119,18 @@ describe ClassroomController do
     end
   end #end destroy
 
+  describe "#remove_student" do
+    it 'removes a given student from the given class' do
+      #arrange
+      login_teacher
+      student = FactoryGirl.create(:student)
+      classroom = FactoryGirl.create(:classroom)
+      classroom.users << student
+      #act
+
+      delete :remove_student, {classid: classroom.id, userid: student.id}
+      #assert
+      expect(classroom.users.count).to eq(0)
+    end
+  end
 end #end ClassroomController
