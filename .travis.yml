@@ -1,6 +1,7 @@
 language: ruby
 rvm:
-- 2.0.0
-env:
-  global:
-    secure: eZnWjcCsQIn800uQfcuSAjvcopgnRsPMkx89f01RevqSLU6XsMZusjo4Chv2sd7B31CjAvqq6EAR0xdOH5m9mRl40BNKs7Rm54TGGy6no4KTShoOrjxnTSXRc2oDhIB3FU5GRqC4xQTvwp9PB/986vYLRgk4jJsNch24RTJBmKQ=
+  - 2.0.0
+
+:before_script:
+  -  dotgpg cat config/dotgpg/production.gpg > ../../../.env
+
