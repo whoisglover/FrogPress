@@ -14,6 +14,7 @@ delete a student from a classroom
     <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0  pad-bt-5" ><%= @classroom.name %></h2>
 
     <form action="<%= new_assignment_path %>/?classroom_id=<%=@classroom.id%>" method="get">
+      <input type="text" name="classroom_id" class = "hidden" value= <%= @classroom.id %>>
       <input type = 'submit' class = 'brd-none w-100per green bkg-wt brd-grn' value = "Create a new assignment" >
     </form>
 
