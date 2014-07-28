@@ -1,7 +1,7 @@
 <div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
-  <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0"> Class: <%= @classroom.name %></h2>
-  <h3 class = "ft-lite txt-ctr mrg-btm-0" >Assignment: <%= @assignment.title %></h3>
-  <h4 class = "ft-lite txt-ctr mrg-btm-0" >Prompt: <%= @assignment.content %></h4>
+
+  <%= render partial: "submission/class_and_assignment" %>
+
 
   <% if current_user.user_type == "teacher" %>
   <%= render 'assignment_overview' %>

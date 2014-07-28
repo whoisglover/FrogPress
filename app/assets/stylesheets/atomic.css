@@ -1,5 +1,7 @@
 .txt-ctr{ text-align: center; }
 .txt-rt{ text-align: right; }
+.txt-lt{ text-align: left; }
+
 
 .gill{ font-family: Gill Sans; }
 .sacramento{ font-family: 'Sacramento', cursive;}
@@ -48,6 +50,8 @@
 .mrg-auto{ margin: auto; }
 .mrg-btm-0{ margin-bottom: 0px; }
 .mrg-bot-2{margin-bottom: 2rem;}
+.mrg-btm-15{margin-bottom: 15px;}
+
 .mrg-top-0{ margin-top: 0px; }
 .mrg-top-10{ margin-top: 10px; }
 .mrg-top-45{ margin-top: 45px; }
