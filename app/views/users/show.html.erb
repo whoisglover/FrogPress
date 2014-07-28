@@ -19,7 +19,8 @@
       <p><%= @data[:student].first_name %>'s Submissions: </p>
       <ol>
         <%entry[:submissions].each do |sub| %>
-          <li> <a href="<%= submission_path(sub.id) %>"> <%= sub.sub_title %></a></li>
+          <% assignment = sub.assignment %>
+          <li> <a href="<%= assignment_path(assignment.id) %>"> <%= sub.sub_title %></a></li>
         <% end %>
       </ol>
     <% end %>
