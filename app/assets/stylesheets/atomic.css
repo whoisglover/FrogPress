@@ -9,7 +9,7 @@
 
 .ft-sz-5{ font-size: 5rem; }
 .ft-sz-2{ font-size: 2rem; }
-
+.fw-300 {font-weight:300;}
 .ft-sz-1half{ font-size: 1.5rem; }
 .ft-sz-1{ font-size: 1rem; }
 .ln-h-50 { line-height: 50px; }
@@ -28,6 +28,7 @@
 .max-w-900px{ max-width: 900px;}
 
 .h-50{ height: 50px; }
+.h-50per{height: 50%; }
 .h-100per{height: 100%; }
 
 .mrg-auto{ margin: auto; }
@@ -75,8 +76,3 @@
     padding: 0px;
   }
 }
-
-
-
-
-

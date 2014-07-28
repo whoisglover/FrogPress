@@ -1,18 +1,49 @@
-<!DOCTYPE html>
 <html>
 <head>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+  <title></title>
 </head>
 <body>
-<div class = "gill w-400 mrg-auto">
-  <h1 class = "ft-lite ft-sz-5 txt-ctr mrg-btm-0" >FrogPress</h1>
-  <%= image_tag "frog.png", class: "w-100per" %>
 
-  <form name="input" action="/users/sign_in" method="get">
-  <input class = "w-100per brd-none ft-sz-1half brd-rad-5" type="submit" value="Sign In">
-  </form>
-  <p class = t"txt-r ft-itl"><a class = "no-txt-dec" href ='/users/sign_up'> Create an account</a></p>
-</div>
+  <!-- fa-facebook -->
+  <!-- fa-github-alt -->
+  <!-- fa-twitter -->
+  <!-- fa-google-plus -->
 
+<!-- http://en.ony.ru/upload/BlocksPagesProperties/video_ogv/f1043baf3e69cf94736c08e559c0e187.ogv -->
+  <section class="info" id="first">
+    <div class="navbar">
+      <div id="login_buttons">
+       <a class=" btn btn-secondary btn-small" href = "/users/sign_in">Log In</a>
+       <a class=" btn btn-small btn-primary" href = "/users/sign_up">Sign Up</a>
+     </div>
+     <div id="page_links">
+        <img alt="Frog" class="h-50per pad-l-5" src="/assets/frog.png"/>
+        <span class="fw-300">FrogPress</span>
+     </div>
+   </div>
+   <div id="first_main">
+    <video width="100%" autoplay="autoplay" muted="muted" poster="https://www.paypalobjects.com/webstatic/mktg/wright/videos/home-signup.jpg" loop="loop">
+                        <source src=" " type="video/mp4">
+                        <source src="https://www.paypalobjects.com/webstatic/mktg/wright/videos/home-signup.webm" type="video/webm">
+                    </video>
+   </div>
+   <div class="footerbar"></div>
+ </section>
 
+ <section class = "info" id = "about">
+  uh oh
+</section>
+<section class = "info" id = "portfolio">
+</section>
+<section class = "info" id = "contact">
+</section>
 </body>
 </html>
+<script>
+    // smoothScroll.init();
+     // var s = skrollr.init();
+     </script>
