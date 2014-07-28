@@ -18,5 +18,7 @@
   <%= form.hidden_field :user_id, :value => current_user.id %>
   <%= form.hidden_field :assignment_id, :value => @assignment.id %>
   <%= form.hidden_field :submission_id, :value => @submission.id %>
+  <!-- Name of submit button is passed to controller as params[:commit] -->
+  <%= form.submit "Save" %>
   <%= form.submit "Submit" %>
 <% end %>
