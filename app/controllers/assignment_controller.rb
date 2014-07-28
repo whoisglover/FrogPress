@@ -32,6 +32,7 @@ class AssignmentController < ApplicationController
           elsif submission.assignment_id == @assignment.id  && submission.status == "complete" # Assignment Complete
            @completed_submission = submission
            break
+          end
         end
       else
         @completed_submission = nil # User has no submissions so this is nil, Not complete
