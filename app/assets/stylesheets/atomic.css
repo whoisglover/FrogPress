@@ -8,6 +8,7 @@
 .ft-itl{ font-style: italic; }
 
 .ft-sz-5{ font-size: 5rem; }
+.ft-sz-4-5{ font-size: 4.5rem; }
 .ft-sz-2{ font-size: 2rem; }
 .fw-300 {font-weight:300;}
 .ft-sz-1half{ font-size: 1.5rem; }
@@ -25,6 +26,7 @@
 .w-100per{ width: 100%; }
 .w-70per{ width: 70%; }
 .min-w-350px{ min-width: 350px;}
+.min-w-75per{ min-width: 75%;}
 .max-w-900px{ max-width: 900px;}
 
 .h-50{ height: 50px; }
@@ -33,6 +35,7 @@
 
 .mrg-auto{ margin: auto; }
 .mrg-btm-0{ margin-bottom: 0px; }
+.mrg-bot-2{margin-bottom: 2rem;}
 .mrg-top-0{ margin-top: 0px; }
 .mrg-top-10{ margin-top: 10px; }
 .mrg-l-n40{ margin-left: -40px; }
