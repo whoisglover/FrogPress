@@ -3,5 +3,5 @@ rvm:
   - 2.0.0
 
 :before_script:
-  -  dotgpg cat config/dotgpg/production.gpg > ../../../.env
+  -  dotgpg cat config/dotgpg/production.gpg > '.env'
 
