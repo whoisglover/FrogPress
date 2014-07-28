@@ -20,6 +20,27 @@ class AssignmentController < ApplicationController
     @assignment = Assignment.find_by_id(params[:id])
     @classroom = @assignment.classroom
     @students = student_roster(@classroom)
+
+    if current_user.user_type == "student"
+      user_submissions = Submission.where(user_id: current_user.id)
+      if user_submissions.length != 0 # User has submissions
+        user_submissions.each do |submission|
+          p "** iteration through user's submissions **"
+          if submission.assignment_id == @assignment.id && submission.status != "complete"
+            p "INCOMPLETE ASSIGNMENT "
+            p @completed_submission
+            @completed_submission = nil
+            break
+          elsif submission == user_submissions.last && submission.assignment_id == @assignment.id
+           @completed_submission = submission
+           p "COMPLETE ASSIGNMENT "
+            p @completed_submission
+          end
+        end
+      else
+        @completed_submission = nil # User has no submissions so this is nil
+      end
+    end
   end
 
   def edit
