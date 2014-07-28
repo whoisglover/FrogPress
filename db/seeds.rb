@@ -135,56 +135,227 @@ Classroom.find_by_id(5).users << User.find_by_id(24)
 
 # Assignment(id: integer, classroom_id: integer, title: string, content: string, due_date: date, created_at: datetime, updated_at: datetime)
 #create some assignments
-Assignment.create(classroom_id: 1, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
-Assignment.create(classroom_id: 2, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
-Assignment.create(classroom_id: 3, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
-Assignment.create(classroom_id: 4, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
-Assignment.create(classroom_id: 5, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
+Assignment.create(classroom_id: 1, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
+Assignment.create(classroom_id: 2, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
+Assignment.create(classroom_id: 3, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
+Assignment.create(classroom_id: 4, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
+Assignment.create(classroom_id: 5, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
 
-Assignment.create(classroom_id: 1, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
-Assignment.create(classroom_id: 2, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
-Assignment.create(classroom_id: 3, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
-Assignment.create(classroom_id: 4, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
-Assignment.create(classroom_id: 5, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
+Assignment.create(classroom_id: 1, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
+Assignment.create(classroom_id: 2, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
+Assignment.create(classroom_id: 3, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
+Assignment.create(classroom_id: 4, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
+Assignment.create(classroom_id: 5, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
 
-Assignment.create(classroom_id: 1, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
-Assignment.create(classroom_id: 2, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
-Assignment.create(classroom_id: 3, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
-Assignment.create(classroom_id: 4, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
-Assignment.create(classroom_id: 5, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
+Assignment.create(classroom_id: 1, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
+Assignment.create(classroom_id: 2, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
+Assignment.create(classroom_id: 3, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
+Assignment.create(classroom_id: 4, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
+Assignment.create(classroom_id: 5, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
 
-Assignment.create(classroom_id: 1, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
-Assignment.create(classroom_id: 2, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
-Assignment.create(classroom_id: 3, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
-Assignment.create(classroom_id: 4, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
-Assignment.create(classroom_id: 5, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
+Assignment.create(classroom_id: 1, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
+Assignment.create(classroom_id: 2, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
+Assignment.create(classroom_id: 3, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
+Assignment.create(classroom_id: 4, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
+Assignment.create(classroom_id: 5, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
 
-Assignment.create(classroom_id: 1, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
-Assignment.create(classroom_id: 2, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
-Assignment.create(classroom_id: 3, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
-Assignment.create(classroom_id: 4, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
-Assignment.create(classroom_id: 5, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Faker::Business.credit_card_expiry_date)
+Assignment.create(classroom_id: 1, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
+Assignment.create(classroom_id: 2, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
+Assignment.create(classroom_id: 3, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
+Assignment.create(classroom_id: 4, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
+Assignment.create(classroom_id: 5, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
 
 
 #Submission(id: integer, assignment_id: integer, user_id: integer, sub_title: string, sub_content: string, status: string, created_at: datetime, updated_at: datetime)
 
-Submission.create( assignment_id: 1, user_id: 1, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+
+Submission.create( assignment_id: 1, user_id: 6, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 1, user_id: 7, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 1, user_id: 8, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 1, user_id: 9, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 1, user_id: 10, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+
+Submission.create( assignment_id: 1, user_id: 11, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 1, user_id: 12, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 1, user_id: 13, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 1, user_id: 14, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 1, user_id: 15, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+
+Submission.create( assignment_id: 1, user_id: 16, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 1, user_id: 17, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 1, user_id: 18, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 1, user_id: 19, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 1, user_id: 20, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+
+
+Submission.create( assignment_id: 1, user_id: 6, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 1, user_id: 7, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 1, user_id: 8, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 1, user_id: 9, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 1, user_id: 10, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+
+Submission.create( assignment_id: 1, user_id: 11, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 1, user_id: 12, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 1, user_id: 13, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 1, user_id: 14, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 1, user_id: 15, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+
+Submission.create( assignment_id: 1, user_id: 16, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 1, user_id: 17, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 1, user_id: 18, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 1, user_id: 19, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 1, user_id: 20, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+
+
+Submission.create( assignment_id: 1, user_id: 6, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 1, user_id: 7, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 1, user_id: 8, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 1, user_id: 9, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 1, user_id: 10, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+
+Submission.create( assignment_id: 1, user_id: 11, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 1, user_id: 12, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 1, user_id: 13, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 1, user_id: 14, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 1, user_id: 15, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+
+Submission.create( assignment_id: 1, user_id: 16, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 1, user_id: 17, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 1, user_id: 18, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 1, user_id: 19, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 1, user_id: 20, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
 
 
 
 
+Submission.create( assignment_id: 2, user_id: 6, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 2, user_id: 7, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 2, user_id: 8, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 2, user_id: 9, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 2, user_id: 10, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
 
-# sub_title is unique content
-# sub_content is unique content
+Submission.create( assignment_id: 2, user_id: 11, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 2, user_id: 12, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 2, user_id: 13, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 2, user_id: 14, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 2, user_id: 15, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
 
-# status for submissions
-# draft
-# complete
-# graded
-
-# <ActiveRecord::Associations::CollectionProxy [#<User id: 1, first_name: "Matthew", last_name: "Kuzio", user_type: "teacher", email: "matthew@example.com", encrypted_password: "$2a$10$yw.G4l3qZa2.rsptopDXoe8WMhaA1WlaEnzID99LK1iy...", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil, created_at: "2014-07-27 20:21:46", updated_at: "2014-07-27 20:21:46">]>
-
-# UsersClassroom.first
-#<UsersClassroom id: 1, user_id: 1, classroom_id: 1, created_at: "2014-07-27 20:33:50", updated_at: "2014-07-27 20:33:50">
+Submission.create( assignment_id: 2, user_id: 16, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 2, user_id: 17, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 2, user_id: 18, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 2, user_id: 19, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 2, user_id: 20, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
 
 
+Submission.create( assignment_id: 2, user_id: 6, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 2, user_id: 7, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 2, user_id: 8, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 2, user_id: 9, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 2, user_id: 10, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+
+Submission.create( assignment_id: 2, user_id: 11, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 2, user_id: 12, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 2, user_id: 13, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 2, user_id: 14, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 2, user_id: 15, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+
+Submission.create( assignment_id: 2, user_id: 16, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 2, user_id: 17, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 2, user_id: 18, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 2, user_id: 19, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 2, user_id: 20, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+
+
+Submission.create( assignment_id: 2, user_id: 6, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 2, user_id: 7, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 2, user_id: 8, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 2, user_id: 9, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 2, user_id: 10, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+
+Submission.create( assignment_id: 2, user_id: 11, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 2, user_id: 12, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 2, user_id: 13, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 2, user_id: 14, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 2, user_id: 15, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+
+Submission.create( assignment_id: 2, user_id: 16, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 2, user_id: 17, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 2, user_id: 18, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 2, user_id: 19, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 2, user_id: 20, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+
+
+
+
+Submission.create( assignment_id: 3, user_id: 6, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 3, user_id: 7, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 3, user_id: 8, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 3, user_id: 9, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 3, user_id: 10, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+
+Submission.create( assignment_id: 3, user_id: 11, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 3, user_id: 12, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 3, user_id: 13, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 3, user_id: 14, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 3, user_id: 15, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+
+Submission.create( assignment_id: 3, user_id: 16, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 3, user_id: 17, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 3, user_id: 18, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 3, user_id: 19, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 3, user_id: 20, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+
+Submission.create( assignment_id: 3, user_id: 21, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 3, user_id: 22, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 3, user_id: 23, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 3, user_id: 24, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+Submission.create( assignment_id: 3, user_id: 25, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
+
+Submission.create( assignment_id: 3, user_id: 6, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 3, user_id: 7, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 3, user_id: 8, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 3, user_id: 9, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 3, user_id: 10, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+
+Submission.create( assignment_id: 3, user_id: 11, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 3, user_id: 12, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 3, user_id: 13, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 3, user_id: 14, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 3, user_id: 15, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+
+Submission.create( assignment_id: 3, user_id: 16, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 3, user_id: 17, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 3, user_id: 18, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 3, user_id: 19, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 3, user_id: 20, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+
+Submission.create( assignment_id: 3, user_id: 21, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 3, user_id: 22, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 3, user_id: 23, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 3, user_id: 24, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+Submission.create( assignment_id: 3, user_id: 25, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "completed")
+
+
+Submission.create( assignment_id: 3, user_id: 6, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 3, user_id: 7, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 3, user_id: 8, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 3, user_id: 9, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 3, user_id: 10, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+
+Submission.create( assignment_id: 3, user_id: 11, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 3, user_id: 12, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 3, user_id: 13, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 3, user_id: 14, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 3, user_id: 15, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+
+Submission.create( assignment_id: 3, user_id: 16, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 3, user_id: 17, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 3, user_id: 18, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 3, user_id: 19, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 3, user_id: 20, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+
+Submission.create( assignment_id: 3, user_id: 21, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 3, user_id: 22, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 3, user_id: 23, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 3, user_id: 24, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
+Submission.create( assignment_id: 3, user_id: 25, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "graded")
