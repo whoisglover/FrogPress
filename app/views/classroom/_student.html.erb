@@ -1,27 +1,25 @@
-<div class = "gill w-400 mrg-auto">
-  <% @roster = @classroom.student_roster %>
-  <% @pending_assignments = @classroom.pending_assignments %>
-  <% @past_due_assignments = @classroom.past_due_assignments %>
 
-  <div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
-    <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Class: <%= @classroom.name %></h2>
-    <div class = 'col-R'>
-      <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Active Assignments</h2>
-      <table>
-        <% @pending_assignments.each do |assignment| %>
-        <tr>
-          <td class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'><a class = "no-txt-dec" href = "<%= assignment_path(assignment.id) %>"><%= assignment.title %></a></td>
-        </tr>
-        <% end %>
-      </table>
-      <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Past Assignments</h2>
-      <table>
-        <% @past_due_assignments.each do |assignment| %>
-        <tr>
-          <td class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'><a class = "no-txt-dec" href = "<%= assignment_path(assignment.id) %>"><%= assignment.title %></a></td>
-        </tr>
-        <% end %>
-      </table>
-    </div>
-  </div>
+<% @roster = @classroom.student_roster %>
+<% @pending_assignments = @classroom.pending_assignments %>
+<% @past_due_assignments = @classroom.past_due_assignments %>
+
+<div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
+  <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Class: <%= @classroom.name %></h2>
+  <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Active Assignments</h2>
+  <table>
+    <% @pending_assignments.each do |assignment| %>
+    <tr>
+      <td class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'><a class = "no-txt-dec" href = "<%= assignment_path(assignment.id) %>"><%= assignment.title %></a></td>
+    </tr>
+    <% end %>
+  </table>
+  <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Past Assignments</h2>
+  <table>
+    <% @past_due_assignments.each do |assignment| %>
+    <tr>
+      <td class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'><a class = "no-txt-dec" href = "<%= assignment_path(assignment.id) %>"><%= assignment.title %></a></td>
+    </tr>
+    <% end %>
+  </table>
 </div>
+
