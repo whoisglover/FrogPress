@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20140727183844) do
   create_table "assignments", force: true do |t|
     t.integer  "classroom_id"
     t.string   "title"
-    t.string   "content"
+    t.text     "content"
     t.date     "due_date"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20140727183844) do
     t.integer  "assignment_id"
     t.integer  "user_id"
     t.string   "sub_title"
-    t.string   "sub_content"
+    t.text     "sub_content"
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
