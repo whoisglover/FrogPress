@@ -10,12 +10,11 @@ describe SubmissionController do
         user = User.find_by_id(user_id)
         classroom = FactoryGirl.create(:classroom)
         assignment = FactoryGirl.create(:assignment)
-        submission_params[:user_id] = user_id
-        submission_params[:assignment_id] = assignment.id
+        params = {}
+        assignment_id = assignment.id
+        submission = {sub_title: submission_params[:sub_title], sub_content: submission_params[:sub_content]}
         classroom.assignments << assignment
-        params = {user_id: user_id, submission: submission_params}
-      #act/assert
-        expect{post :create, params}.to change{Submission.count}.by(1)
+        expect{post :create, assignment_id: assignment_id, submission: submission}.to change{Submission.count}.by(1)
     end
   end
 
@@ -46,12 +45,11 @@ describe SubmissionController do
       submission = FactoryGirl.build(:submission)
       assignment = FactoryGirl.create(:assignment)
       assignment.submissions << submission
-      submission.user_id = user_id
-      submission.save
-      subid = submission.id
-      new_params = {sub_title: 'dannys paper'}
+      params = {}
+      submission_hash = {sub_title: 'dannys paper', submission_id: submission.id, sub_content: 'some updated content', assignment_id: assignment.id}
+      submission_id = submission.id
     #act
-      patch :update, id: subid, new_params: new_params
+      patch :update, id: submission_id, submission: submission_hash
       submission.reload
     #assert
     expect(submission.sub_title).to eq('dannys paper')

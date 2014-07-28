@@ -21,8 +21,8 @@ delete a student from a classroom
     <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Roster</h2>
     <table>
       <% @roster.each do |student| %>
-      <tr>
-        <td class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'><a class = "no-txt-dec" href = "<%= user_path(student.id) %>"><%= student.first_name %></a>
+      <tr onclick="document.location = '<%= user_path(student.id) %>'"class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'>
+        <td><%= student.first_name %> <%= student.last_name %></a>
         </td>
       </tr>
       <% end %>
@@ -30,20 +30,31 @@ delete a student from a classroom
   </div>
 
   <div class = 'col-R'>
-    <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Active Assignments</h2>
+    <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Pending Assignments</h2>
     <table>
       <% @pending_assignments.each do |assignment| %>
-      <tr>
-        <td class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'><a class = "no-txt-dec" href = "<%= assignment_path(assignment.id) %>"><%= assignment.title %></a></td>
+
+      <tr onclick="document.location = '<%= assignment_path(assignment.id) %>'" class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'>
+        <td >
+          <%= assignment.title %>
+        </td>
+        <td>
+          <%= assignment.due_date.month %>/<%= assignment.due_date.day %>
+        </td>
+        </a>
       </tr>
-      <% end %>
+      <% end%>
     </table>
 
     <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Past Assignments</h2>
     <table>
       <% @past_due_assignments.each do |assignment| %>
-      <tr>
-        <td class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'><a class = "no-txt-dec" href = "<%= assignment_path(assignment.id) %>"><%= assignment.title %></a>
+      <tr onclick="document.location = '<%= assignment_path(assignment.id) %>'" class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'>
+        <td>
+          <%= assignment.title %></a>
+        </td>
+        <td>
+          <%= assignment.due_date.month %>/<%= assignment.due_date.day %>
         </td>
       </tr>
       <% end %>
