@@ -1,17 +1,30 @@
 <br><br>
 <% @user_submissions = User.find(current_user.id).submissions%>
-<% @user_submissions.each do |sub| %>
-  <% if sub.assignment_id == @assignment.id %>
-    <% @submission = sub %>
-    <% @sub_title_placeholder = @submission.sub_title %>
-    <% @sub_content_placeholder = @submission.sub_content %>
-    <% break %>
-  <% else %>
-    <% @submission = Submission.new %>
-    <% @sub_title_placeholder = "Your Essay Title" %>
-    <% @sub_content_placeholder = "Write your essay here!" %>
+<% if @user_submissions.length == 0 %>
+  <% p "Y"*100 %>
+  <% p "creating new submission, user has no submissions" %>
+  <% @submission = Submission.new %>
+  <% p @submission %>
+  <% @sub_title_placeholder = "Your Essay Title" %>
+  <% @sub_content_placeholder = "Write your essay here!" %>
+<% else %>
+  <% @user_submissions.each do |sub| %>
+    <% p "!"*20 %>
+    <% p sub %>
+    <% if sub.assignment_id == @assignment.id %>
+      <% @submission = sub %>
+      <% @sub_title_placeholder = @submission.sub_title %>
+      <% @sub_content_placeholder = @submission.sub_content %>
+      <% break %>
+    <% else %>
+      <% @submission = Submission.new %>
+      <% @sub_title_placeholder = "Your Essay Title" %>
+      <% @sub_content_placeholder = "Write your essay here!" %>
+    <% end %>
   <% end %>
 <% end %>
+<% p "X"*1000 %>
+<% p @submission %>
 <%= form_for @submission, url: create_submission_path(@assignment.id) do |form| %>
   <%= form.text_field :sub_title, :placeholder => @sub_title_placeholder %>
   <%= form.cktext_area :sub_content, :value => @sub_content_placeholder, :id => 'sometext', :class => 'ckeditor', :toolbar => 'MyToolbar' %>
