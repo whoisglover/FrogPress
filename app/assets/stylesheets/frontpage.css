@@ -1,0 +1,288 @@
+html {
+  font-family: 'lato', sans-serif;
+
+}
+
+/**{
+border: 1px dashed blue;
+}*/
+/*@font-face {
+font-family: lane;
+src:url(../lane.ttf);
+}*/
+
+#header {
+  width: 100%;
+  height: 100%;
+  /*height: 950px;*/
+  /*background: url("../img/matterhorn.jpg") no-repeat center center fixed ;*/
+  /*background: url("http://images2.layoutsparks.com/1/27119/saturn-tree-night-ocean.jpg") no-repeat center center fixed ;*/
+  background: lightblue;
+  /*background-size: cover;*/
+}
+
+#login_buttons {
+  position: absolute;
+  right:20%;
+  top: 1rem;
+}
+
+#page_links {
+  position: absolute;
+  left:20%;
+  top: 1rem;
+}
+#first_main {
+  padding-top: 4.5rem;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: lightgreen;
+}
+.login-modal{
+  position: absolute;
+  background: none;
+  /*border: 1px solid;*/
+  margin-top: 13%;
+  margin-left: 45%;
+  margin-right: 45%;
+  width: 20%;
+  height: 30%;
+  text-align: center;
+}
+.down-arrow{
+  width: 2.2rem;
+  height: 2.2rem;
+  margin-top: 0.3rem;
+  color: lightgray;
+  border: 1px solid;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+}
+
+.down-arrow a{
+  color:lightgray;
+}
+.down-arrow a:hover{
+  color:lightblue`;
+}
+
+.info {
+  width: 100%;
+  height: 100%;
+}
+
+#about {
+  background: #02C1C1;
+}
+
+#portfolio {
+  background: #FB4644;
+
+}
+#contact {
+  background: #262E3D;
+}
+#resume {
+  background: #FB4644;
+}
+
+#first {
+  height: 100%;
+  width: 100%;
+  background: red;
+  overflow: hidden;
+}
+.navbar {
+  width: 100%;
+  height: 4.5rem;
+
+  position: absolute;
+  background: white;
+}
+
+
+.footerbar {
+  width: 100%;
+  height: 3rem;
+  /*position: fixed;*/
+  position: absolute;
+  background: white;
+  bottom:0;
+}
+
+.navbar-right, .navbar-left {
+  width: 40rem;
+  text-align: center;
+  display: inline;
+  position: fixed;
+}
+
+.navbar-right {
+  right: 3rem;
+  /*height: 3rem;*/
+  /*border: 1px solid white;*/
+}
+
+.navbar-left {
+  left: 3rem;
+}
+
+* {
+  /*border: 1px solid red;*/
+}
+
+.nav-link {
+  position: relative;
+  display: inline;
+
+  padding-left: 1rem;
+  padding-right: 1rem;
+  top: 1rem;
+}
+
+.nav-link a {
+  font-size: 1.2rem;
+  text-decoration: none;
+
+}
+
+.nav-item {
+  display: inline-block;
+}
+
+.nav-logo {
+  text-decoration: none;
+  color: white;
+  position: relative;
+  font-size: 1.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border: 1px solid white;
+  top: 1rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  border-radius: 0.35rem;
+}
+
+.nav-logo:hover{
+  background-color: white;
+}
+
+#twitter:hover a {
+  color:#55ACEE;
+}
+
+#google:hover a {
+  color:#dd4b39;
+}
+
+#git:hover a {
+  color:black;
+}
+#linkedin:hover a {
+  color: #007bb6;
+}
+
+/*button styling starts*/
+.btn {
+  text-decoration: none;
+  display: inline-block;
+  padding: 9px 15px 10px;
+  margin-bottom: 0;
+  background: #009cde;
+  font-size: 15px;
+  font-size: 1.07142857142857rem;
+  font-weight: bold;
+  line-height: 1.4545em;
+  -webkit-font-smoothing: antialiased;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 5px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.btn:hover {
+  color: #fff;
+  text-decoration: none;
+  background: #0285d2;
+}
+.btn:focus {
+  color: #FFF;
+}
+.btn.active,
+.btn:active {
+  background-image: none;
+  outline: 0;
+  -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+}
+.btn.disabled,
+.btn[disabled],
+.btn.disabled:hover,
+.btn[disabled]:hover,
+.btn.disabled:active,
+.btn[disabled]:active {
+  background: #e5e5e5;
+  cursor: auto;
+}
+.btn-large {
+  padding: 9px 14px;
+  font-size: 17.234px;
+  border-radius: 6px;
+}
+.btn-large [class^="icon-"],
+.btn-large [class*=" icon-"] {
+  margin-top: 4px;
+}
+.btn-small {
+  padding: 7px 8px;
+  font-size: 14px;
+  min-width: 66px;
+}
+.btn-small [class^="icon-"],
+.btn-small [class*=" icon-"] {
+  margin-top: 0;
+}
+.btn-mini [class^="icon-"],
+.btn-mini [class*=" icon-"] {
+  margin-top: -1px;
+}
+.btn-mini {
+  padding: 4px 8px;
+  font-size: 11.8454px;
+  border-radius: 3px;
+}
+.btn-block {
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.btn-block + .btn-block {
+  margin-top: 5px;
+}
+input[type="submit"].btn-block,
+input[type="reset"].btn-block,
+input[type="button"].btn-block {
+  width: 100%;
+}
+.btn-secondary {
+  background: #ddd;
+  color: #333;
+}
+.btn-secondary:hover,
+.btn-secondary:focus {
+  color: #333;
+  background: #dddddd;
+}
+
+
+
