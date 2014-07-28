@@ -23,29 +23,11 @@
 
       <div data-ui="preclick" class=" ">
        <a class=" btn btn-primary btn-small" style="min-width:75%;" href = "/users/sign_up">Get Started</a>
-       <p class="fw-300"><a href="#" data-ui="signin_button" class="white no-txt-dec">Have an account? <strong>Sign In</strong></a></p>
-     </div>
-
-     <div data-ui="postclick" class="disp-none">
-      <%= form_for(:user, :url => session_path(:user), :html => {:class => "login-form"})  do |f| %>
-      <%= f.text_field :email, :placeholder => "Email", autofocus: true %>
-      <%= f.password_field :password, :placeholder => "Password" %>
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-      <%= f.submit 'Sign in', class: 'btn btn-mini' %>
-      <%= link_to "Forgot your password?", new_password_path(:user) %>
-      <% end %>
-    </div>
-
-    <div data-ui="videoControls">
-    </div>
-  </div>
-
-  <div id = "video-container">
-    <video id="videoPlayer" height: "auto", width="100%" preload="" autoplay="autoplay" muted="muted" poster="" >
-
-        <source src="http://frogpress-assets.s3.amazonaws.com/video1.mp4" %> >
-      <!-- <source src="/assets/video1.mp4" %> > -->
+       <p class="fw-300"><a href="#" class="white no-txt-dec">Have an account? <strong>Sign In</strong></a></p>
+      </div>
+      <video width="100%" autoplay="autoplay" muted="muted" poster="https://www.paypalobjects.com/webstatic/mktg/wright/videos/home-signup.jpg" loop="loop">
+        <source src="assets/dogs.mp4" type="video/mp4">
+        <source src="" type="video/webm">
       </video>
     </div>
   </div>
@@ -134,3 +116,22 @@
 <br>
 </section>
 
+<<<<<<< HEAD
+=======
+  <section class = "info" id = "about">
+  <%= form_for(:user, :url => session_path(:user)) do |f| %>
+  <%= f.text_field :email %>
+  <%= f.password_field :password %>
+  <%= f.check_box :remember_me %>
+  <%= f.label :remember_me %>
+  <%= f.submit 'Sign in' %>
+  <%= link_to "Forgot your password?", new_password_path(:user) %>
+<% end %>
+  </section>
+  <section class = "info" id = "portfolio">
+  </section>
+  <section class = "info" id = "contact">
+  </section>
+</body>
+</html>
+>>>>>>> adding dogs.mp4 to homepage to test deployed speed of video load
