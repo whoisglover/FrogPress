@@ -4,7 +4,7 @@ class CreateSubmissions < ActiveRecord::Migration
       t.integer :assignment_id
       t.integer :user_id
       t.string :sub_title
-      t.string :sub_content
+      t.text :sub_content
       t.string :status
       t.timestamps
     end
