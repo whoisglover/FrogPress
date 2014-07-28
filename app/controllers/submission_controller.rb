@@ -17,11 +17,18 @@ class SubmissionController < ApplicationController
   end
 
   def create
+    if params[:commit] == "Submit"
+      @status = "complete"
+    elsif params[:commit] == "Save"
+      @status = "incomplete"
+    else
+      p "WARNING: submission status unknown. Consult Brennon if this confuses you."
+    end
     @user_id = current_user.id.to_i
     @assignment_id = params[:assignment_id]
     @sub_title = params[:submission][:sub_title]
     @sub_content = params[:submission][:sub_content]
-    @submission = Submission.create(user_id: @user_id, assignment_id: @assignment_id, sub_title: @sub_title, sub_content: @sub_content)
+    @submission = Submission.create(user_id: @user_id, assignment_id: @assignment_id, sub_title: @sub_title, sub_content: @sub_content, status: @status)
     @classroom_id = Assignment.find_by_id(@assignment_id).classroom_id
     redirect_to (classroom_path(@classroom_id))
     #redirect_to (assignment_path(@submission.assignment_id))
@@ -29,14 +36,20 @@ class SubmissionController < ApplicationController
 
 
   def edit
-
     @submission = Submission.find_by_id(params[:id])
     @assignment = Assignment.find_by_id(@submission.assignment_id)
   end
 
   def update
+    if params[:commit] == "Submit"
+      @status = "complete"
+    elsif params[:commit] == "Save"
+      @status = "incomplete"
+    else
+      p "WARNING: submission status unknown. Consult Brennon if this confuses you."
+    end
     p @submission = Submission.find_by_id(params[:submission][:submission_id])
-    @submission.update(sub_title: params[:submission][:sub_title], sub_content: params[:submission][:sub_content])
+    @submission.update(sub_title: params[:submission][:sub_title], sub_content: params[:submission][:sub_content], status: @status)
     @classroom_id = Assignment.find_by_id(params[:submission][:assignment_id]).classroom_id
     redirect_to (classroom_path(@classroom_id))
     #redirect_to (submission_path(@submission.id))

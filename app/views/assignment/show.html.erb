@@ -1,13 +1,17 @@
 <div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
-  <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0"> Class: <%= @classroom.name %></h2>
-  <h3 class = "ft-lite txt-ctr mrg-btm-0" >Assignment: <%= @assignment.title %></h3>
-  <h4 class = "ft-lite txt-ctr mrg-btm-0" >Prompt: <%= @assignment.content %></h4>
+  <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0"><a class = 'no-txt-dec black hov-grn'href = '<%=classroom_path(@classroom)%>'><%= @classroom.name %></a></h2>
+    <h4 class = "ft-lite ft-bold brd-top mrg-btm-0 mrg-top-10 pad-top-15" > <%= @assignment.title %></h4>
+  <h4 class = "ft-lite brd-bt pad-bt-15 mrg-top-10" ><span class = "">Prompt: </span> <%= @assignment.content %></h4>
 
   <% if current_user.user_type == "teacher" %>
   <%= render 'assignment_overview' %>
   <% end %>
 
   <% if current_user.user_type == "student" %>
-  <%= render 'submission/text_editor' %>
+    <% if @completed_submission != nil %>
+      <%= render 'student_assignment_overview' %>
+    <% else %>
+      <%= render 'submission/text_editor' %>
+    <% end %>
   <% end %>
 </div>
