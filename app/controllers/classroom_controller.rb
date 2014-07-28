@@ -51,7 +51,6 @@ class ClassroomController < ApplicationController
     # attr_hash[:grade_level] = attr_hash[:grade_level].to_i
     attr_hash = attr_hash.to_hash
     # symbolize the keys of hash of update params
-    p attr_hash.class
     attr_hash.symbolize_keys!
     #find the classroom to change
     @classroom_to_change = Classroom.find_by_id(params[:id])
