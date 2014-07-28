@@ -10,7 +10,11 @@
 .ft-itl{ font-style: italic; }
 
 .ft-sz-5{ font-size: 5rem; }
+.ft-sz-4-5{ font-size: 4.5rem; }
 .ft-sz-2{ font-size: 2rem; }
+
+.fw-300 {font-weight:300;}
+
 .ft-sz-1half{ font-size: 1.5rem; }
 .ft-sz-1q{ font-size: 1.25rem; }
 .ft-sz-1{ font-size: 1rem; }
@@ -34,16 +38,20 @@
 .w-100per{ width: 100%; }
 .w-70per{ width: 70%; }
 .min-w-350px{ min-width: 350px;}
+.min-w-75per{ min-width: 75%;}
 .max-w-900px{ max-width: 900px;}
 
 .h-50{ height: 50px; }
+.h-50per{height: 50%; }
 .h-100per{height: 100%; }
 
 .mrg-auto{ margin: auto; }
 .mrg-btm-0{ margin-bottom: 0px; }
+.mrg-bot-2{margin-bottom: 2rem;}
 .mrg-top-0{ margin-top: 0px; }
 .mrg-top-10{ margin-top: 10px; }
 .mrg-top-45{ margin-top: 45px; }
+.mrg-top-37{ margin-top: 37px; }
 .mrg-top-150{ margin-top: 150px; }
 
 
@@ -76,6 +84,12 @@
 .hidden{ visibility: hidden; }
 .flt-r{ float: right; }
 
+
+
+
+
+
+
 .no-blt{ list-style-type: none; }
 .no-txt-dec{ text-decoration: none; }
 
@@ -100,8 +114,3 @@
     padding: 0px;
   }
 }
-
-
-
-
-
