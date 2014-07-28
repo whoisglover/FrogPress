@@ -1,22 +1,12 @@
 <br><br>
-<% @user_submissions = User.find(current_user.id).submissions%>
-<% @user_submissions.each do |sub| %>
-  <% if sub.assignment_id == @assignment.id %>
-    <% @submission = sub %>
-    <% @sub_title_placeholder = @submission.sub_title %>
-    <% @sub_content_placeholder = @submission.sub_content %>
-    <% break %>
-  <% else %>
-    <% @submission = Submission.new %>
-    <% @sub_title_placeholder = "Your Essay Title" %>
-    <% @sub_content_placeholder = "Write your essay here!" %>
-  <% end %>
-<% end %>
+
 <%= form_for @submission, url: create_submission_path(@assignment.id) do |form| %>
   <%= form.text_field :sub_title, :placeholder => @sub_title_placeholder %>
   <%= form.cktext_area :sub_content, :value => @sub_content_placeholder, :id => 'sometext', :class => 'ckeditor', :toolbar => 'MyToolbar' %>
   <%= form.hidden_field :user_id, :value => current_user.id %>
   <%= form.hidden_field :assignment_id, :value => @assignment.id %>
   <%= form.hidden_field :submission_id, :value => @submission.id %>
+  <!-- Name of submit button is passed to controller as params[:commit] -->
+  <%= form.submit "Save" %>
   <%= form.submit "Submit" %>
 <% end %>
