@@ -1,7 +1,7 @@
 <br><br>
 
 <%= form_for @submission, url: create_submission_path(@assignment.id) do |form| %>
-  <%= form.text_field :sub_title, :placeholder => @sub_title_placeholder %>
+  <%= form.text_field :sub_title, :placeholder => @sub_title_placeholder, class: "w-100per" %><br><br>
   <%= form.cktext_area :sub_content, :value => @sub_content_placeholder, :id => 'sometext', :class => 'ckeditor', :toolbar => 'MyToolbar' %>
   <%= form.hidden_field :user_id, :value => current_user.id %>
   <%= form.hidden_field :assignment_id, :value => @assignment.id %>
