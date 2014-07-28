@@ -1,6 +1,29 @@
-hey
+<h1><%= @data[:student].first_name %> <%= @data[:student].last_name %> OverView</h1>
 
-<%= @user.first_name %>
-<%= @user.id %>
-
-<%= current_user.id %>
+<% if current_user.user_type == 'student' %>
+  <% @data[:submissions].each do |entry| %>
+    <h3>Class: <%= Classroom.find(entry[:klass]).name %></h3>
+    <a href="<%= classroom_path(entry[:klass]) %>">Visit Class Page</a>
+    <ol>
+      <%  entry[:submissions].each do |sub| %>
+        <li> <a href="<%= submission_path(sub.id) %>"> <%= sub.sub_title %></a></li>
+      <% end %>
+    </ol>
+  <% end %>
+<% elsif current_user.user_type == 'teacher' %>
+  <% if @data[:submissions][0] %>
+    <h3>Classes You Teach:</h3>
+    <% @data[:submissions].each do |entry| %>
+      <h4>Class: <%= Classroom.find(entry[:klass]).name %></h4>
+      <a href="<%= classroom_path(entry[:klass]) %>">Visit Class Page</a>
+      <p><%= @data[:student].first_name %>'s Submissions: </p>
+      <ol>
+        <%entry[:submissions].each do |sub| %>
+          <li> <a href="<%= submission_path(sub.id) %>"> <%= sub.sub_title %></a></li>
+        <% end %>
+      </ol>
+    <% end %>
+  <% else %>
+    <h3>This student is not in any of your current classes.</h3>
+  <% end %>
+<% end %>

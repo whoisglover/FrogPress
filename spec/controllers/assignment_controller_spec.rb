@@ -41,21 +41,20 @@ describe AssignmentController do
 
   describe "#update" do
     let(:assignment) { FactoryGirl.create(:assignment) }
-    let(:assignment_params) { FactoryGirl.attributes_for(:assignment)}
+    let(:new_assignment_params) { FactoryGirl.attributes_for(:assignment)}
     it "updates the specified assignment with new parameters in the database" do
       # arrange
       login_teacher
-      original_assignment = Assignment.create(title: "test title", content: "test_content", due_date: "11-01-2014")
       # act
-      put :update, { id: assignment.id, assignment: assignment_params }
+      put :update, { id: assignment.id, assignment: new_assignment_params }
       assignment.reload
       # assert
-      expect(assignment.title).to eq(assignment_params[:title])
+      expect(assignment.title).to eq(new_assignment_params[:title])
     end
 
     it "should redirect the user to the classroom_path" do
       login_teacher
-      put :update, {id: assignment.id, assignment: assignment_params }
+      put :update, {id: assignment.id, assignment: new_assignment_params }
       expect(response).to redirect_to(classroom_path(assignment.classroom_id))
     end
   end
