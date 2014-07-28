@@ -3,9 +3,6 @@
   <h3 class = "ft-lite txt-ctr mrg-btm-0" >Assignment: <%= @assignment.title %></h3>
   <h4 class = "ft-lite txt-ctr mrg-btm-0" >Prompt: <%= @assignment.content %></h4>
 
-</div>
-
-<div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
   <% if current_user.user_type == "teacher" %>
   <%= render 'assignment_overview' %>
   <% end %>
