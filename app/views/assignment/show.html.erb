@@ -20,4 +20,8 @@
     </tr>
     <% end %>
   </table>
+
+  <% if current_user.user_type == "student" %>
+  <%= render 'submission/text_editor' %>
+<% end %>
 </div>
