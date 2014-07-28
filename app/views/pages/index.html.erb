@@ -2,8 +2,8 @@
 <head>
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "smooth_scroll", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag  "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag asset_path "smooth_scroll", "data-turbolinks-track" => true %>
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
   <title></title>
 </head>
@@ -34,7 +34,7 @@
        <p class="fw-300"><a href="#" class="white no-txt-dec">Have an account? <strong>Sign In</strong></a></p>
       </div>
       <video width="100%" autoplay="autoplay" muted="muted" poster="https://www.paypalobjects.com/webstatic/mktg/wright/videos/home-signup.jpg" loop="loop">
-        <source src="assets/dogs.mp4" type="video/mp4">
+        <source src=<%= asset_path 'school_classroom.mp4' %> type="video/mp4">
         <source src="" type="video/webm">
       </video>
     </div>
