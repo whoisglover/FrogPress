@@ -5,10 +5,11 @@
 <body>
   <div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
 
-
-    <form action="/users/<%= current_user.id %>" method="get">
-      <input type = 'submit' class = 'brd-none w-100per green bkg-wt brd-grn mrg-top-10 ft-sz-1half ft-lite' value = "Student Overview" >
-    </form>
+    <% if current_user.user_type == 'student' %>
+      <form action="/users/<%= current_user.id %>" method="get">
+        <input type = 'submit' class = 'brd-none w-100per green bkg-wt brd-grn mrg-top-10 ft-sz-1half ft-lite' value = "Student Overview" >
+      </form>
+    <% end %>
 
     <div class = "w-100per">
       <h1 class = "ft-lite ft-sz-2 mrg-btm-0 pad-bt-5 inln-bk">Your Classes</h1>
@@ -26,7 +27,7 @@
     </table>
     <br>
     <h1 class = "ft-lite ft-sz-2 mrg-btm-0 brd-bt pad-bt-5" >Pending Assignments</h1>
-    <table class = "brd-clpse">
+    <table class = "brd-clpse w-100per">
       <% @data[:assignments][0..4].each do |assignment| %>
       <tr onclick='document.location = "<%= assignment_path(assignment.id) %>"' class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-grn'>
         <td  class = "pad-top-15"><%= assignment.title %></a></td>
