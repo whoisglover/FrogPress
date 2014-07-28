@@ -11,6 +11,7 @@ class SubmissionController < ApplicationController
 
   def show
     @submission = Submission.find_by_id(params[:id])
+    @student = @submission.user
     @assignment = @submission.assignment
     @classroom = @assignment.classroom
   end
