@@ -13,12 +13,9 @@ delete a student from a classroom
   <div class = "">
     <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0  pad-bt-5" ><%= @classroom.name %></h2>
 
-
-
-
-    <a class = "gill w-100per brd-none ft-sz-1half brd-rad-5" href="<%= new_assignment_path %>/?classroom_id=<%=@classroom.id%>"></a>
-
-    <button class = 'brd-none w-100per green bkg-wt brd-grn'>Create a new assignment</button>
+    <form action="<%= new_assignment_path %>/?classroom_id=<%=@classroom.id%>" method="get">
+      <input type = 'submit' class = 'brd-none w-100per green bkg-wt brd-grn' value = "Create a new assignment" >
+    </form>
 
 
 
@@ -48,26 +45,26 @@ delete a student from a classroom
         <td class = "pad-top-15 txt-rt pad-l-20">
           <%= assignment.due_date.month %>/<%= assignment.due_date.day %>
         </td>
-        </a>
-      </tr>
-      <% end%>
-    </table>
+      </a>
+    </tr>
+    <% end%>
+  </table>
 
-    <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0 brd-bt pad-bt-5" >Past Assignments</h2>
-    <table class = "brd-clpse w-100per">
-      <% @past_due_assignments.each do |assignment| %>
-      <tr onclick="document.location = '<%= assignment_path(assignment.id) %>'" class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-grn'>
-        <td class = "pad-top-15">
-          <%= assignment.title %></a>
-        </td>
-        <td class = "pad-top-15 txt-rt pad-l-5">
-          <%= assignment.due_date.month %>/<%= assignment.due_date.day %>
-        </td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
-    <p class = "brd-top txt-rt mrg-top-150">Classroom Invitation Code: <%= @classroom.join_code %></p>
+  <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0 brd-bt pad-bt-5" >Past Assignments</h2>
+  <table class = "brd-clpse w-100per">
+    <% @past_due_assignments.each do |assignment| %>
+    <tr onclick="document.location = '<%= assignment_path(assignment.id) %>'" class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-grn'>
+      <td class = "pad-top-15">
+        <%= assignment.title %></a>
+      </td>
+      <td class = "pad-top-15 txt-rt pad-l-5">
+        <%= assignment.due_date.month %>/<%= assignment.due_date.day %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+<p class = "brd-top txt-rt mrg-top-150">Classroom Invitation Code: <%= @classroom.join_code %></p>
 
 </div>
 
