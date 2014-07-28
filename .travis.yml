@@ -1,7 +1,15 @@
 language: ruby
 rvm:
-  - 2.0.0
+- 2.0.0
 
-:before_script:
-  -  dotgpg cat config/dotgpg/production.gpg > '.env'
+env:
+-DB=postgresql
+
+before_script:
+- bundle exec rake db:create
+- bundle exec rake db:migrate
+
+script:
+- bundle exec rake db:test:prepare
+- bundle exec rspec spec/
 
