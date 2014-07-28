@@ -8,6 +8,10 @@
   <% end %>
 
   <% if current_user.user_type == "student" %>
-  <%= render 'submission/text_editor' %>
+    <% if @completed_submission != nil %>
+      <%= render 'student_assignment_overview' %>
+    <% else %>
+      <%= render 'submission/text_editor' %>
+    <% end %>
   <% end %>
 </div>
