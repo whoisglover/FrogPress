@@ -1,11 +1,15 @@
+<div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
+
 <%= form_for @assignment, url: assignment_index_path do |f| %>
-<%= f.label :title %>
-<%= f.text_field :title %>
-<%= f.label :due_date %>
-<%= f.date_field :due_date %>
+<%= f.label :title %><br>
+<%= f.text_field :title %><br>
+<%= f.label :due_date %><br>
+<%= f.date_field :due_date %><br>
 <br>
 <%= f.label :content %><br>
 <%= f.text_area :content %><br>
 <%= f.submit "Submit" %>
 <%= f.hidden_field :classroom_id, value: params[:classroom_id] %>
 <% end %>
+
+</div>

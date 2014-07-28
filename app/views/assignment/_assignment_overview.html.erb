@@ -1,15 +1,25 @@
-  <h5><a href = "<%= edit_assignment_path(@assignment.id) %>">Edit Assignment</a></h5>
-  <table>
-    <tr>
-      <th>Student</th>
-      <th>Level</th>
-      <th>Status</th>
+
+
+
+
+
+  <table class = "w-100per brd-clpse">
+    <tr class = " ft-lite ft-sz-2 mrg-top-45 mrg-btm-0 brd-bt pad-bt-5">
+      <th class = "ft-lite txt-lt">Student</th>
+      <th class = "ft-lite txt-ctr">Level</th>
+      <th class = "ft-lite txt-rt">Status</th>
     </tr>
     <%@students.each do |student|%>
-    <tr>
-      <td><%= student.first_name %> <%= student.last_name %></td>
-      <td>Level</td>
-      <td>Assignment Status</td>
+    <tr class = "pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-grn">
+      <td class = "ft-lite pad-top-15 txt-lt"><%= student.first_name %> <%= student.last_name %></td>
+      <td class = "ft-lite pad-top-15 txt-ctr">Level</td>
+      <td class = "ft-lite pad-top-15 txt-rt">Assignment Status</td>
     </tr>
     <% end %>
   </table>
+
+<% if current_user.user_type == "teacher" %>
+    <form action="<%= edit_assignment_path(@assignment.id) %>" method="get">
+      <input type = 'submit' class = 'brd-none w-100per green bkg-wt brd-grn mrg-top-45' value = "Edit assignment" >
+    </form>
+<% end %>
