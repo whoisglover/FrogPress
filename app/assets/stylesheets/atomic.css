@@ -38,6 +38,8 @@
 .w-400{ width: 400px; }
 .w-300{ width: 300px; }
 .w-100per{ width: 100%; }
+.w-101per{ width: 101%; }
+
 .w-70per{ width: 70%; }
 .min-w-350px{ min-width: 350px;}
 .min-w-75per{ min-width: 75%;}
