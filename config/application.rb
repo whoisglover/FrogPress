@@ -11,6 +11,10 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
+# Ckeditor configurations
+# config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+# config.assets.initialize_on_precompile = true
+
 module FrogPress
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

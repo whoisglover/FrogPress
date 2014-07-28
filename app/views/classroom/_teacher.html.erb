@@ -11,18 +11,25 @@ delete a student from a classroom
 
 <div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
   <div>
-    <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Class: <%= @classroom.name %></h2>
-    <a class = "gill w-100per brd-none ft-sz-1half brd-rad-5" href="<%= new_assignment_path %>/?classroom_id=<%=@classroom.id%>">Create a new assignment</a>
-    <h3>See Class Code - javascript here</h3>
-    <p>Code:<%= @classroom.join_code %></p>
+    <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0  pad-bt-5" ><%= @classroom.name %></h2>
+
+
+
+
+    <a class = "gill w-100per brd-none ft-sz-1half brd-rad-5" href="<%= new_assignment_path %>/?classroom_id=<%=@classroom.id%>"></a>
+
+    <button class = 'brd-none w-100per green bkg-wt brd-grn'>Create a new assignment</button>
+
+
+
   </div>
 
   <div class = 'col-L vert-top'>
-    <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Roster</h2>
-    <table>
+    <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0 brd-bt pad-bt-5" >Roster</h2>
+    <table class = "brd-clpse">
       <% @roster.each do |student| %>
-      <tr>
-        <td class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'><a class = "no-txt-dec" href = "<%= user_path(student.id) %>"><%= student.first_name %></a>
+      <tr onclick="document.location = '<%= user_path(student.id) %>'"class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-grn'>
+        <td class = "pad-top-15"><%= student.first_name %> <%= student.last_name %></a>
         </td>
       </tr>
       <% end %>
@@ -30,23 +37,37 @@ delete a student from a classroom
   </div>
 
   <div class = 'col-R'>
-    <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Active Assignments</h2>
-    <table>
+    <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0 brd-bt pad-bt-5" >Pending Assignments</h2>
+    <table class = "brd-clpse">
       <% @pending_assignments.each do |assignment| %>
-      <tr>
-        <td class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'><a class = "no-txt-dec" href = "<%= assignment_path(assignment.id) %>"><%= assignment.title %></a></td>
+
+      <tr onclick="document.location = '<%= assignment_path(assignment.id) %>'" class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-grn'>
+        <td class = "pad-top-15">
+          <%= assignment.title %>
+        </td>
+        <td class = "pad-top-15 txt-rt pad-l-20">
+          <%= assignment.due_date.month %>/<%= assignment.due_date.day %>
+        </td>
+        </a>
       </tr>
-      <% end %>
+      <% end%>
     </table>
 
-    <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Past Assignments</h2>
-    <table>
+    <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0 brd-bt pad-bt-5" >Past Assignments</h2>
+    <table class = "brd-clpse w-100per">
       <% @past_due_assignments.each do |assignment| %>
-      <tr>
-        <td class = 'brd-rad-5 pad-5 ft-lite mrg-l-n40 no-blt ft-sz-1half mrg-top-10 bkg-gry'><a class = "no-txt-dec" href = "<%= assignment_path(assignment.id) %>"><%= assignment.title %></a>
+      <tr onclick="document.location = '<%= assignment_path(assignment.id) %>'" class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-grn'>
+        <td class = "pad-top-15">
+          <%= assignment.title %></a>
+        </td>
+        <td class = "pad-top-15 txt-rt pad-l-5">
+          <%= assignment.due_date.month %>/<%= assignment.due_date.day %>
         </td>
       </tr>
       <% end %>
     </table>
   </div>
+    <p class = "brd-top txt-rt mrg-top-150">Classroom Invitation Code: <%= @classroom.join_code %></p>
+
 </div>
+

@@ -3,31 +3,29 @@
 <head>
 </head>
 <body>
-  <div class = "gill w-400 mrg-auto">
-    <a href="/users/<%= current_user.id %>">Frog-a-lytics</a>
+  <div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
     <a href="/classroom/new">Add a Class</a>
+    <a href="/users/<%= current_user.id %>">Frog-a-lytics</a>
 
     <h1>Your Classes</h1>
     <table>
       <% @data[:classrooms].each do |klass| %>
-      <tr>
-        <td><a href="/classroom/<%= klass.id %>"><%= klass.name %></a></td>
+      <tr onclick="document.location = '/classroom/<%= klass.id %>'">
+        <td><%= klass.name %></a></td>
       </tr>
       <% end %>
     </table>
     <br>
     <h1>Pending Assignments</h1>
     <table>
-      <% @data[:assignments][0..4].each do |assignments| %>
-      <tr>
-        <td><a href="/assignment/<%= assignments.id %>"><%= assignments.title %></a></td>
-        <td><%= assignments.due_date %></td>
+      <% @data[:assignments][0..4].each do |assignment| %>
+      <tr onclick='document.location = "<%= assignment_path(assignment.id) %>"'>
+        <td><%= assignment.title %></a></td>
+        <td><%= assignment.due_date.month %>/<%= assignment.due_date.day %></td>
       </tr>
       <% end %>
     </table>
-  </div>
-
-
-</body>
-</html>
+    <div>
+    </body>
+    </html>
 

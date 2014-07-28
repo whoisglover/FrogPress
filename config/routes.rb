@@ -13,5 +13,6 @@ FrogPress::Application.routes.draw do
 
   delete '/classroom/:classid/users/:userid' => 'classroom#remove_student', as: 'remove_student'
 
+  post 'submission/:assignment_id' => 'submission#create', as: 'create_submission'
 
 end
