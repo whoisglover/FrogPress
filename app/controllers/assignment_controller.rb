@@ -1,11 +1,11 @@
 class AssignmentController < ApplicationController
+  include AssignmentHelper
   before_filter :authenticate_user!
   before_filter :verify_user
   protect_from_forgery
 
 
   def new
-    # pass classroom id to form. Pass from form in to create route.
   end
 
   def create
@@ -18,6 +18,8 @@ class AssignmentController < ApplicationController
 
   def show
     @assignment = Assignment.find_by_id(params[:id])
+    @classroom = @assignment.classroom
+    @students = student_roster(@classroom)
   end
 
   def edit
@@ -30,7 +32,6 @@ class AssignmentController < ApplicationController
     assignment_to_change = Assignment.find_by_id(params[:id])
     assignment_to_change.update(assignment_hash)
     redirect_to (classroom_path(assignment_to_change.classroom_id))
-
   end
 
   def destroy
@@ -42,7 +43,7 @@ class AssignmentController < ApplicationController
 
 private
   def verify_user
-    if current_user.user_type == 'teacher' || current_user.user_type == 'student'
+    if current_user.user_type == 'teacher'
     else
       redirect_to (root_path)
     end

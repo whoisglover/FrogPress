@@ -1,7 +1,17 @@
 class ClassroomController < ApplicationController
+  include ClassroomHelper
   before_filter :authenticate_user!
   before_filter :verify_user
   protect_from_forgery
+
+  def remove_student
+    classid = params[:classid].to_i
+    userid = params[:userid].to_i
+    this_class = Classroom.find_by_id(classid)
+    this_class.users.delete(userid)
+    redirect_to(classroom_path(params[:classid]))
+  end
+
 
   def index
     @classrooms = current_user.classrooms
@@ -17,14 +27,23 @@ class ClassroomController < ApplicationController
   end
 
   def create
-    @classroom = Classroom.create(name: params[:classroom][:name], grade_level: params[:classroom][:grade_level], join_code: params[:classroom][:join_code])
-    # @classroom = Classroom.create(params[:classroom])
-
-    redirect_to (classroom_path(@classroom.id))
+    if current_user.user_type == "teacher"
+      @classroom = Classroom.create(name: params[:classroom][:name], grade_level: params[:classroom][:grade_level], join_code: params[:classroom][:join_code])
+      @classroom.users << current_user
+      classroom_create_redirect(@classroom)
+    else
+      student_add_classroom(params[:classroom][:join_code])
+    end
   end
 
   def show
     @classroom = Classroom.find_by_id(params[:id])
+    if current_user.user_type == 'teacher'
+      render '_teacher', locals: {classroom: @classroom}
+    else
+      render '_student', locals: {classroom: @classroom}
+    end
+
   end
 
   def update
@@ -44,6 +63,11 @@ class ClassroomController < ApplicationController
   def destroy
     Classroom.find_by_id(params[:id]).destroy
     redirect_to(classroom_index_path)
+  end
+
+
+  def new
+
   end
 
   private
