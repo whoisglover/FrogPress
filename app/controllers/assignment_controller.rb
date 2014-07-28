@@ -13,9 +13,7 @@ class AssignmentController < ApplicationController
     assignment_hash = assignment_hash.to_hash
     assignment_hash.symbolize_keys!
     assignment = Assignment.create(assignment_hash)
-    puts "I AM HERE"
-    p assignment
-    p assignment.valid?
+
     redirect_to (classroom_path(assignment.classroom_id))
   end
 
@@ -68,6 +66,7 @@ class AssignmentController < ApplicationController
 
   def edit
     @assignment = Assignment.find_by_id(params[:id])
+    @classroom = @assignment.classroom_id
   end
 
   def update

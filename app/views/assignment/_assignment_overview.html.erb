@@ -1,9 +1,4 @@
-
-
-
-
-
-  <table class = "w-100per brd-clpse">
+ <table class = "w-100per brd-clpse">
     <tr class = " ft-lite ft-sz-2 mrg-top-45 mrg-btm-0 brd-bt pad-bt-5">
       <th class = "ft-lite txt-lt">Student</th>
       <th class = "ft-lite txt-ctr">Level</th>
@@ -20,6 +15,8 @@
 
 <% if current_user.user_type == "teacher" %>
     <form action="<%= edit_assignment_path(@assignment.id) %>" method="get">
+      <input type="text" name="classroom_id" class = "hidden" value= <%= @classroom.id %>>
       <input type = 'submit' class = 'brd-none w-100per green bkg-wt brd-grn mrg-top-45' value = "Edit assignment" >
     </form>
 <% end %>
+
