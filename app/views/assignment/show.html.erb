@@ -2,21 +2,12 @@
   <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0"> Class: <%= @classroom.name %></h2>
   <h3 class = "ft-lite txt-ctr mrg-btm-0" >Assignment: <%= @assignment.title %></h3>
   <h4 class = "ft-lite txt-ctr mrg-btm-0" >Prompt: <%= @assignment.content %></h4>
-</div>
 
-<div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
-  <table>
-    <tr>
-      <th>Student</th>
-      <th>Level</th>
-      <th>Status</th>
-    </tr>
-    <%@students.each do |student|%>
-    <tr>
-      <td><%= student.first_name %> <%= student.last_name %></td>
-      <td>Level</td>
-      <td>Assignment Status</td>
-    </tr>
-    <% end %>
-  </table>
+  <% if current_user.user_type == "teacher" %>
+  <%= render 'assignment_overview' %>
+  <% end %>
+
+  <% if current_user.user_type == "student" %>
+  <%= render 'submission/text_editor' %>
+  <% end %>
 </div>

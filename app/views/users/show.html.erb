@@ -3,7 +3,7 @@
 <% if current_user.user_type == 'student' %>
   <% @data[:submissions].each do |entry| %>
     <h3>Class: <%= Classroom.find(entry[:klass]).name %></h3>
-    <a href="<%= classroom_path(entry[:klass]) %>">Visit Class Page</a>
+    <a href="<%= classroom_path(entry[:klass]) %>">Visit Class Page (put as a link for class)</a>
     <ol>
       <%  entry[:submissions].each do |sub| %>
         <li> <a href="<%= submission_path(sub.id) %>"> <%= sub.sub_title %></a></li>
@@ -19,6 +19,7 @@
       <p><%= @data[:student].first_name %>'s Submissions: </p>
       <ol>
         <%entry[:submissions].each do |sub| %>
+          <% assignment = sub.assignment %>
           <li> <a href="<%= submission_path(sub.id) %>"> <%= sub.sub_title %></a></li>
         <% end %>
       </ol>
