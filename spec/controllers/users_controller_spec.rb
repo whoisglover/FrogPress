@@ -33,7 +33,7 @@ describe UsersController do
       #act
       get :show, id: teacher.id
       #assert
-      expect(assigns(:user)).to eq(teacher)
+      expect(assigns(:data)).to include(student: teacher)
     end
   end
 end
