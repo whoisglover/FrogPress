@@ -1,7 +1,0 @@
-<h1> New </h1>
-<%= form_for :submission do |form| -%>
-  <%= form.cktext_area :content, url: create_submission_path(current_user.id), :value => 'Write your essay here!', :id => 'sometext', :class => 'ckeditor', :toolbar => 'MyToolbar' %>
-  <%= form.hidden_field :user_id, :value => current_user.id %>
-  <%= form.hidden_field :assignment_id, :value => params[:assignment_id] %>
-  <%= form.submit "Submit" %>
-<% end %>

@@ -14,18 +14,14 @@ class SubmissionController < ApplicationController
   end
 
   def create
-    puts "*"*100
-    puts params
-    puts @user_id = current_user.id.to_i
-    puts @assignment_id = params[:assignment_id]
-    puts @sub_title = params[:submission][:sub_title]
-    puts @sub_content = params[:submission][:sub_content]
-    # submission_hash = params[:submission]
-    # submission_hash = submission_hash.to_hash
-    # submission_hash.symbolize_keys!
-    # p submission_hash
-    submission = Submission.create(user_id: @user_id, assignment_id: @assignment_id, sub_title: @sub_title, sub_content: @sub_content)
-    redirect_to (assignment_path(submission.assignment_id))
+    @user_id = current_user.id.to_i
+    @assignment_id = params[:assignment_id]
+    @sub_title = params[:submission][:sub_title]
+    @sub_content = params[:submission][:sub_content]
+    @submission = Submission.create(user_id: @user_id, assignment_id: @assignment_id, sub_title: @sub_title, sub_content: @sub_content)
+    @classroom_id = Assignment.find_by_id(@assignment_id).classroom_id
+    redirect_to (classroom_path(@classroom_id))
+    #redirect_to (assignment_path(@submission.assignment_id))
   end
 
 
@@ -36,13 +32,11 @@ class SubmissionController < ApplicationController
   end
 
   def update
-    @subid = params[:id].to_i
-    submission = Submission.find_by_id(@subid)
-    submission_hash = params[:new_params]
-    submission_hash = submission_hash.to_hash
-    submission_hash.symbolize_keys!
-    submission.update(submission_hash)
-    redirect_to (submission_path(@subid))
+    p @submission = Submission.find_by_id(params[:submission][:submission_id])
+    @submission.update(sub_title: params[:submission][:sub_title], sub_content: params[:submission][:sub_content])
+    @classroom_id = Assignment.find_by_id(params[:submission][:assignment_id]).classroom_id
+    redirect_to (classroom_path(@classroom_id))
+    #redirect_to (submission_path(@submission.id))
   end
 
   # def destroy
