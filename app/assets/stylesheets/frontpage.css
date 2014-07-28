@@ -3,22 +3,10 @@ html {
 
 }
 
-/**{
-border: 1px dashed blue;
-}*/
-/*@font-face {
-font-family: lane;
-src:url(../lane.ttf);
-}*/
 
 #header {
   width: 100%;
   height: 100%;
-  /*height: 950px;*/
-  /*background: url("../img/matterhorn.jpg") no-repeat center center fixed ;*/
-  /*background: url("http://images2.layoutsparks.com/1/27119/saturn-tree-night-ocean.jpg") no-repeat center center fixed ;*/
-  background: lightblue;
-  /*background-size: cover;*/
 }
 
 #login_buttons {
@@ -37,12 +25,10 @@ src:url(../lane.ttf);
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: lightgreen;
 }
 .login-modal{
   position: absolute;
   background: none;
-  /*border: 1px solid;*/
   margin-top: 13%;
   margin-left: 45%;
   margin-right: 45%;
@@ -67,7 +53,7 @@ src:url(../lane.ttf);
   color:lightgray;
 }
 .down-arrow a:hover{
-  color:lightblue`;
+  color:lightblue;
 }
 
 .info {
