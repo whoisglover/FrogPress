@@ -23,6 +23,7 @@ class AssignmentController < ApplicationController
   end
 
   def edit
+    @assignment = Assignment.find_by_id(params[:id])
   end
 
   def update
