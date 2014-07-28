@@ -5,21 +5,33 @@
 .sacramento{ font-family: 'Sacramento', cursive;}
 
 .ft-lite{ font-weight: lighter; }
+.ft-bold{ font-weight: bold; }
+
 .ft-itl{ font-style: italic; }
 
 .ft-sz-5{ font-size: 5rem; }
 .ft-sz-4-5{ font-size: 4.5rem; }
 .ft-sz-2{ font-size: 2rem; }
+
 .fw-300 {font-weight:300;}
+
 .ft-sz-1half{ font-size: 1.5rem; }
+.ft-sz-1q{ font-size: 1.25rem; }
 .ft-sz-1{ font-size: 1rem; }
 .ln-h-50 { line-height: 50px; }
 
+.hov-grn:hover { color: green; }
+
 .white { color: white; }
+.green { color: green; }
+
+.black { color: black; }
 
 .bkg-red{ background-color: red; }
 .bkg-grn{ background-color: green; }
 .bkg-gry{ background-color: gray; }
+.bkg-wt{ background-color: white; }
+
 
 .w-400{ width: 400px; }
 .w-300{ width: 300px; }
@@ -38,6 +50,10 @@
 .mrg-bot-2{margin-bottom: 2rem;}
 .mrg-top-0{ margin-top: 0px; }
 .mrg-top-10{ margin-top: 10px; }
+.mrg-top-45{ margin-top: 45px; }
+.mrg-top-150{ margin-top: 150px; }
+
+
 .mrg-l-n40{ margin-left: -40px; }
 
 .mrg-l-0{ margin-left: 0px; }
@@ -45,10 +61,22 @@
 .mrg-r-15{ margin-right: 15px; }
 
 .pad-l-5{ padding-left: 5px; }
+.pad-l-20{ padding-left: 20px; }
+
+.pad-bt-5{ padding-bottom: 5px; }
 .pad-5{ padding: 5px; }
+.pad-top-15{padding-top: 15px;}
+
+.pad-bt-15{padding-bottom: 15px;}
+
 
 .brd-none{ border: none; }
+.brd-grn{ border: solid green 1px;}
 .brd-rad-5{ border-radius: 5px; }
+.brd-top{ border-top: solid green 1px; }
+.brd-bt{ border-bottom: solid green 1px; }
+.brd-clpse{ border-collapse: collapse;}
+
 
 .inln-bk{ display: inline-block; }
 .inline{ display: inline;}
@@ -62,12 +90,12 @@
 
 .col-L {
   padding-right: 10px;
-  width: 47.5%;
+  width: 35%;
   display: inline-block;
 }
 
 .col-R {
-  width: 47.5%;
+  width: 60%;
   padding-left: 10px;
   display: inline-block;
 }

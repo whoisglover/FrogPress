@@ -9,6 +9,8 @@ gem 'rails', '4.0.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+# For text editor. Add paperclip gem if we decide to allow image uploads
+gem 'ckeditor'
 
 gem 'normalize-rails'
 
@@ -79,4 +81,4 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+ gem 'debugger', group: [:development, :test]
