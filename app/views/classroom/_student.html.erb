@@ -1,9 +1,8 @@
 <div class = "gill w-400 mrg-auto">
-  <nav class = "bkg-grn w-100per h-50">
-    <% @roster = @classroom.student_roster %>
-    <% @pending_assignments = @classroom.pending_assignments %>
-    <% @past_due_assignments = @classroom.past_due_assignments %>
-  </nav>
+  <% @roster = @classroom.student_roster %>
+  <% @pending_assignments = @classroom.pending_assignments %>
+  <% @past_due_assignments = @classroom.past_due_assignments %>
+
   <div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
     <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0" >Class: <%= @classroom.name %></h2>
     <div class = 'col-R'>
