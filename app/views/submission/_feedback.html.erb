@@ -1,9 +1,15 @@
-
+<% if current_user.user_type == "student" %>
 <h3 class = "ft-lite brd-bt pad-bt-15 mrg-top-100" >Feedback</h3>
+  <% @submission_feedback = Submission.find(@submission.first.id).feedbacks %>
+  <% @submission_feedback.each do | feedback | %>
+  <h4><%= feedback.content %><h4>
+  <% end %>
+<% else %>
+
+
+<h4 class = "brd-bt pad-bt-15 mrg-btm-0 pad-top-15 mrg-top-100" >Feedback</h3>
   <% @submission_feedback = Submission.find(@submission.id).feedbacks %>
   <% @submission_feedback.each do | feedback | %>
-  <%= feedback.content %>
+  <h4 class = "ft-lite pad-bt-15 mrg-top-10"><%= feedback.content %><h4>
   <% end %>
-
-
-
+<% end %>

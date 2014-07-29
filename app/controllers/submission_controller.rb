@@ -1,5 +1,5 @@
-
 class SubmissionController < ApplicationController
+  include SubmissionsHelper
   before_filter :authenticate_user!
   before_filter :verify_user
   protect_from_forgery
@@ -14,6 +14,8 @@ class SubmissionController < ApplicationController
     @student = @submission.user
     @assignment = @submission.assignment
     @classroom = @assignment.classroom
+    feedback = @submission.feedbacks.first
+    feedback?(feedback)
   end
 
   def create
