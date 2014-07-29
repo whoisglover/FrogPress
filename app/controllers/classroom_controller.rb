@@ -30,14 +30,9 @@ class ClassroomController < ApplicationController
 
   def show
     @classroom = Classroom.find_by_id(params[:id])
-    if current_user.user_type == 'teacher'
-      @roster = @classroom.student_roster
-      @pending_assignments = @classroom.pending_assignments
-      @past_due_assignments = @classroom.past_due_assignments
-      render '_teacher', locals: {classroom: @classroom}
-    else
-      render '_student', locals: {classroom: @classroom}
-    end
+    @teacher = @classroom.teacher
+
+    render "_#{current_user.user_type}"
   end
 
   def update

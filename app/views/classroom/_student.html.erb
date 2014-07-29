@@ -1,34 +1,18 @@
-
-<% @roster = @classroom.student_roster %>
-<% @pending_assignments = @classroom.pending_assignments %>
-<% @past_due_assignments = @classroom.past_due_assignments %>
-
 <div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
-  <h2 class = "ft-lite ft-sz-2q txt-ctr mrg-btm-0 pad-bt-5" ><%= @classroom.name %></h2>
 
-  <% teacher = @classroom.users.where('user_type = ?', 'teacher')[0] %>
+  <!-- Classroom name -->
+  <h2 class = "classroom-name" ><%= @classroom.name %></h2>
 
-  <h2 class = "ft-lite ft-sz-1q txt-ctr mrg-btm-0 pad-bt-5 sacramento" ><span class = "gill">with </span><%= teacher.first_name %> <%= teacher.last_name %></h2>
+  <!-- Teacher name -->
+  <h2 class = "ft-lite ft-sz-1q txt-ctr mrg-btm-0 pad-bt-5 sacramento" ><span class = "gill">with </span><%= @teacher.first_name %> <%= @teacher.last_name %></h2>
 
-  <h2 class = "ft-lite ft-sz-2  orange mrg-top-45 mrg-btm-0 brd-bt pad-bt-5" >Active Assignments</h2>
-  <table class = "brd-clpse w-100per">
-    <% @pending_assignments.each do |assignment| %>
-    <tr onclick="document.location = '<%= assignment_path(assignment.id) %>'" class = 'ft-lite mrg-l-n40 ft-sz-1q hov-bkg'>
-      <td class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q w-75per'><%= assignment.title %></td>
-      <td  class = "pad-top-15 pad-l-20 pad-r-5 txt-rt">due: </td>
-        <td  class = "pad-top-15 pad-l-20 pad-r-5 txt-rt"><%= assignment.due_date.month %>/<%= assignment.due_date.day %></td>
-    </tr>
-    <% end %>
-  </table>
-  <h2 class = "ft-lite ft-sz-2  orange mrg-btm-0 brd-bt pad-bt-5" >Past Assignments</h2>
-  <table class = "brd-clpse w-100per">
-    <% @past_due_assignments.each do |assignment| %>
-    <tr onclick="document.location = '<%= assignment_path(assignment.id) %>'" class = 'ft-lite mrg-l-n40 ft-sz-1q hov-bkg'>
-      <td class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q w-75per'><%= assignment.title %></td>
-      <td  class = "pad-top-15 pad-l-20 pad-r-5 txt-rt">due: </td>
-        <td  class = "pad-top-15 pad-l-20 pad-r-5 txt-rt"><%= assignment.due_date.month %>/<%= assignment.due_date.day %></td>
-    </tr>
-    <% end %>
-  </table>
+  <!-- Table of active assignments -->
+  <h2 class = "table-title" >Active Assignments</h2>
+  <%= render partial: "list_assignments", locals: {assignments: @classroom.pending_assignments} %>
+
+  <!-- Table of past assignments -->
+  <h2 class = "table-title" >Past Assignments</h2>
+  <%= render partial: "list_assignments", locals: {assignments: @classroom.past_due_assignments} %>
+
 </div>
 

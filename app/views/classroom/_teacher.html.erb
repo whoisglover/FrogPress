@@ -1,11 +1,3 @@
-<!--
-create new assignment
-list of pending assignments
-list of past due assignments
-list of student in the classroom
-delete a student from a classroom
--->
-
 <div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
 
   <!-- Classroom name -->
@@ -21,7 +13,7 @@ delete a student from a classroom
   <div class = 'col-L vert-top'>
     <h2 class = "table-title" >Roster</h2>
     <p id = "edit-teacher-classroom" class = "edit-button" >Edit</p>
-    <%= render partial: "list_students", locals: {students: @roster} %>
+    <%= render partial: "list_students", locals: {students: @classroom.student_roster} %>
   </div>
 
   <!-- Assignments: List of active and past assignments in R column -->
@@ -29,12 +21,12 @@ delete a student from a classroom
 
     <h2 class = "table-title" >Active Assignments</h2>
     <p id = "edit-teacher-classroom" class = "edit-button">Edit</p>
-    <%= render partial: "list_assignments", locals: {assignments: @pending_assignments} %>
+    <%= render partial: "list_assignments", locals: {assignments: @classroom.pending_assignments} %>
 
     <div class = "inln-bk w-100per">
       <h2 class = "table-title" >Past Assignments</h2>
       <p id = "edit-teacher-classroom" class = "edit-button" >Edit</p>
-      <%= render partial: "list_assignments", locals: {assignments: @past_due_assignments} %>
+      <%= render partial: "list_assignments", locals: {assignments: @classroom.past_due_assignments} %>
     </div>
   </div>
 

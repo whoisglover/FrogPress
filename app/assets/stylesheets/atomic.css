@@ -19,6 +19,14 @@
   color: #557D73;
 }
 
+.classroom-name{
+  font-weight: lighter;
+  font-size: 2.25rem;
+  text-align: center;
+  margin-bottom: 0px;
+  padding-bottom: 5px;
+}
+
 .txt-ctr{ text-align: center; }
 .txt-rt{ text-align: right; }
 .txt-lt{ text-align: left; }

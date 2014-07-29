@@ -29,5 +29,9 @@ class Classroom < ActiveRecord::Base
     @classroom_to_add_student.users << User.find_by_id(user_id)
   end
 
+  def teacher
+    return self.users.where('user_type = ?', 'teacher')[0]
+  end
+
 end
 
