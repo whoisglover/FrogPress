@@ -22,7 +22,9 @@
 .ft-sz-1{ font-size: 1rem; }
 .ln-h-50 { line-height: 50px; }
 
-.hov-grn:hover { color: green; }
+.hov-grn:hover {color: green;
+
+}
 
 .white { color: white; }
 .green { color: green; }
@@ -58,6 +60,7 @@
 .mrg-top-10{ margin-top: 10px; }
 .mrg-top-45{ margin-top: 45px; }
 .mrg-top-37{ margin-top: 37px; }
+.mrg-top-100{ margin-top: 150px; }
 .mrg-top-150{ margin-top: 150px; }
 
 
