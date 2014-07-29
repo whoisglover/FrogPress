@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
     self.classrooms.each do |klass|
       pending_assignments += klass.assignments.where("due_date >= ?", Date.today)
     end
-    return pending_assignments.sort_by(&:due_date).reverse
+    return pending_assignments.sort_by(&:due_date)
   end
 
 end

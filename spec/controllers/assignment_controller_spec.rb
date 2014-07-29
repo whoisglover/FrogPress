@@ -55,7 +55,7 @@ describe AssignmentController do
     it "should redirect the user to the classroom_path" do
       login_teacher
       put :update, {id: assignment.id, assignment: new_assignment_params }
-      expect(response).to redirect_to(classroom_path(assignment.classroom_id))
+      expect(response).to redirect_to(assignment_path(assignment))
     end
   end
 

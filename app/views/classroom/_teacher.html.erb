@@ -1,82 +1,37 @@
-<!--
-create new assignment
-list of pending assignments
-list of past due assignments
-list of student in the classroom
-delete a student from a classroom
--->
-<% @roster = @classroom.student_roster %>
-<% @pending_assignments = @classroom.pending_assignments %>
-<% @past_due_assignments = @classroom.past_due_assignments %>
-
 <div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
-  <div class = "">
-    <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0  pad-bt-5" ><%= @classroom.name %></h2>
 
-    <form action="<%= new_assignment_path %>/?classroom_id=<%=@classroom.id%>" method="get">
-      <input type="text" name="classroom_id" class = "hidden" value= <%= @classroom.id %>>
-      <input type = 'submit' class = 'brd-none w-100per green bkg-wt brd-grn' value = "Create a new assignment" >
-    </form>
+  <!-- Classroom name -->
+  <h2 class = "ft-lite ft-sz-2q txt-ctr mrg-btm-0  pad-bt-5" ><%= @classroom.name %></h2>
 
+  <!-- Create new assignment button -->
+  <form action="<%= new_assignment_path %>/?classroom_id=<%=@classroom.id%>" method="get">
+    <input type="text" name="classroom_id" class = "hidden" value= <%= @classroom.id %>>
+    <input type = 'submit' class = 'brd-none w-100per dk-grn bkg-wt brd-grn' value = "Create a new assignment" >
+  </form>
 
-
-  </div>
-
+  <!-- Roster: List of students in L column -->
   <div class = 'col-L vert-top'>
-    <h2 class = "ft-lite ft-sz-2 mrg-btm-0  pad-bt-5 inln-bk" >Roster</h2>
-    <p id = "edit-teacher-classroom" class = "no-txt-dec black hov-grn pad-l-20 flt-r mrg-top-37" >Edit</p>
-    <table class = "brd-clpse w-100per brd-top">
-      <% @roster.each do |student| %>
-      <tr onclick="document.location = '<%= user_path(student.id) %>'"class = ' ft-lite mrg-l-n40 ft-sz-1q hov-bkg-grn'>
-        <td class = "pad-top-15 pad-l-5"><%= student.first_name %> <%= student.last_name %></a>
-        </td>
-        <td class = "pad-top-15 txt-rt pad-r-5 disp-no"><i class="fa fa-times ft-sz-1 pad-l-20"></i></a>
-        </td>
-      </tr>
-      <% end %>
-    </table>
+    <h2 class = "table-title" >Roster</h2>
+    <p id = "edit-teacher-classroom" class = "edit-button" >Edit</p>
+    <%= render partial: "list_students", locals: {students: @classroom.student_roster} %>
   </div>
 
+  <!-- Assignments: List of active and past assignments in R column -->
   <div class = 'col-R'>
-    <h2 class = "ft-lite ft-sz-2 mrg-btm-0 pad-bt-5 inln-bk" >Pending Assignments</h2>
-    <p id = "edit-teacher-classroom" class = "no-txt-dec black hov-grn pad-l-20 flt-r mrg-top-37">Edit</p>
-    <table class = "brd-clpse w-100per brd-top">
-      <% @pending_assignments.reverse.each do |assignment| %>
 
-      <tr onclick="document.location = '<%= assignment_path(assignment.id) %>'" class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-bkg-grn'>
-        <td class = "pad-top-15 pad-l-5">
-          <%= assignment.title %>
-        </td>
-        <td class = "pad-top-15 txt-rt pad-r-5 pad-l-20">
-          <%= assignment.due_date.month %>/<%= assignment.due_date.day %>
-        </td>
-        <td class = "pad-top-15 txt-rt disp-no pad-r-5"><i class="fa fa-times ft-sz-1 pad-l-20"></i></a>
-        </td>
-      </a>
-    </tr>
-    <% end%>
-  </table>
-<div class = "inln-bk w-100per">
-  <h2 class = "ft-lite ft-sz-2 mrg-btm-0 pad-bt-5 inln-bk" >Past Assignments</h2>
+    <h2 class = "table-title" >Active Assignments</h2>
+    <p id = "edit-teacher-classroom" class = "edit-button">Edit</p>
+    <%= render partial: "list_assignments", locals: {assignments: @classroom.pending_assignments} %>
 
-  <p id = "edit-teacher-classroom" class = "no-txt-dec black hov-grn pad-l-20 flt-r mrg-top-37" >Edit</p>
-  <table class = "brd-clpse w-100per brd-top">
-    <% @past_due_assignments.each do |assignment| %>
-    <tr onclick="document.location = '<%= assignment_path(assignment.id) %>'" class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-bkg-grn'>
-      <td class = "pad-top-15 pad-l-5">
-        <%= assignment.title %></a>
-      </td>
-      <td class = "pad-top-15 txt-rt pad-r-5">
-        <%= assignment.due_date.month %>/<%= assignment.due_date.day %>
-      </td>
-      <td class = "pad-top-15 txt-rt disp-no pad-r-5"><i class="fa fa-times ft-sz-1 pad-l-20"></i></a>
-        </td>
-    </tr>
-    <% end %>
-  </table>
-</div>
-</div>
-<p class = "brd-top txt-rt mrg-top-150">Classroom Invitation Code: <%= @classroom.join_code %></p>
+    <div class = "inln-bk w-100per">
+      <h2 class = "table-title" >Past Assignments</h2>
+      <p id = "edit-teacher-classroom" class = "edit-button" >Edit</p>
+      <%= render partial: "list_assignments", locals: {assignments: @classroom.past_due_assignments} %>
+    </div>
+  </div>
+
+  <!-- Classroom code -->
+  <p class = "brd-top txt-rt mrg-top-150">Classroom Invitation Code: <%= @classroom.join_code %></p>
 
 </div>
 

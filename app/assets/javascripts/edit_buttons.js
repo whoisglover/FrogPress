@@ -14,3 +14,7 @@ var showXs = function(e){
     xElem.addClass('disp-no')
   }
 }
+
+
+// <td class = "pad-top-15 txt-rt disp-no pad-r-5"><i class="fa fa-times ft-sz-1 pad-l-20"></i></a>
+//         </td>
