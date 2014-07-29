@@ -16,10 +16,10 @@
       <th class = "ft-lite txt-rt">Due Date</th>
     </tr>
     <%  entry[:submissions].each do |sub| %>
-      <tr class = "pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-grn">
-        <td class = "ft-lite pad-top-15 txt-lt"><a class = "no-txt-dec black hov-grn ft-sz-1q " href="<%= submission_path(sub.id) %>"><%= sub.assignment.title %></a></td>
+      <tr class = "pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-bkg-grn">
+        <td class = "ft-lite pad-top-15 pad-l-5 txt-lt"><a class = "no-txt-dec black ft-sz-1q " href="<%= submission_path(sub.id) %>"><%= sub.assignment.title %></a></td>
         <td class = "ft-lite pad-top-15 txt-ctr">Level</td>
-        <td class = "ft-lite pad-top-15 txt-rt">today!</td>
+        <td class = "ft-lite pad-top-15 pad-r-5 txt-rt">today!</td>
       </tr>
     <% end %>
   </table>
