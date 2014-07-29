@@ -13,6 +13,7 @@ class AssignmentController < ApplicationController
     assignment_hash = assignment_hash.to_hash
     assignment_hash.symbolize_keys!
     assignment = Assignment.create(assignment_hash)
+
     redirect_to (classroom_path(assignment.classroom_id))
   end
 
@@ -20,10 +21,6 @@ class AssignmentController < ApplicationController
     @assignment = Assignment.find_by_id(params[:id])
     @classroom = @assignment.classroom
     @students = student_roster(@classroom)
-    submission = Submission.where(user_id: current_user.id, assignment_id: @assignment.id)
-    @submission = submission.first
-
-
 
     if current_user.user_type == "student"
       @completed_submission = Assignment.find_submission_and_status(current_user, @assignment)
@@ -45,7 +42,7 @@ class AssignmentController < ApplicationController
     assignment_hash.symbolize_keys!
     assignment_to_change = Assignment.find_by_id(params[:id])
     assignment_to_change.update(assignment_hash)
-    redirect_to (assignment_path(assignment_to_change))
+    redirect_to (classroom_path(assignment_to_change.classroom_id))
   end
 
   def destroy
