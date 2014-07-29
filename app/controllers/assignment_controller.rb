@@ -25,46 +25,13 @@ class AssignmentController < ApplicationController
 
 
 
-    # Move to model when MVP done
     if current_user.user_type == "student"
-      user_submissions = Submission.where(user_id: current_user.id)
-      if user_submissions.length != 0 # User has submissions
-        user_submissions.each do |submission|
-          if submission.assignment_id == @assignment.id && submission.status == "incomplete" # Not complete
-            @completed_submission = nil
-            break
-          elsif submission.assignment_id == @assignment.id  && submission.status == "complete" # Assignment Complete
-           @completed_submission = submission
-           break
-          end
-        end
-      else
-        @completed_submission = nil # User has no submissions so this is nil, Not complete
-      end
+      @completed_submission = Assignment.find_submission_and_status(current_user, @assignment)
+      @submission_data = Assignment.create_submission_data(current_user, @completed_submission, @assignment)
+      @submission = @submission_data[:submission]
+      @sub_title_placeholder = @submission_data[:sub_title_placeholder]
+      @sub_content_placeholder = @submission_data[:sub_content_placeholder]
     end
-
-    if @completed_submission == nil
-      @user_submissions = User.find(current_user.id).submissions
-      if @user_submissions.length == 0
-        @submission = Submission.new
-        @sub_title_placeholder = "Your Essay Title"
-        @sub_content_placeholder = "Write your essay here!"
-      else
-        @user_submissions.each do |sub|
-          if sub.assignment_id == @assignment.id
-            @submission = sub
-            @sub_title_placeholder = @submission.sub_title
-            @sub_content_placeholder = @submission.sub_content
-            break
-          else
-            @submission = Submission.new
-            @sub_title_placeholder = "Your Essay Title"
-            @sub_content_placeholder = "Write your essay here!"
-          end
-      end
-    end
-  end
-
   end
 
   def edit
@@ -88,7 +55,7 @@ class AssignmentController < ApplicationController
   end
 
 
-private
+  private
   def verify_user
     if current_user.user_type == 'teacher' || current_user.user_type == 'student'
     else
