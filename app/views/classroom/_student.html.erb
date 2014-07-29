@@ -1,31 +1,18 @@
-
-<% @roster = @classroom.student_roster %>
-<% @pending_assignments = @classroom.pending_assignments %>
-<% @past_due_assignments = @classroom.past_due_assignments %>
-
 <div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
-  <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0 pad-bt-5" ><%= @classroom.name %></h2>
-  <h2 class = "ft-lite ft-sz-1half mrg-top-45 mrg-btm-0 brd-bt pad-bt-5" >Active Assignments</h2>
-  <table class = "brd-clpse w-100per">
-    <% @pending_assignments.each do |assignment| %>
-    <tr class = "hov-grn">
-      <td class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-grn'><a class = "no-txt-dec black hov-grn" href = "<%= assignment_path(assignment.id) %>"><%= assignment.title %></a></td>
-      <td class = "pad-5 ft-lite mrg-l-n40 ft-sz-1q txt-rt">
-          <%= assignment.due_date.month %>/<%= assignment.due_date.day %>
-      </td>
-    </tr>
-    <% end %>
-  </table>
-  <h2 class = "ft-lite ft-sz-1half mrg-btm-0 brd-bt pad-bt-5" >Past Assignments</h2>
-  <table>
-    <% @past_due_assignments.each do |assignment| %>
-    <tr class = "hov-grn">
-      <td class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-grn'><a class = "no-txt-dec black hov-grn" href = "<%= assignment_path(assignment.id) %>"><%= assignment.title %></a></td>
-      <td class = "pad-5 ft-lite mrg-l-n40 ft-sz-1q txt-rt">
-          <%= assignment.due_date.month %>/<%= assignment.due_date.day %>
-      </td>
-    </tr>
-    <% end %>
-  </table>
+
+  <!-- Classroom name -->
+  <h2 class = "classroom-name" ><%= @classroom.name %></h2>
+
+  <!-- Teacher name -->
+  <h2 class = "ft-lite ft-sz-1q txt-ctr mrg-btm-0 pad-bt-5 sacramento" ><span class = "gill">with </span><%= @teacher.first_name %> <%= @teacher.last_name %></h2>
+
+  <!-- Table of active assignments -->
+  <h2 class = "table-title" >Active Assignments</h2>
+  <%= render partial: "list_assignments", locals: {assignments: @classroom.pending_assignments} %>
+
+  <!-- Table of past assignments -->
+  <h2 class = "table-title" >Past Assignments</h2>
+  <%= render partial: "list_assignments", locals: {assignments: @classroom.past_due_assignments} %>
+
 </div>
 

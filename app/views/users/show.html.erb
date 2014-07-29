@@ -1,59 +1,69 @@
   <div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
 
-<h1 class = "ft-lite ft-sz-2 mrg-btm-0 txt-ctr brd-bt pad-bt-5"><%= @data[:student].first_name %> <%= @data[:student].last_name %> OverView</h1>
-<p>LOTS OF DATA HERE</p>
-<% if current_user.user_type == 'student' %>
-  <% @data[:submissions].each do |entry| %>
-    <h3 class = "hov-grn ft-lite ft-sz-1half brd-bt pad-bt-5 mrg-btm-0 pad-top-15"><a class = "no-txt-dec black hov-grn" href="<%= classroom_path(entry[:klass]) %>"><%= Classroom.find(entry[:klass]).name %></a></h3>
+    <h1 class = "ft-lite ft-sz-2q mrg-btm-0 txt-ctr brd-bt pad-bt-5"><%= @data[:student].first_name %> <%= @data[:student].last_name %> OverView</h1>
+    <p>LOTS OF DATA HERE</p>
+    <% if current_user.user_type == 'student' %>
+    <% @data[:submissions].each do |entry| %>
+    <h3 class = "hov-grn ft-lite brd-bt pad-bt-5 mrg-btm-0 pad-top-15"><a class = "no-txt-dec black hov-grn ft-sz-2" href="<%= classroom_path(entry[:klass]) %>"><%= Classroom.find(entry[:klass]).name %></a></h3>
     <!-- Visit Class Page (put as a link for class) -->
 
 
 
- <table class = "w-100per brd-clpse">
-    <tr class = "ft-lite ft-sz-1half mrg-top-45 mrg-btm-0 brd-bt pad-bt-5 green">
-      <th class = "ft-lite txt-lt w-50per">Assignment</th>
-      <th class = "ft-lite txt-ctr">Status</th>
-      <th class = "ft-lite txt-rt">Due Date</th>
-    </tr>
-    <%  entry[:submissions].each do |sub| %>
-      <tr class = "pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-bkg-grn">
-        <td class = "ft-lite pad-top-15 pad-l-5 txt-lt"><a class = "no-txt-dec black ft-sz-1q " href="<%= submission_path(sub.id) %>"><%= sub.assignment.title %></a></td>
+    <table class = "w-100per brd-clpse">
+      <tr class = "ft-lite ft-sz-1half mrg-top-45 mrg-btm-0 brd-bt pad-bt-5 orange">
+        <th class = "ft-lite txt-lt w-50per">Assignment</th>
+        <th class = "ft-lite txt-ctr">Status</th>
+        <th class = "ft-lite txt-rt">Due Date</th>
+      </tr>
+      <%  entry[:submissions].each do |sub| %>
+      <tr onclick="document.location = '<%= submission_path(sub.id) %>'" class = 'ft-lite mrg-l-n40 ft-sz-1q hov-bkg'>
+        <td class = "ft-lite pad-top-15 pad-l-5 txt-lt"><%= sub.assignment.title %></td>
         <td class = "ft-lite pad-top-15 txt-ctr">Level</td>
         <td class = "ft-lite pad-top-15 pad-r-5 txt-rt">today!</td>
       </tr>
+      <% end %>
+    </table>
+
+
+
+
+
+
     <% end %>
-  </table>
 
 
 
 
 
+    <% elsif current_user.user_type == 'teacher' %>
 
-  <% end %>
-
-
-
-
-
-<% elsif current_user.user_type == 'teacher' %>
-
-  <% if @data[:submissions][0] %>
+    <% if @data[:submissions][0] %>
     <!-- <h3 class = "hov-grn ft-lite ft-sz-1half brd-bt pad-bt-5 mrg-btm-0 pad-top-15">Classes You Teach</h3> -->
     <% @data[:submissions].each do |entry| %>
-      <h4 class = "hov-grn ft-lite ft-sz-1half brd-bt pad-bt-5 mrg-btm-0 pad-top-15"><a class = "no-txt-dec black hov-grn" href="<%= classroom_path(entry[:klass]) %>"><%= Classroom.find(entry[:klass]).name %></a></h4>
-      <!-- <p><%= @data[:student].first_name %>'s Submissions: </p> -->
-      <ul class= 'no-blt mrg-l-n40 mrg-top-0'>
-        <%entry[:submissions].each do |sub| %>
-          <% assignment = sub.assignment %>
-          <li class = "pad-top-15"> <a class = "no-txt-dec black hov-grn pad-5 ft-lite ft-sz-1q hov-grn" href="<%= submission_path(sub.id) %>"> <%= sub.sub_title %></a></li>
-        <% end %>
-      </ul>
+    <h4 class = "hov-grn ft-lite ft-sz-1half brd-bt pad-bt-5 mrg-btm-0 pad-top-15"><a class = "no-txt-dec black hov-grn ft-sz-2" href="<%= classroom_path(entry[:klass]) %>"><%= Classroom.find(entry[:klass]).name %></a></h4>
+    <!-- <p><%= @data[:student].first_name %>'s Submissions: </p> -->
 
+
+    <table class = "w-100per brd-clpse">
+      <tr class = "ft-lite ft-sz-1half mrg-top-45 mrg-btm-0 brd-bt pad-bt-5 orange">
+        <th class = "ft-lite txt-lt w-50per">Assignment</th>
+        <th class = "ft-lite txt-ctr">Status</th>
+        <th class = "ft-lite txt-rt">Due Date</th>
+      </tr>
+      <%  entry[:submissions].each do |sub| %>
+      <tr onclick="document.location = '<%= submission_path(sub.id) %>'" class = 'ft-lite mrg-l-n40 ft-sz-1q hov-bkg'>
+        <td class = "ft-lite pad-top-15 pad-l-5 txt-lt"><%= sub.assignment.title %></td>
+        <td class = "ft-lite pad-top-15 txt-ctr">Level</td>
+        <td class = "ft-lite pad-top-15 pad-r-5 txt-rt">today!</td>
+      </tr>
+      <% end %>
+    </table>
     <% end %>
 
-  <% else %>
-    <h3 class = "hov-grn ft-lite ft-sz-1half brd-bt pad-bt-5 mrg-btm-0 pad-top-15">This student is not in any of your current classes.</h3>
-  <% end %>
-<% end %>
 
-</div>
+    <% else %>
+    <h3 class = "hov-grn ft-lite ft-sz-1half brd-bt pad-bt-5 mrg-btm-0 pad-top-15">This student is not in any of your current classes.</h3>
+    <% end %>
+    <% end %>
+
+  </div>
