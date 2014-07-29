@@ -51,7 +51,6 @@ class UsersController < ApplicationController
         class_and_subs = {klass: klass.id, submissions: subs_final}
         @submissions << class_and_subs
       end
-
       # @data = {submissions: submissions}
     else
       redirect_to(user_path(current_user.id))
