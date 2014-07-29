@@ -15,15 +15,7 @@ class ClassroomController < ApplicationController
 
   def index
     @classrooms = current_user.classrooms
-    @assignments = []
-    @classrooms.each do |klass|
-      if klass.assignments[0]
-         @assignments << klass.assignments
-      end
-    end
-    @assignments.flatten!
-    @assignments = @assignments.sort_by(&:due_date).reverse
-    @data = {classrooms: @classrooms, assignments: @assignments}
+    @assignments = current_user.pending_assignments[0..4]
   end
 
   def create
@@ -39,11 +31,13 @@ class ClassroomController < ApplicationController
   def show
     @classroom = Classroom.find_by_id(params[:id])
     if current_user.user_type == 'teacher'
+      @roster = @classroom.student_roster
+      @pending_assignments = @classroom.pending_assignments
+      @past_due_assignments = @classroom.past_due_assignments
       render '_teacher', locals: {classroom: @classroom}
     else
       render '_student', locals: {classroom: @classroom}
     end
-
   end
 
   def update
