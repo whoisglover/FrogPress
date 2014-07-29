@@ -5,16 +5,17 @@ class Assignment < ActiveRecord::Base
 
   def self.find_submission_and_status(current_user, assignment)
     user_submissions = Submission.where(user_id: current_user.id)
-    if user_submissions.length != 0 # User has submissions
-      user_submissions.each do |submission|
-        if submission.assignment_id == assignment.id && submission.status == "incomplete" # Not complete
-          return completed_submission = nil
-        elsif submission.assignment_id == assignment.id  && submission.status == "complete" # Assignment Complete
-          return completed_submission = submission
+    if user_submissions.length == 0 # User has no submissions
+      return completed_submission = nil
+    end
+    user_submissions.each do |submission|
+      if submission.assignment_id == assignment.id
+        if submission.status == "complete"
+          return submission
+        else
+          return nil
         end
       end
-    else
-      return completed_submission = nil # User has no submissions so this is nil, Not complete
     end
   end
 
