@@ -13,6 +13,10 @@ class FeedbackController < ApplicationController
 
       # post :create, feedback: feedback
 
+# //////////// ADD Field for Submitted by
+
+
+
       subid = params[:feedback][:submission_id]
       content = params[:feedback][:content]
       Feedback.create(submission_id: subid, content: content)
