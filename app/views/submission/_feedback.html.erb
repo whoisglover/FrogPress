@@ -1,0 +1,14 @@
+
+<h3 class = "brd-bt pad-bt-15 mrg-btm-0 pad-top-15" >Assignment Analytics</h3>
+
+<h4 class = "ft-lite pad-bt-15 mrg-top-10"> Flesch-Kincaid Readability Score: <%= Lingua::EN::Readability.new(@submission.sub_content).kincaid %><br>
+Vocabulary Complexity: <%= Lingua::EN::Readability.new(@submission.sub_content).percent_fog_complex_words %><br>
+Avg Sentence Length: <%= Lingua::EN::Readability.new(@submission.sub_content).words_per_sentence %>
+</h4>
+
+<h4 class = "brd-bt pad-bt-15 mrg-btm-0 pad-top-15" >Written Feedback</h4>
+  <% @submission_feedback = Submission.find(@submission.id).feedbacks %>
+  <% @submission_feedback.each do | feedback | %>
+  <h4 class = "ft-lite pad-bt-15 mrg-top-10"><%= feedback.content %><h4>
+  <% end %>
+
