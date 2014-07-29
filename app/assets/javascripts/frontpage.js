@@ -25,8 +25,9 @@ View.prototype = {
   bindEventListeners: function(){
     this.bindLoginButton();
     console.log('binding..');
+    console.log(this.videoPlayer)
     // debugger
-
+    this.videoPlayer.onended = this.playNextVideo.bind(this);
 
 
     // this.pauseButton.addEventListener('click', this.pauseVideo.bind(this));
@@ -41,10 +42,18 @@ View.prototype = {
   },
   playNextVideo: function(){
     // $(this.videoControls).hide()
-    debugger
+    // debugger
+      var nextVideo = ""
+
     this.video_count++;
-    if(this.video_count==5){this.video_count =1};
-    var nextVideo = "/assets/video"+this.video_count+".mp4";
+    if (this.video_count == 5){
+        debugger
+      this.video_count = 1;}
+    if(this.video_count==2){
+       nextVideo = "/assets/video2.ogv"
+    }else{
+      nextVideo = "/assets/video"+this.video_count+".mp4";
+    }
     this.videoPlayer.src = nextVideo;
     this.videoPlayer.play();
     // $(this.videoControls).show()
@@ -62,10 +71,6 @@ View.prototype = {
     $(this.pauseButton).show()
   }
 
-}
-
-function alert() {
-  alert('wtf')
 }
 
 
