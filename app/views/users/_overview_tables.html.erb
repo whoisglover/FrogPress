@@ -1,9 +1,6 @@
- <% @data[:submissions].each do |entry| %>
+ <% @submissions.each do |entry| %>
     <h3 class = "hov-grn ft-lite brd-bt pad-bt-5 mrg-btm-0 pad-top-15"><a class = "no-txt-dec black hov-grn ft-sz-2" href="<%= classroom_path(entry[:klass]) %>"><%= Classroom.find(entry[:klass]).name %></a></h3>
     <!-- Visit Class Page (put as a link for class) -->
-
-
-
     <table class = "w-100per brd-clpse">
       <tr class = "ft-lite ft-sz-1half mrg-top-45 mrg-btm-0 brd-bt pad-bt-5 orange">
         <th class = "ft-lite txt-lt w-50per">Assignment</th>
@@ -18,10 +15,4 @@
       </tr>
       <% end %>
     </table>
-
-
-
-
-
-
-    <% end %>
+<% end %>

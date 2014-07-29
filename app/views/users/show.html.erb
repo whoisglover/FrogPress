@@ -1,13 +1,13 @@
 <div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
 
   <!-- Student's Name  -->
-  <h1 class = "ft-lite ft-sz-2q mrg-btm-0 txt-ctr brd-bt pad-bt-5"><%= @data[:student].first_name %> <%= @data[:student].last_name %> Overview</h1>
+  <h1 class = "ft-lite ft-sz-2q mrg-btm-0 txt-ctr brd-bt pad-bt-5"><%= @student.first_name %> <%= @student.last_name %> Overview</h1>
 
   <!-- Highcharts stuff -->
   <p>LOTS OF DATA HERE</p>
 
   <!-- Tables of assignments per class -->
-  <% if @data[:submissions][0] %>
+  <% if @submissions[0] %>
     <%= render partial: "overview_tables" %>
   <% end %>
 
