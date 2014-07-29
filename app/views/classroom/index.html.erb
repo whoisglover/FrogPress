@@ -21,7 +21,7 @@
     <table class = "brd-clpse brd-top w-100per">
       <% @data[:classrooms].each do |klass| %>
       <tr onclick="document.location = '/classroom/<%= klass.id %>'" class = 'ft-lite mrg-l-n40 ft-sz-1q hov-bkg-grn'>
-        <td  class = "pad-l-5 pad-top-15"><%= klass.name %></a></td>
+        <td  class = "pad-l-5 pad-top-15"><%= klass.name %></td>
       </tr>
       <% end %>
     </table>
