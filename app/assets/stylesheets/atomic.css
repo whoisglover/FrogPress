@@ -51,6 +51,8 @@
 .h-50per{height: 50%; }
 .h-100per{height: 100%; }
 
+img { height: 150%;}
+
 .mrg-auto{ margin: auto; }
 .mrg-btm-0{ margin-bottom: 0px; }
 .mrg-bot-2{margin-bottom: 2rem;}
@@ -58,6 +60,7 @@
 
 .mrg-top-0{ margin-top: 0px; }
 .mrg-top-10{ margin-top: 10px; }
+
 .mrg-top-45{ margin-top: 45px; }
 .mrg-top-37{ margin-top: 37px; }
 .mrg-top-150{ margin-top: 150px; }
@@ -94,7 +97,7 @@
 .disp-no{ display: none;}
 .flt-r{ float: right; }
 .disp-none{display: none;}
-
+.abso{ position: absolute;}
 
 
 
