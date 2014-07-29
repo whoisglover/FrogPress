@@ -5,6 +5,15 @@ class FeedbackController < ApplicationController
   def create
     if current_user.user_type == 'teacher'
       # ////////////////////////// p params to see double nested hash feedback=>{submission_id: 5}
+      subid = params[:feedback][:submission_id]
+      content = params[:feedback][:content]
+      Feedback.create(submission_id: subid, content: content)
+    end
+      redirect_to (submission_path(subid))
+  end
+end
+
+
 
 
       # feedback = {}
@@ -16,11 +25,3 @@ class FeedbackController < ApplicationController
 # //////////// ADD Field for Submitted by
 
 
-
-      subid = params[:feedback][:submission_id]
-      content = params[:feedback][:content]
-      Feedback.create(submission_id: subid, content: content)
-    end
-      redirect_to (submission_path(subid))
-  end
-end
