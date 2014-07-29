@@ -1,11 +1,15 @@
-<%= form_for @assignment, url: assignment_index_path do |f| %>
-<%= f.label :title %>
-<%= f.text_field :title %>
-<%= f.label :due_date %>
-<%= f.date_field :due_date %>
+<div class = 'gill w-70per mrg-auto min-w-350px max-w-900px mrg-top-45'>
+
+<%= form_for @assignment, url: assignment_path do |f| %>
+<%= f.label :title, class: "ft-sz-1half gill ft-lite mrg-top-45" %><br>
+<%= f.text_field :title, class: "w-100per mrg-btm-15 " %><br>
+<%= f.label :due_date, class: "ft-sz-1half gill ft-lite" %><br>
+<%= f.date_field :due_date, class: "w-100per mrg-btm-15 " %><br>
 <br>
-<%= f.label :content %><br>
-<%= f.text_area :content %><br>
-<%= f.submit "Submit" %>
+<%= f.label :content, class: "ft-sz-1half gill ft-lite" %><br>
+<%= f.text_area :content, class: "w-100per mrg-btm-15 " %><br>
+<%= f.submit "Edit", class: "brd-none w-101per green bkg-wt brd-grn" %>
 <%= f.hidden_field :classroom_id, value: params[:classroom_id] %>
 <% end %>
+
+</div>
