@@ -1,0 +1,27 @@
+ <% @data[:submissions].each do |entry| %>
+    <h3 class = "hov-grn ft-lite brd-bt pad-bt-5 mrg-btm-0 pad-top-15"><a class = "no-txt-dec black hov-grn ft-sz-2" href="<%= classroom_path(entry[:klass]) %>"><%= Classroom.find(entry[:klass]).name %></a></h3>
+    <!-- Visit Class Page (put as a link for class) -->
+
+
+
+    <table class = "w-100per brd-clpse">
+      <tr class = "ft-lite ft-sz-1half mrg-top-45 mrg-btm-0 brd-bt pad-bt-5 orange">
+        <th class = "ft-lite txt-lt w-50per">Assignment</th>
+        <th class = "ft-lite txt-ctr">Status</th>
+        <th class = "ft-lite txt-rt">Due Date</th>
+      </tr>
+      <%  entry[:submissions].each do |sub| %>
+      <tr onclick="document.location = '<%= submission_path(sub.id) %>'" class = 'ft-lite mrg-l-n40 ft-sz-1q hov-bkg'>
+        <td class = "ft-lite pad-top-15 pad-l-5 txt-lt"><%= sub.assignment.title %></td>
+        <td class = "ft-lite pad-top-15 txt-ctr">Level</td>
+        <td class = "ft-lite pad-top-15 pad-r-5 txt-rt">today!</td>
+      </tr>
+      <% end %>
+    </table>
+
+
+
+
+
+
+    <% end %>
