@@ -1,5 +1,5 @@
+
 class SubmissionController < ApplicationController
-  include SubmissionsHelper
   before_filter :authenticate_user!
   before_filter :verify_user
   protect_from_forgery
@@ -10,22 +10,11 @@ class SubmissionController < ApplicationController
   end
 
   def show
-      @assignment = Assignment.find_by_id(params[:id])
-      @classroom = @assignment.classroom
-      @students = student_roster(@classroom)
-
-     # Move to model when MVP done
-      if current_user.user_type == "student"
-
-       @completed_submission = Assignment.find_submission_and_status(current_user, @assignment)
-       @submission_data = Assignment.create_submission_data(current_user, @completed_submission, @assignment)
-       @submission = @submission_data[:submission]
-       @sub_title_placeholder = @submission_data[:sub_title_placeholder]
-       @sub_content_placeholder = @submission_data[:sub_content_placeholder]
-      end
-
-    end
-
+    @submission = Submission.find_by_id(params[:id])
+    @student = @submission.user
+    @assignment = @submission.assignment
+    @classroom = @assignment.classroom
+  end
 
   def create
     if params[:commit] == "Submit"
