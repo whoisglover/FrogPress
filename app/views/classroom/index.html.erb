@@ -14,14 +14,14 @@
     <div class = "w-100per">
       <h1 class = "ft-lite ft-sz-2 mrg-btm-0 pad-bt-5 inln-bk">Your Classes</h1>
 
-      <a class = "no-txt-dec black hov-grn pad-l-20 flt-r mrg-top-37" href="/classroom/new">Add a Class</a>
+      <a class = "no-txt-dec black  hov-grn pad-l-20 flt-r mrg-top-37" href="/classroom/new">Add a Class</a>
     </div>
 
 
     <table class = "brd-clpse brd-top w-100per">
       <% @data[:classrooms].each do |klass| %>
-      <tr onclick="document.location = '/classroom/<%= klass.id %>'" class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-grn'>
-        <td  class = "pad-top-15"><%= klass.name %></a></td>
+      <tr onclick="document.location = '/classroom/<%= klass.id %>'" class = 'ft-lite mrg-l-n40 ft-sz-1q hov-bkg-grn'>
+        <td  class = "pad-l-5 pad-top-15"><%= klass.name %></a></td>
       </tr>
       <% end %>
     </table>
@@ -29,9 +29,9 @@
     <h1 class = "ft-lite ft-sz-2 mrg-btm-0 brd-bt pad-bt-5" >Pending Assignments</h1>
     <table class = "brd-clpse w-100per">
       <% current_user.pending_assignments.reverse[0..4].each do |assignment| %>
-      <tr onclick='document.location = "<%= assignment_path(assignment.id) %>"' class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-grn'>
-        <td  class = "pad-top-15"><%= assignment.title %></a></td>
-        <td  class = "pad-top-15 pad-l-20 txt-rt"><%= assignment.due_date.month %>/<%= assignment.due_date.day %></td>
+      <tr onclick='document.location = "<%= assignment_path(assignment.id) %>"' class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-bkg-grn'>
+        <td  class = "pad-l-5 pad-top-15"><%= assignment.title %></a></td>
+        <td  class = "pad-top-15 pad-l-20 pad-r-5 txt-rt"><%= assignment.due_date.month %>/<%= assignment.due_date.day %></td>
       </tr>
       <% end %>
     </table>
