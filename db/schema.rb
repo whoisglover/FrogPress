@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140727183844) do
+ActiveRecord::Schema.define(version: 20140729223902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20140727183844) do
   create_table "assignments", force: true do |t|
     t.integer  "classroom_id"
     t.string   "title"
-    t.text     "content"
+    t.string   "content"
     t.date     "due_date"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -40,11 +40,37 @@ ActiveRecord::Schema.define(version: 20140727183844) do
     t.datetime "updated_at"
   end
 
+  create_table "rubric_categories", force: true do |t|
+    t.integer  "rubric_id"
+    t.string   "title"
+    t.text     "level1"
+    t.text     "level2"
+    t.text     "level3"
+    t.text     "level4"
+    t.text     "level5"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rubric_submissions", force: true do |t|
+    t.integer  "feedback_id"
+    t.integer  "rubric_category_id"
+    t.integer  "score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rubrics", force: true do |t|
+    t.integer  "classroom_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "submissions", force: true do |t|
     t.integer  "assignment_id"
     t.integer  "user_id"
     t.string   "sub_title"
-    t.text     "sub_content"
+    t.string   "sub_content"
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -70,6 +96,11 @@ ActiveRecord::Schema.define(version: 20140727183844) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "users_classroom", force: true do |t|
+    t.integer "user_id"
+    t.integer "classroom_id"
+  end
 
   create_table "users_classrooms", force: true do |t|
     t.integer  "user_id"
