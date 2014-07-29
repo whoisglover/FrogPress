@@ -13,13 +13,11 @@ class Classroom < ActiveRecord::Base
   end
 
   def pending_assignments
-    @these_pending_assignments = self.all_assignments.where("due_date >= ?", Date.today)
-    @these_pending_assignments = @these_pending_assignments.sort_by(&:due_date).reverse
+    return  self.all_assignments.where("due_date >= ?", Date.today).sort_by(&:due_date)
   end
 
   def past_due_assignments
-    @these_past_due_assignments = self.all_assignments.where("due_date < ?", Date.today)
-    @these_past_due_assignments = @these_past_due_assignments.sort_by(&:due_date).reverse
+    return self.all_assignments.where("due_date < ?", Date.today).sort_by(&:due_date)
   end
 
   def student_roster

@@ -24,10 +24,10 @@
   <%= render partial: "list_classrooms" %>
 
   <!-- Pending assignments header -->
-  <h1 class = "ft-lite ft-sz-2 mrg-btm-0 brd-bt pad-bt-5 orange" >Pending Assignments</h1>
+  <h1 class = "ft-lite ft-sz-2 mrg-btm-0 pad-bt-5 orange" >Pending Assignments</h1>
 
   <!-- Table of pending assignments -->
-  <%= render partial: "list_assignments" %>
+  <%= render partial: "list_assignments", locals: {assignments: @assignments} %>
 
 </div>
 
