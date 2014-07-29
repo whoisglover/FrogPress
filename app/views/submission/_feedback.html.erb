@@ -1,0 +1,9 @@
+
+<h3 class = "ft-lite brd-bt pad-bt-15 mrg-top-100" >Feedback</h3>
+  <% @submission_feedback = Submission.find(@submission.id).feedbacks %>
+  <% @submission_feedback.each do | feedback | %>
+  <%= feedback.content %>
+  <% end %>
+
+
+

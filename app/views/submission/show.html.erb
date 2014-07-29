@@ -2,8 +2,15 @@
 
   <%= render partial: "class_and_assignment" %>
 
-  <h4 class = "txt-ctr mrg-btm-0 mrg-top-45"><%= @submission.sub_title%>We need to parse the paragraphs</h4>
+  <h4 class = "txt-ctr mrg-btm-0 mrg-top-45"><%= @submission.sub_title%></h4>
   <h5 class = "txt-ctr mrg-top-0 ft-lite">by <%=@student.first_name%> <%=@student.last_name%></h5>
   <p><%= @submission.sub_content%></p>
+
+  <%= render partial: "feedback", locals: {submission: @submission} %>
+
+  <% if current_user != "student" %>
+  <%= render partial: "create_feedback", locals: {submission: @submission} %>
+  <% end %>
+
 </div>
 
