@@ -9,10 +9,9 @@
   <table class = "brd-clpse w-100per">
     <% @pending_assignments.each do |assignment| %>
     <tr onclick="document.location = '<%= assignment_path(assignment.id) %>'" class = 'ft-lite mrg-l-n40 ft-sz-1q hov-bkg'>
-      <td class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q'><%= assignment.title %></td>
-      <td class = "pad-5 ft-lite mrg-l-n40 ft-sz-1q txt-rt">
-          <%= assignment.due_date.month %>/<%= assignment.due_date.day %>
-      </td>
+      <td class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q w-75per'><%= assignment.title %></td>
+      <td  class = "pad-top-15 pad-l-20 pad-r-5 txt-rt">due: </td>
+        <td  class = "pad-top-15 pad-l-20 pad-r-5 txt-rt"><%= assignment.due_date.month %>/<%= assignment.due_date.day %></td>
     </tr>
     <% end %>
   </table>
@@ -20,10 +19,9 @@
   <table class = "brd-clpse w-100per">
     <% @past_due_assignments.each do |assignment| %>
     <tr onclick="document.location = '<%= assignment_path(assignment.id) %>'" class = 'ft-lite mrg-l-n40 ft-sz-1q hov-bkg'>
-      <td class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q'><%= assignment.title %></td>
-      <td class = "pad-5 ft-lite mrg-l-n40 ft-sz-1q txt-rt">
-          <%= assignment.due_date.month %>/<%= assignment.due_date.day %>
-      </td>
+      <td class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q w-75per'><%= assignment.title %></td>
+      <td  class = "pad-top-15 pad-l-20 pad-r-5 txt-rt">due: </td>
+        <td  class = "pad-top-15 pad-l-20 pad-r-5 txt-rt"><%= assignment.due_date.month %>/<%= assignment.due_date.day %></td>
     </tr>
     <% end %>
   </table>

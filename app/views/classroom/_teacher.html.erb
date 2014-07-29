@@ -44,12 +44,11 @@ delete a student from a classroom
       <% @pending_assignments.reverse.each do |assignment| %>
 
       <tr onclick="document.location = '<%= assignment_path(assignment.id) %>'" class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-bkg'>
-        <td class = "pad-top-15 pad-l-5">
+        <td class = "pad-top-15 pad-l-5 w-75per">
           <%= assignment.title %>
         </td>
-        <td class = "pad-top-15 txt-rt pad-r-5 pad-l-20">
-          <%= assignment.due_date.month %>/<%= assignment.due_date.day %>
-        </td>
+        <td  class = "pad-top-15 pad-l-20 pad-r-5 txt-rt">due: </td>
+        <td  class = "pad-top-15 pad-l-20 pad-r-5 txt-rt"><%= assignment.due_date.month %>/<%= assignment.due_date.day %></td>
         <td class = "pad-top-15 txt-rt disp-no pad-r-5"><i class="fa fa-times ft-sz-1 pad-l-20"></i></a>
         </td>
       </a>
@@ -63,12 +62,11 @@ delete a student from a classroom
   <table class = "brd-clpse w-100per brd-top mrg-top-0">
     <% @past_due_assignments.each do |assignment| %>
     <tr onclick="document.location = '<%= assignment_path(assignment.id) %>'" class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-bkg'>
-      <td class = "pad-top-15 pad-l-5">
+      <td class = "pad-top-15 pad-l-5 w-75per">
         <%= assignment.title %></a>
       </td>
-      <td class = "pad-top-15 txt-rt pad-r-5">
-        <%= assignment.due_date.month %>/<%= assignment.due_date.day %>
-      </td>
+      <td  class = "pad-top-15 pad-l-20 pad-r-5 txt-rt">due: </td>
+        <td  class = "pad-top-15 pad-l-20 pad-r-5 txt-rt"><%= assignment.due_date.month %>/<%= assignment.due_date.day %></td>
       <td class = "pad-top-15 txt-rt disp-no pad-r-5"><i class="fa fa-times ft-sz-1 pad-l-20"></i></a>
         </td>
     </tr>

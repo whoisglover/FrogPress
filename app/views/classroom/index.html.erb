@@ -19,9 +19,15 @@
 
 
     <table class = "brd-clpse brd-top w-100per">
+      <!-- <tr class = " ft-lite ft-sz-2 mrg-top-45 mrg-btm-0 brd-bt pad-bt-5 orange">
+      <th class = "ft-lite txt-lt">Class Name</th>
+      <th class = "ft-lite txt-rt">Teacher</th>
+    </tr> -->
       <% @data[:classrooms].each do |klass| %>
       <tr onclick="document.location = '/classroom/<%= klass.id %>'" class = 'ft-lite mrg-l-n40 ft-sz-1q hov-bkg'>
         <td  class = "pad-l-5 pad-top-15"><%= klass.name %></td>
+        <% teacher = klass.users.where('user_type = ?', 'teacher')[0] %>
+        <td  class = "pad-l-5 pad-top-15 txt-rt"><%= teacher.first_name %> <%= teacher.last_name %></td>
       </tr>
       <% end %>
     </table>
@@ -31,6 +37,7 @@
       <% current_user.pending_assignments.reverse[0..4].each do |assignment| %>
       <tr onclick='document.location = "<%= assignment_path(assignment.id) %>"' class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-bkg'>
         <td  class = "pad-l-5 pad-top-15"><%= assignment.title %></a></td>
+        <td  class = "pad-top-15 pad-l-20 pad-r-5 txt-rt">due: </td>
         <td  class = "pad-top-15 pad-l-20 pad-r-5 txt-rt"><%= assignment.due_date.month %>/<%= assignment.due_date.day %></td>
       </tr>
       <% end %>
