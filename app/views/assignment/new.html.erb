@@ -4,9 +4,9 @@
 <%= f.label :title %>
 <%= f.text_field :title, placeholder:"Title", class: "w-100per mrg-btm-15 " %>
 <%= f.label :due_date %>
-<%= f.date_field :due_date, class: "w-100per mrg-btm-15 " %>
+<%= f.date_field :due_date, class: "w-100per mrg-btm-15" %>
 <br>
-<%= f.label :content %><br>
+<%= f.label :content, "Prompt" %><br>
 <%= f.text_area :content, placeholder:"Prompt",class: "w-100per mrg-btm-15 " %><br>
 <%= f.submit "Submit", class: "brd-none w-101per green bkg-wt brd-grn" %>
 <%= f.hidden_field :classroom_id, value: params[:classroom_id] %>
