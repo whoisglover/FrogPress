@@ -5,6 +5,11 @@
 
 <div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
   <h2 class = "ft-lite ft-sz-2q txt-ctr mrg-btm-0 pad-bt-5" ><%= @classroom.name %></h2>
+
+  <% teacher = @classroom.users.where('user_type = ?', 'teacher')[0] %>
+
+  <h2 class = "ft-lite ft-sz-1q txt-ctr mrg-btm-0 pad-bt-5 sacramento" ><span class = "gill">with </span><%= teacher.first_name %> <%= teacher.last_name %></h2>
+
   <h2 class = "ft-lite ft-sz-2  orange mrg-top-45 mrg-btm-0 brd-bt pad-bt-5" >Active Assignments</h2>
   <table class = "brd-clpse w-100per">
     <% @pending_assignments.each do |assignment| %>

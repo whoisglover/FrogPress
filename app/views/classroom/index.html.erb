@@ -14,15 +14,19 @@
     <div class = "w-100per">
       <h1 class = "ft-lite ft-sz-2 mrg-btm-0 pad-bt-5 inln-bk orange">Your Classes</h1>
 
-      <a class = "no-txt-dec black  hov-grn pad-l-20 flt-r mrg-top-37" href="/classroom/new">Add a Class</a>
+
+
+      <% if current_user.user_type == 'student' %>
+        <a class = "no-txt-dec black  hov-grn pad-l-20 flt-r mrg-top-37" href="/classroom/new">Add a Class</a>
+      <% end %>
+      <% if current_user.user_type == 'teacher' %>
+        <a class = "no-txt-dec black  hov-grn pad-l-20 flt-r mrg-top-37" href="/classroom/new">Create a Class</a>
+      <% end %>
     </div>
 
 
     <table class = "brd-clpse brd-top w-100per">
-      <!-- <tr class = " ft-lite ft-sz-2 mrg-top-45 mrg-btm-0 brd-bt pad-bt-5 orange">
-      <th class = "ft-lite txt-lt">Class Name</th>
-      <th class = "ft-lite txt-rt">Teacher</th>
-    </tr> -->
+
       <% @data[:classrooms].each do |klass| %>
       <tr onclick="document.location = '/classroom/<%= klass.id %>'" class = 'ft-lite mrg-l-n40 ft-sz-1q hov-bkg'>
         <td  class = "pad-l-5 pad-top-15"><%= klass.name %></td>
