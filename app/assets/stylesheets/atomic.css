@@ -89,6 +89,7 @@
 .inln-bk{ display: inline-block; }
 .inline{ display: inline;}
 .hidden{ visibility: hidden; }
+.disp-no{ display: none;}
 .flt-r{ float: right; }
 
 

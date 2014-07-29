@@ -23,11 +23,14 @@ delete a student from a classroom
   </div>
 
   <div class = 'col-L vert-top'>
-    <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0 brd-bt pad-bt-5" >Roster</h2>
-    <table class = "brd-clpse">
+    <h2 class = "ft-lite ft-sz-2 mrg-btm-0  pad-bt-5 inln-bk" >Roster</h2>
+    <p id = "edit-teacher-classroom" class = "no-txt-dec black hov-grn pad-l-20 flt-r mrg-top-37" >Edit</p>
+    <table class = "brd-clpse w-100per brd-top">
       <% @roster.each do |student| %>
       <tr onclick="document.location = '<%= user_path(student.id) %>'"class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-grn'>
         <td class = "pad-top-15"><%= student.first_name %> <%= student.last_name %></a>
+        </td>
+        <td class = "pad-top-15 txt-rt disp-no"><i class="fa fa-times ft-sz-1 pad-l-20"></i></a>
         </td>
       </tr>
       <% end %>
@@ -35,8 +38,9 @@ delete a student from a classroom
   </div>
 
   <div class = 'col-R'>
-    <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0 brd-bt pad-bt-5" >Pending Assignments</h2>
-    <table class = "brd-clpse w-100per">
+    <h2 class = "ft-lite ft-sz-2 mrg-btm-0 pad-bt-5 inln-bk" >Pending Assignments</h2>
+    <p id = "edit-teacher-classroom" class = "no-txt-dec black hov-grn pad-l-20 flt-r mrg-top-37">Edit</p>
+    <table class = "brd-clpse w-100per brd-top">
       <% @pending_assignments.reverse.each do |assignment| %>
 
       <tr onclick="document.location = '<%= assignment_path(assignment.id) %>'" class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-grn'>
@@ -46,13 +50,17 @@ delete a student from a classroom
         <td class = "pad-top-15 txt-rt pad-l-20">
           <%= assignment.due_date.month %>/<%= assignment.due_date.day %>
         </td>
+        <td class = "pad-top-15 txt-rt disp-no"><i class="fa fa-times ft-sz-1 pad-l-20"></i></a>
+        </td>
       </a>
     </tr>
     <% end%>
   </table>
 
-  <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0 brd-bt pad-bt-5" >Past Assignments</h2>
-  <table class = "brd-clpse w-100per">
+  <h2 class = "ft-lite ft-sz-2 mrg-btm-0 pad-bt-5 inln-bk" >Past Assignments</h2>
+  <div>
+  <p id = "edit-teacher-classroom" class = "no-txt-dec black hov-grn pad-l-20 flt-r mrg-top-37" >Edit</p>
+  <table class = "brd-clpse w-100per brd-top">
     <% @past_due_assignments.each do |assignment| %>
     <tr onclick="document.location = '<%= assignment_path(assignment.id) %>'" class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-grn'>
       <td class = "pad-top-15">
@@ -61,9 +69,12 @@ delete a student from a classroom
       <td class = "pad-top-15 txt-rt pad-l-5">
         <%= assignment.due_date.month %>/<%= assignment.due_date.day %>
       </td>
+      <td class = "pad-top-15 txt-rt disp-no"><i class="fa fa-times ft-sz-1 pad-l-20"></i></a>
+        </td>
     </tr>
     <% end %>
   </table>
+</div>
 </div>
 <p class = "brd-top txt-rt mrg-top-150">Classroom Invitation Code: <%= @classroom.join_code %></p>
 
