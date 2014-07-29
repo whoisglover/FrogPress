@@ -2,11 +2,11 @@
 
 <%= form_for @submission, url: create_submission_path(@assignment.id) do |form| %>
   <%= form.text_field :sub_title, :placeholder => @sub_title_placeholder, class: "w-100per" %><br><br>
-  <%= form.cktext_area :sub_content, :value => @sub_content_placeholder, :id => 'sometext', :class => 'ckeditor', :toolbar => 'MyToolbar' %>
+  <%= form.cktext_area :sub_content, :value => @sub_content_placeholder, :id => 'sometext', :class => 'ckeditor', :toolbar => 'MyToolbar', style: "color: red" %>
   <%= form.hidden_field :user_id, :value => current_user.id %>
   <%= form.hidden_field :assignment_id, :value => @assignment.id %>
-  <%= form.hidden_field :submission_id, :value => @submission.id %>
+  <%= form.hidden_field :submission_id, :value => @submission.id %><br>
   <!-- Name of submit button is passed to controller as params[:commit] -->
-  <%= form.submit "Save" %>
-  <%= form.submit "Submit" %>
+  <%= form.submit "Save", class: "brd-none w-100per dk-grn bkg-wt brd-grn" %><br><br>
+  <%= form.submit "Submit", class: "brd-none w-100per dk-grn bkg-wt brd-grn" %>
 <% end %>
