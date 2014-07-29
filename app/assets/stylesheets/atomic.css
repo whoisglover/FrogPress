@@ -1,3 +1,24 @@
+.table-title{
+  font-weight: lighter;
+  font-size: 2rem;
+  color: #F47E0C; /*orange*/
+
+  margin-bottom: 0px;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.edit-button{
+  text-decoration: none;
+  color: black;
+  padding-left: 20px;
+  float: right;
+  margin-top: 37px;
+}
+.edit-button:hover{
+  color: #557D73;
+}
+
 .txt-ctr{ text-align: center; }
 .txt-rt{ text-align: right; }
 .txt-lt{ text-align: left; }

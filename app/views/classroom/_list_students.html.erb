@@ -1,0 +1,8 @@
+<table class = "brd-clpse w-100per brd-top">
+      <% students.each do |student| %>
+      <tr onclick="document.location = '<%= user_path(student.id) %>'"class = ' ft-lite mrg-l-n40 ft-sz-1q hov-bkg'>
+        <td class = "pad-top-15 pad-l-5"><%= student.first_name %> <%= student.last_name %></a>
+        </td>
+      </tr>
+      <% end %>
+</table>
