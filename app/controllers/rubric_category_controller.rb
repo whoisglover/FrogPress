@@ -1,0 +1,2 @@
+class RubricCategoryController < ApplicationController
+end
