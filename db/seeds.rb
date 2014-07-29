@@ -134,7 +134,7 @@ Classroom.find_by_id(5).users << User.find_by_id(24)
 
 
 # Assignment(id: integer, classroom_id: integer, title: string, content: string, due_date: date, created_at: datetime, updated_at: datetime)
-#create some assignments
+#create some assignments for active assignments
 Assignment.create(classroom_id: 1, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
 Assignment.create(classroom_id: 2, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
 Assignment.create(classroom_id: 3, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
@@ -164,10 +164,43 @@ Assignment.create(classroom_id: 2, title: "#{Faker::Hacker.say_something_smart}"
 Assignment.create(classroom_id: 3, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
 Assignment.create(classroom_id: 4, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
 Assignment.create(classroom_id: 5, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today + rand(1..20))
+
+
+
+# Due date now set in the past to populate past due assignments
+Assignment.create(classroom_id: 1, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+Assignment.create(classroom_id: 2, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+Assignment.create(classroom_id: 3, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+Assignment.create(classroom_id: 4, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+Assignment.create(classroom_id: 5, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+
+Assignment.create(classroom_id: 1, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+Assignment.create(classroom_id: 2, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+Assignment.create(classroom_id: 3, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+Assignment.create(classroom_id: 4, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+Assignment.create(classroom_id: 5, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+
+Assignment.create(classroom_id: 1, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+Assignment.create(classroom_id: 2, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+Assignment.create(classroom_id: 3, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+Assignment.create(classroom_id: 4, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+Assignment.create(classroom_id: 5, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+
+Assignment.create(classroom_id: 1, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+Assignment.create(classroom_id: 2, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+Assignment.create(classroom_id: 3, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+Assignment.create(classroom_id: 4, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+Assignment.create(classroom_id: 5, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+
+Assignment.create(classroom_id: 1, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+Assignment.create(classroom_id: 2, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+Assignment.create(classroom_id: 3, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+Assignment.create(classroom_id: 4, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+Assignment.create(classroom_id: 5, title: "#{Faker::Hacker.say_something_smart}", content: "This class is about #{Faker::Hacker.say_something_smart}", due_date: Date.today - rand(1..20))
+
 
 
 #Submission(id: integer, assignment_id: integer, user_id: integer, sub_title: string, sub_content: string, status: string, created_at: datetime, updated_at: datetime)
-
 
 Submission.create( assignment_id: 1, user_id: 6, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
 Submission.create( assignment_id: 1, user_id: 7, sub_title: "#{Faker::Hacker.say_something_smart}", sub_content: "This submission is about #{Faker::Hacker.say_something_smart}", status: "draft")
