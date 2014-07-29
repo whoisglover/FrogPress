@@ -23,6 +23,7 @@
 .ln-h-50 { line-height: 50px; }
 
 .hov-grn:hover { color: green; }
+.hov-bkg-grn:hover { background-color: green; color: white;}
 
 .white { color: white; }
 .green { color: green; }
@@ -68,6 +69,7 @@
 .mrg-r-0{ margin-right: 0px; }
 .mrg-r-15{ margin-right: 15px; }
 
+.pad-r-5{ padding-right: 5px; }
 .pad-l-5{ padding-left: 5px; }
 .pad-l-20{ padding-left: 20px; }
 
