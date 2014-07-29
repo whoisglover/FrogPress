@@ -12,6 +12,8 @@ gem 'pg'
 # For text editor. Add paperclip gem if we decide to allow image uploads
 gem 'ckeditor'
 
+gem 'lingua'
+
 gem 'normalize-rails'
 
 # Use SCSS for stylesheets
