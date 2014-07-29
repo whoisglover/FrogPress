@@ -107,6 +107,7 @@ GEM
     json (1.8.1)
     launchy (2.4.2)
       addressable (~> 2.3)
+    lingua (0.6.2)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -229,6 +230,7 @@ DEPENDENCIES
   jasmine-rails
   jbuilder (~> 1.2)
   jquery-rails
+  lingua
   normalize-rails
   pg
   rails (= 4.0.0)
