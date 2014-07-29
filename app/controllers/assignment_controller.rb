@@ -13,7 +13,6 @@ class AssignmentController < ApplicationController
     assignment_hash = assignment_hash.to_hash
     assignment_hash.symbolize_keys!
     assignment = Assignment.create(assignment_hash)
-
     redirect_to (classroom_path(assignment.classroom_id))
   end
 
@@ -21,6 +20,12 @@ class AssignmentController < ApplicationController
     @assignment = Assignment.find_by_id(params[:id])
     @classroom = @assignment.classroom
     @students = student_roster(@classroom)
+    @submission = Submission.where(user_id: current_user.id, assignment_id: @assignment.id)
+    # @submission = Submission.where("user_id = ?, assignment_id = ?", current_user.id, @assignment.id)
+    p "submission //////" *40
+    p @submission
+    p "submission //////" *40
+
 
     # Move to model when MVP done
     if current_user.user_type == "student"
