@@ -31,7 +31,6 @@ class ClassroomController < ApplicationController
   def show
     @classroom = Classroom.find_by_id(params[:id])
     @teacher = @classroom.teacher
-
     render "_#{current_user.user_type}"
   end
 
