@@ -75,7 +75,7 @@ class AssignmentController < ApplicationController
     assignment_hash.symbolize_keys!
     assignment_to_change = Assignment.find_by_id(params[:id])
     assignment_to_change.update(assignment_hash)
-    redirect_to (classroom_path(assignment_to_change.classroom_id))
+    redirect_to (assignment_path(assignment_to_change))
   end
 
   def destroy

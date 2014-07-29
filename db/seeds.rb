@@ -74,19 +74,9 @@ Classroom.create( name: "#{Faker::Hacker.ingverb} the #{Faker::Hacker.adjective}
 # Classroom.find(params[(rand(1...6)]).users << User.find(rand(1...6))
 # add teachers to classrooms
 Classroom.find_by_id(1).users << User.find_by_id(1)
-Classroom.find_by_id(1).users << User.find_by_id(2)
-Classroom.find_by_id(1).users << User.find_by_id(3)
-Classroom.find_by_id(2).users << User.find_by_id(4)
-Classroom.find_by_id(2).users << User.find_by_id(5)
-Classroom.find_by_id(2).users << User.find_by_id(1)
-Classroom.find_by_id(3).users << User.find_by_id(2)
+Classroom.find_by_id(2).users << User.find_by_id(2)
 Classroom.find_by_id(3).users << User.find_by_id(3)
-Classroom.find_by_id(3).users << User.find_by_id(4)
-Classroom.find_by_id(4).users << User.find_by_id(5)
-Classroom.find_by_id(4).users << User.find_by_id(1)
-Classroom.find_by_id(4).users << User.find_by_id(2)
-Classroom.find_by_id(5).users << User.find_by_id(3)
-Classroom.find_by_id(5).users << User.find_by_id(4)
+Classroom.find_by_id(4).users << User.find_by_id(4)
 Classroom.find_by_id(5).users << User.find_by_id(5)
 
 # add students to classrooms

@@ -1,41 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
-  <div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
+<div class = 'gill w-70per mrg-auto min-w-350px max-w-900px '>
+
+  <!-- Display Student Overview Button if student -->
+  <% if current_user.user_type == 'student' %>
+    <form action="/users/<%= current_user.id %>" method="get">
+      <input type = 'submit' class = 'brd-none w-100per dk-grn bkg-wt brd-grn mrg-top-10 ft-sz-1half ft-lite' value = "Student Overview" >
+    </form>
+  <% end %>
+
+  <!-- Your Classes header, differs if teacher or student -->
+  <div class = "w-100per">
+    <h1 class = "ft-lite ft-sz-2 mrg-btm-0 pad-bt-5 inln-bk orange">Your Classes</h1>
 
     <% if current_user.user_type == 'student' %>
-      <form action="/users/<%= current_user.id %>" method="get">
-        <input type = 'submit' class = 'brd-none w-100per green bkg-wt brd-grn mrg-top-10 ft-sz-1half ft-lite' value = "Student Overview" >
-      </form>
+    <a class = "no-txt-dec black  hov-grn pad-l-20 flt-r mrg-top-37" href="/classroom/new">Add a Class</a>
     <% end %>
 
-    <div class = "w-100per">
-      <h1 class = "ft-lite ft-sz-2 mrg-btm-0 pad-bt-5 inln-bk">Your Classes</h1>
+    <% if current_user.user_type == 'teacher' %>
+    <a class = "no-txt-dec black  hov-grn pad-l-20 flt-r mrg-top-37" href="/classroom/new">Create a Class</a>
+    <% end %>
+  </div>
 
-      <a class = "no-txt-dec black  hov-grn pad-l-20 flt-r mrg-top-37" href="/classroom/new">Add a Class</a>
-    </div>
+  <!-- Table of Classrooms -->
+  <%= render partial: "list_classrooms" %>
 
+  <!-- Pending assignments header -->
+  <h1 class = "ft-lite ft-sz-2 mrg-btm-0 pad-bt-5 orange" >Pending Assignments</h1>
 
-    <table class = "brd-clpse brd-top w-100per">
-      <% @data[:classrooms].each do |klass| %>
-      <tr onclick="document.location = '/classroom/<%= klass.id %>'" class = 'ft-lite mrg-l-n40 ft-sz-1q hov-bkg-grn'>
-        <td  class = "pad-l-5 pad-top-15"><%= klass.name %></a></td>
-      </tr>
-      <% end %>
-    </table>
-    <br>
-    <h1 class = "ft-lite ft-sz-2 mrg-btm-0 brd-bt pad-bt-5" >Pending Assignments</h1>
-    <table class = "brd-clpse w-100per">
-      <% current_user.pending_assignments.reverse[0..4].each do |assignment| %>
-      <tr onclick='document.location = "<%= assignment_path(assignment.id) %>"' class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-bkg-grn'>
-        <td  class = "pad-l-5 pad-top-15"><%= assignment.title %></a></td>
-        <td  class = "pad-top-15 pad-l-20 pad-r-5 txt-rt"><%= assignment.due_date.month %>/<%= assignment.due_date.day %></td>
-      </tr>
-      <% end %>
-    </table>
-    <div>
-    </body>
-    </html>
+  <!-- Table of pending assignments -->
+  <%= render partial: "list_assignments", locals: {assignments: @assignments} %>
+
+</div>
+
 
