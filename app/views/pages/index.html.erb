@@ -48,12 +48,14 @@
       </div>
 
 
+      <div data-ui="videoControls">
 
+      </div>
 
 
       </div>
-      <video width="100%" preload="auto" autoplay="autoplay" muted="muted" poster="https://www.paypalobjects.com/webstatic/mktg/wright/videos/home-signup.jpg" loop="loop">
-        <source src=<%= asset_path 'school_classroom.mp4' %> type="video/mp4">
+      <video id="videoPlayer" width="100%" preload="auto" autoplay="autoplay" muted="muted" poster="https://www.paypalobjects.com/webstatic/mktg/wright/videos/home-signup.jpg" onended="alert()">
+        <source src=<%= asset_path "video1.mp4" %> type="video/mp4">
         <source src="" type="video/webm">
       </video>
     </div>
