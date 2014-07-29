@@ -36,7 +36,7 @@ delete a student from a classroom
 
   <div class = 'col-R'>
     <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0 brd-bt pad-bt-5" >Pending Assignments</h2>
-    <table class = "brd-clpse">
+    <table class = "brd-clpse w-100per">
       <% @pending_assignments.reverse.each do |assignment| %>
 
       <tr onclick="document.location = '<%= assignment_path(assignment.id) %>'" class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-grn'>
