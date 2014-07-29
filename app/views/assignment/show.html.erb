@@ -9,9 +9,11 @@
 
   <% if current_user.user_type == "student" %>
     <% if @completed_submission != nil %>
+      <%= render partial: "submission/feedback", locals: {submission: @submission} %>
       <%= render 'student_assignment_overview' %>
     <% else %>
       <%= render 'submission/text_editor' %>
     <% end %>
   <% end %>
 </div>
+
