@@ -22,10 +22,7 @@ class AssignmentController < ApplicationController
     @students = student_roster(@classroom)
     submission = Submission.where(user_id: current_user.id, assignment_id: @assignment.id)
     @submission = submission.first
-    # @submission = Submission.where("user_id = ?, assignment_id = ?", current_user.id, @assignment.id)
-    p "submission //////" *40
-    p @submission
-    p "submission //////" *40
+
 
 
     # Move to model when MVP done
