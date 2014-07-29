@@ -23,17 +23,43 @@ describe UsersController do
       expect(response).to redirect_to(user_path(student.id))
     end
 
-    it 'should return the information for the user' do
+    it 'teacher sees students classes that they teach' do
       #arrange
       login = login_teacher
       #grab teacher id from login_teacher helper function
       teacher_id = login[0][0]
       #grab the teacher using the teacher id
       teacher = User.find_by_id(teacher_id)
+      klass = FactoryGirl.create(:classroom)
+      student = FactoryGirl.create(:student)
+
+      klass.users << teacher
+      klass.users << student
+
       #act
       get :show, id: teacher.id
+
       #assert
-      expect(assigns(:data)).to include(student: teacher)
+      expect(assigns(:submissions_by_classroom)).to include(klass.id)
+    end
+
+    it 'teacher does not see students classes that they do not teach' do
+      #arrange
+      login = login_teacher
+      #grab teacher id from login_teacher helper function
+      teacher_id = login[0][0]
+      #grab the teacher using the teacher id
+      teacher = User.find_by_id(teacher_id)
+      klass = FactoryGirl.create(:classroom)
+      student = FactoryGirl.create(:student)
+
+      klass.users << student
+
+      #act
+      get :show, id: teacher.id
+
+      #assert
+      expect(assigns(:submissions_by_classroom)).to_not include(klass.id)
     end
   end
 end
