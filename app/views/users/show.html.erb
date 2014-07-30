@@ -4,8 +4,8 @@
   <h1 class = "ft-lite ft-sz-2q mrg-btm-0 txt-ctr brd-bt pad-bt-5"><%= @student.first_name %> <%= @student.last_name %> Overview</h1>
 
   <!-- Highcharts stuff -->
-  <%= @submissions.length %>
-  <%= high_chart("some_id", @submissions_chart) %>
+  <%= high_chart("submissions_chart", @submissions_chart) %>
+  <%= high_chart("readability_chart", @readability_chart) %>
 
 
 
