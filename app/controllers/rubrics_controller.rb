@@ -4,12 +4,12 @@ class RubricsController < ApplicationController
     cat1 = RubricCategory.new
 
     # cat1 = RubricCategory.create(title: "danny", level1: "do")
-    # cat2 = RubricCategory.create(title: "dann2y")
+    cat2 = RubricCategory.new
 
     @rubric = Rubric.new
     @users = User.all
     @rubric.rubric_categories << cat1
-    # @rubric.rubric_categories << cat2
+    @rubric.rubric_categories << cat2
     @rubric_categories = @rubric.rubric_categories
   end
 
