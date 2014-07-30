@@ -37,16 +37,21 @@ View.prototype = {
   bindLoginButton: function(){
     $('[data-ui="signin_button"]').click(function(){
       $('[data-ui="preclick"]').addClass('disp-none');
-      $('[data-ui="postclick"]').fadeIn();
+      $('[data-ui="postclick"]').fadeIn(600);
     })
   },
   playNextVideo: function(){
-
-    console.log('playNExt video')
+var nextVideo =""
+    console.log('playnext video, just played'+this.video_count)
     this.video_count++;
-    debugger
-    if (this.video_count == 4){ this.video_count = 1};
-    var nextVideo = "/assets/video"+this.video_count+".mp4";
+    // debugger
+    if (this.video_count == 6){ this.video_count = 1};
+    if(this.video_count ==2){
+      nextVideo = "/assets/video"+this.video_count+".ogv";
+
+    }else{
+     nextVideo = "/assets/video"+this.video_count+".mp4";
+   }
     this.videoPlayer.src = nextVideo;
     this.videoPlayer.play();
 
