@@ -4,11 +4,21 @@
   <h1 class = "ft-lite ft-sz-2q mrg-btm-0 txt-ctr brd-bt pad-bt-5"><%= @student.first_name %> <%= @student.last_name %> Overview</h1>
 
   <!-- Highcharts stuff -->
+
+  <select class = "w-60per brd-none gill ft-lite ft-sz-1half block mrg-l-40per mrg-top-15">
+      <option value="readability">Flesch-Kincaid Readability Score</option>
+      <option value="saab">other</option>
+      <option value="mercedes">other</option>
+      <option value="audi">other</option>
+</select>
+
+
   <div class = "highchart piechart">
     <%= high_chart("submissions_chart", @submissions_chart) %>
   </div>
 
-  <div class = "highchart linegraph">
+
+  <div id = "readability" class = "highchart linegraph disp-no">
     <%= high_chart("readability_chart", @readability_chart) %>
   </div>
 
