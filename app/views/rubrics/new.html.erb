@@ -1,0 +1,30 @@
+
+
+
+<%= form_for(@rubric) do |f| %>
+      <%= f.label :title, "Rubric Title" %><br>
+      <%= f.text_field :title %><br><br><br>
+  <% @rubric_categories.each do |rubric_category| -%>
+
+
+
+    <%= f.fields_for :rubric_categories, rubric_category do |q| -%>
+      <%= q.label :title, "Category title" %><br>
+      <%= q.text_field :title %><br>
+      <%= q.label :level1, "Level 1 Criteria" %>
+            <%= q.text_area :level1, rows: 3, cols: 20 %>
+            <%= q.label :level2, "Level 2 Criteria" %>
+            <%= q.text_area :level2, rows: 3, cols: 20 %>
+            <%= q.label :level3, "Level 3 Criteria" %>
+            <%= q.text_area :level3, rows: 3, cols: 20 %>
+            <%= q.label :level4, "Level 4 Criteria" %>
+            <%= q.text_area :level4, rows: 3, cols: 20 %>
+            <%= q.label :level5, "Level 5 Criteria" %>
+            <%= q.text_area :level5, rows: 3, cols: 20 %>
+          <% end -%>
+  <% end -%>
+  <br>
+  <%= f.submit %>
+<% end -%>
+
+
