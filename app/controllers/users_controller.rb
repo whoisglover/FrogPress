@@ -40,31 +40,26 @@ class UsersController < ApplicationController
 
       @num_on_time = @num_complete_submissions - @num_late_submissions
 
-      #Lingua::EN::Readability.new(@submission.sub_content).kincaid.round(2)
       @submissions = Submission.where(user_id: @student.id)
       @submission_titles = []
-      @submission_scores = []
+      @submission_readability_scores = []
 
       @submissions.each do |submission|
         @submission_titles << submission.sub_title.split[0...4].join(' ')
-        @submission_scores << Lingua::EN::Readability.new(submission.sub_content).kincaid.round(2)
+        @submission_readability_scores << Lingua::EN::Readability.new(submission.sub_content).kincaid.round(2)
       end
 
       @readability_chart = LazyHighCharts::HighChart.new('spline') do |f|
         f.title(:text => "Flesch-Kincaid Readability Score")
         f.xAxis(:categories => @submission_titles)
-        f.series(:name => "Readability Score", :yAxis => 0, :data => @submission_scores)
-        #f.series(:name => "Population in Millions", :yAxis => 1, :data => [310, 127, 1340, 81, 65])
+        f.series(:name => "Readability Score", :yAxis => 0, :data => @submission_readability_scores)
 
         f.yAxis [
           {:title => {:text => "Score by Grade Level", :margin => 70} },
-          #{:title => {:text => "Population in Millions"}, :opposite => true},
         ]
 
-        #f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical')
         f.chart({:defaultSeriesType=>"spline"})
       end
-
 
       @submissions_chart = LazyHighCharts::HighChart.new('pie') do |f|
         f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 200, 60, 170]} )
