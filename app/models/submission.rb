@@ -17,4 +17,9 @@ class Submission < ActiveRecord::Base
     classroom = Classroom.find_by_id(assignment.classroom_id)
     classroom.id == class_id
   end
+
+  def author_name
+    student = User.find(self.user_id)
+    return student.first_name + " " + student.last_name
+  end
 end

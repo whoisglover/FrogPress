@@ -4,9 +4,7 @@
 
 <!-- Teacher View -->
   <% if current_user.user_type == "teacher" %>
-    <h4 class = "txt-ctr mrg-btm-0"><%= @submission.sub_title%></h4>
-    <h5 class = "txt-ctr mrg-top-0 ft-lite">by <%=@student.first_name%> <%=@student.last_name%></h5>
-    <p class = "brd-bt" ><%= @submission.sub_content%></p>
+    <%= render partial: "assignment/student_assignment_overview", locals: {submission: @submission} %>
 
       <% if @feedback == 1 %>
       <%= render partial: "feedback", locals: {submission: @submission} %>
@@ -16,10 +14,8 @@
       <% if @feedback == 1 %>
       <%= render partial: "feedback", locals: {submission: @submission} %>
       <% end %>
+    <%= render partial: "assignment/student_assignment_overview", locals: {submission: @submission} %>
 
-    <h4 class = " brd-top pad-top-15 txt-ctr mrg-btm-0"><%= @submission.sub_title%></h4>
-    <h5 class = "txt-ctr mrg-top-0 ft-lite">by <%=@student.first_name%> <%=@student.last_name%></h5>
-    <p><%= @submission.sub_content%></p>
   <% end %>
 
 </div>
