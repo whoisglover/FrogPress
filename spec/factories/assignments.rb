@@ -7,7 +7,7 @@ FactoryGirl.define do
     content {Faker::Lorem.sentence}
     # due_date  {Faker::Business.credit_card_expiry_date}
     due_date {Date.today + Faker::Number.digit.to_i}
-    classroom_id 1
+    association :classroom
   end
 
   factory :assignment_bad_params, class: Assignment do

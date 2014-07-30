@@ -15,7 +15,7 @@ class ClassroomController < ApplicationController
 
   def index
     @classrooms = current_user.classrooms
-    @assignments = current_user.pending_assignments[0..4]
+    @assignments = current_user.pending_assignments.first(5)
   end
 
   def create

@@ -55,6 +55,7 @@ group :development, :test do
   gem 'jasmine-rails'
   gem 'dotenv-rails'
   gem 'database_cleaner'
+  gem 'pry'
 end
 
 group :test do

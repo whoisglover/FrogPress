@@ -6,9 +6,7 @@ class Submission < ActiveRecord::Base
   has_many :feedbacks
 
   def get_class_id
-    assignment = Assignment.find_by_id(self.assignment_id)
-    classroom = Classroom.find_by_id(assignment.classroom_id)
-    classroom.id
+    self.assignment.classroom.id
   end
 
   def check_class_id(class_id)
