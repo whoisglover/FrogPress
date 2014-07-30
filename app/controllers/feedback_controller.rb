@@ -14,4 +14,13 @@ class FeedbackController < ApplicationController
     end
       redirect_to (submission_path(subid))
   end
+
+
+
+
+  private
+  def survey_params
+    params.require(:feedback).permit(:submission_id, :content, :feedback_provider
+      :rubric_submissions_attributes => [:id, :feedback_id, :rubric_category_id, :value])
+  end
 end

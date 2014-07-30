@@ -9,7 +9,7 @@
       <% if @feedback == 1 %>
       <%= render partial: "feedback", locals: {submission: @submission} %>
       <% end %>
-      <%= render partial: "create_feedback", locals: {submission: @submission} %>
+      <%= render partial: "create_feedback", locals: {submission: @submission, classroom: @classroom} %>
   <% else %>
       <% if @feedback == 1 %>
       <%= render partial: "feedback", locals: {submission: @submission} %>
