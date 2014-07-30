@@ -14,6 +14,7 @@ FrogPress::Application.routes.draw do
   resources :submission, except: :index
   resources :feedback, only: [:index, :create]
   resources :users, only: [:show]
+  resources :rubric_submissions
 
   resources :rubrics do
     get 'rubric_categories', on: :member
