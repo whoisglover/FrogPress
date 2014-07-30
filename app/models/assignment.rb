@@ -21,6 +21,8 @@ class Assignment < ActiveRecord::Base
   end
 
   def self.create_submission_data(current_user, completed_submission, assignment)
+    # This ugly code was written quite hastily such that I could catch a train. It
+    # is not representative of me as a programmer. Will refactor soon. /Disclaimer
     if completed_submission == nil
       user_submissions = User.find(current_user.id).submissions
       if user_submissions.length == 0
