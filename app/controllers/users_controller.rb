@@ -59,9 +59,23 @@ class UsersController < ApplicationController
         ]
 
         f.chart({:defaultSeriesType=>"spline"})
+        f.colors(["#A4CB50"])
       end
 
+
+#       .white { color: white; }
+# .black { color: black; }
+# .dk-grn{ color: #557D73;}
+# .green { color: #A4CB50; }
+# .lime-grn{ color: #D6E24F;}
+# .orange{ color: #F47E0C;}
+# .lite-gry{ color: #E7EAE2;}
+# .liter-gry{ color: #edeff0;}
+# .dk-gry{color: #ADB6BA;}
+
       @submissions_chart = LazyHighCharts::HighChart.new('pie') do |f|
+        f.colors(["#557D73", "#A4CB50", "#D6E24F"])
+
         f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 200, 60, 170]} )
         series = {
           :type=> 'pie',
