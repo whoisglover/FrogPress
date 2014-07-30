@@ -32,11 +32,7 @@ class UsersController < ApplicationController
     else
       redirect_to(user_path(current_user.id))
     end
-
-
   end
-
-
 
   private
   def verify_user

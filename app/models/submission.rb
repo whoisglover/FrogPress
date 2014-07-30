@@ -7,6 +7,7 @@ class Submission < ActiveRecord::Base
 
   def get_class_id
     assignment = Assignment.find_by_id(self.assignment_id)
+    return nil if assignment == nil
     classroom = Classroom.find_by_id(assignment.classroom_id)
     classroom.id
   end

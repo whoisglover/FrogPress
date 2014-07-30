@@ -19,7 +19,14 @@ class AssignmentController < ApplicationController
 
   def show
     @assignment = Assignment.find_by_id(params[:id])
+
+    if @assignment == nil
+      redirect_to (root_path)
+      p "!"
+    end
+
     @classroom = @assignment.classroom
+
     @students = student_roster(@classroom)
 
     if current_user.user_type == "student"
@@ -48,7 +55,8 @@ class AssignmentController < ApplicationController
   def destroy
     assignment = Assignment.find(params[:id])
     assignment.destroy
-    redirect_to (classroom_path(assignment.classroom_id))
+
+    render :json => {:success => true}
   end
 
 
