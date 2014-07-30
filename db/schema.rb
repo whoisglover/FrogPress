@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140729223902) do
+ActiveRecord::Schema.define(version: 20140730045459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20140729223902) do
   create_table "assignments", force: true do |t|
     t.integer  "classroom_id"
     t.string   "title"
-    t.string   "content"
+    t.text     "content"
     t.date     "due_date"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20140729223902) do
   end
 
   create_table "rubrics", force: true do |t|
+    t.string   "title"
     t.integer  "classroom_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -70,7 +71,7 @@ ActiveRecord::Schema.define(version: 20140729223902) do
     t.integer  "assignment_id"
     t.integer  "user_id"
     t.string   "sub_title"
-    t.string   "sub_content"
+    t.text     "sub_content"
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -96,11 +97,6 @@ ActiveRecord::Schema.define(version: 20140729223902) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "users_classroom", force: true do |t|
-    t.integer "user_id"
-    t.integer "classroom_id"
-  end
 
   create_table "users_classrooms", force: true do |t|
     t.integer  "user_id"

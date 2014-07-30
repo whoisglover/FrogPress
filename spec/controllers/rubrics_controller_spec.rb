@@ -1,8 +1,7 @@
 require 'spec_helper'
 
-describe RubricController do
-
-  describe "new" do
+describe RubricsController do
+ describe "new" do
     it 'should assign instance variable with a new rubric object' do
       #arrange
       teacher = login_teacher
@@ -64,5 +63,4 @@ describe RubricController do
 
     end
   end
-
 end
