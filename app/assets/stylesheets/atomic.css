@@ -92,6 +92,8 @@
 .max-w-900px{ max-width: 900px;}
 
 .h-5rem{height: 5rem;}
+.h-10rem{height: 10rem;}
+
 
 .h-50{ height: 50px; }
 .h-50per{height: 50%; }
@@ -103,6 +105,8 @@ img { height: 150%;}
 
 .mrg-auto{ margin: auto; }
 .mrg-btm-0{ margin-bottom: 0px; }
+.mrg-bot-1 {margin-bottom: 1rem;}
+
 .mrg-bot-2{margin-bottom: 2rem;}
 .mrg-btm-15{margin-bottom: 15px;}
 .mrg-btm-50{margin-bottom: 100px;}

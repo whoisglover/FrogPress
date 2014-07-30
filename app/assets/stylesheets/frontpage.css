@@ -112,18 +112,18 @@ html {
 }
 
 #about {
-  background: #02C1C1;
+  background: #edeff0;
 }
 
 #portfolio {
-  background: #FB4644;
+  background: #edeff0;
 
 }
 #contact {
-  background: #262E3D;
+  background: #edeff0;
 }
 #resume {
-  background: #FB4644;
+  background: #edeff0;
 }
 
 #first {
@@ -229,7 +229,7 @@ html {
   display: inline-block;
   padding: 9px 15px 10px;
   margin-bottom: 0;
-  background: #009cde;
+  background: #A4CB50;
   font-size: 15px;
   font-size: 1.07142857142857rem;
   font-weight: bold;
@@ -246,7 +246,7 @@ html {
 .btn:hover {
   color: #fff;
   text-decoration: none;
-  background: #0285d2;
+  background: #F47E0C;
 }
 .btn:focus {
   color: #FFF;
