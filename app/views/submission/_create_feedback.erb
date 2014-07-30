@@ -4,5 +4,6 @@
 <%= form_for @feedback, url: feedback_index_path(@submission.id)  do |f| %>
 <%= f.text_area :content, class: "w-100per mrg-btm-15 " %><br>
 <%= f.hidden_field :submission_id, value: @submission.id %>
+<%= f.hidden_field :feedback_provider, value: "#{current_user.first_name} #{current_user.last_name}" %>
 <%= f.submit "Publish Feedback", class: "brd-none w-101per green bkg-wt brd-grn" %>
 <% end %>
