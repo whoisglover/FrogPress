@@ -4,11 +4,10 @@
   <h1 class = "ft-lite ft-sz-2q mrg-btm-0 txt-ctr brd-bt pad-bt-5"><%= @student.first_name %> <%= @student.last_name %> Overview</h1>
 
   <!-- Highcharts stuff -->
-  <p>DATA</p>
-  Total Submissions: <%= @submissions.length %><br>
-  Complete Submissions: <%= @num_complete_submissions %><br>
-  Not Submitted: <%= @num_not_submitted %><br>
-  Late Submissions: <%= @num_late_submissions %>
+  <%= @submissions.length %>
+  <%= high_chart("some_id", @submissions_chart) %>
+
+
 
   <!-- Tables of assignments per class -->
   <%= render partial: "overview_tables" %>

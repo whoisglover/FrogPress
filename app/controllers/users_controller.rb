@@ -38,8 +38,34 @@ class UsersController < ApplicationController
         end
       end
 
+      @num_on_time = @num_complete_submissions - @num_late_submissions
 
-
+      @submissions_chart = LazyHighCharts::HighChart.new('pie') do |f|
+        f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 200, 60, 170]} )
+        series = {
+          :type=> 'pie',
+          :name=> 'Submissions',
+          :data=> [
+            ['On Time', @num_on_time],
+            ['Not Submitted', @num_not_submitted],
+            ['Late', @num_late_submissions]
+          ]
+        }
+        f.series(series)
+        f.options[:title][:text] = "Submissions"
+        f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'})
+        f.plot_options(:pie=>{
+                         :allowPointSelect=>true,
+                         :cursor=>"pointer" ,
+                         :dataLabels=>{
+                           :enabled=>true,
+                           :color=>"black",
+                           :style=>{
+                             :font=>"13px Trebuchet MS, Verdana, sans-serif"
+                           }
+                         }
+        })
+      end
     else
       redirect_to(user_path(current_user.id))
     end
