@@ -8,6 +8,7 @@ describe User do
     let(:classroom_two) {FactoryGirl.create(:classroom)}
     let(:assignment) {FactoryGirl.create(:assignment)}
     let(:past_due_assignment) {FactoryGirl.create(:assignment, due_date: Date.yesterday)}
+
     it "returns an array of assignments whose due date is today or later from all of a given users classrooms" do
       user.classrooms << classroom
       user.classrooms << classroom_two
