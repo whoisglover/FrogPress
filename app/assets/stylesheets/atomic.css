@@ -104,6 +104,7 @@ img { height: 150%;}
 
 .mrg-top-0{ margin-top: 0px; }
 .mrg-top-10{ margin-top: 10px; }
+.mrg-top-15{ margin-top: 15px; }
 
 .mrg-top-45{ margin-top: 45px; }
 .mrg-top-37{ margin-top: 37px; }
@@ -126,6 +127,7 @@ img { height: 150%;}
 
 .pad-5{ padding: 5px; }
 .pad-top-15{padding-top: 15px;}
+.pad-top-45{padding-top: 45px;}
 
 .pad-bt-15{padding-bottom: 15px;}
 
