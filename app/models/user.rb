@@ -15,5 +15,9 @@ class User < ActiveRecord::Base
     return pending_assignments.sort_by(&:due_date)
   end
 
-
+  def submission_status(assignment)
+    submission = self.submissions.where('assignment_id = ?', assignment.id)
+    return "incomplete" if submission.length == 0
+    return submission[0].status
+  end
 end
