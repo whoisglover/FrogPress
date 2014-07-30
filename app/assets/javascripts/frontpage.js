@@ -30,8 +30,8 @@ View.prototype = {
     this.videoPlayer.onended = this.playNextVideo.bind(this);
 
 
-    // this.pauseButton.addEventListener('click', this.pauseVideo.bind(this));
-    // this.playButton.addEventListener('click', this.playVideo.bind(this));
+    this.pauseButton.addEventListener('click', this.pauseVideo.bind(this));
+    this.playButton.addEventListener('click', this.playVideo.bind(this));
   },
 
   bindLoginButton: function(){
@@ -41,22 +41,16 @@ View.prototype = {
     })
   },
   playNextVideo: function(){
-    // $(this.videoControls).hide()
-    // debugger
-      var nextVideo = ""
 
+    console.log('playNExt video')
     this.video_count++;
-    if (this.video_count == 5){
-        debugger
-      this.video_count = 1;}
-    if(this.video_count==2){
-       nextVideo = "/assets/video2.ogv"
-    }else{
-      nextVideo = "/assets/video"+this.video_count+".mp4";
-    }
+    debugger
+    if (this.video_count == 4){ this.video_count = 1};
+    var nextVideo = "/assets/video"+this.video_count+".mp4";
     this.videoPlayer.src = nextVideo;
     this.videoPlayer.play();
-    // $(this.videoControls).show()
+
+
   },
   pauseVideo: function(e){
     // debugger
