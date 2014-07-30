@@ -6,6 +6,7 @@
   <%= javascript_include_tag javascript_path "frontpage", "data-turbolinks-track" => true %>
   <%= javascript_include_tag javascript_path "smooth_scroll", "data-turbolinks-track" => true %>
   <link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Sacramento" />
   <title></title>
 </head>
 <body>
@@ -29,8 +30,12 @@
     </div>
     <div id="first_main">
       <div class="login-modal">
-        <h1 class="white ft-sz-4-5 mrg-bot-2">FrogPress</h1>
-        <img alt="Frog" class="abso h-5rem top-0-5rem left-14rem pad-l-5" src=<%= asset_path 'logo.gif' %>/>
+
+
+        <h1 class=" white ft-sz-4-5 mrg-bot-1 sacramento">FrogPress</h1>
+        <img alt="Frog" class="h-10rem mrg-bot-1" src=<%= asset_path 'logo.gif' %>/>
+
+
 
 
 
@@ -39,6 +44,8 @@
        <a class=" btn btn-primary btn-small" style="min-width:75%;" href = "/users/sign_up">Get Started</a>
        <p class="fw-300"><a href="#" data-ui="signin_button" class="white no-txt-dec">Have an account? <strong>Sign In</strong></a></p>
       </div>
+
+
 
       <div data-ui="postclick" class="disp-none">
         <%= form_for(:user, :url => session_path(:user), :html => {:class => "login-form"})  do |f| %>
