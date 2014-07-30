@@ -1,7 +1,9 @@
 $(document).ready(function(){
 
   $(document).on('click', '#edit-teacher-classroom', showXs)
-  $(document).on('click', 'i', deleteElem)
+  $(document).on('click', '#roster i', removeStudent)
+  $(document).on('click', '#assignments i', deleteAssignment)
+
 })
 
 var showXs = function(e){
@@ -16,4 +18,46 @@ var showXs = function(e){
     data.append(elem)
   }
 
+}
+
+var removeStudent = function(e){
+  var tableRow = $(e.target).parent().parent()
+  var classroomId = getClassroomId()
+  var id = getId(e)
+
+  var request = $.ajax({
+    url: '/classroom/'+classroomId+'/users/'+id,
+    type: 'DELETE'
+  })
+
+  request.success(function(e){
+    tableRow.remove()
+  })
+
+}
+
+var deleteAssignment = function(e){
+  var tableRow = $(e.target).parent().parent()
+  var id = getId(e)
+
+  var request = $.ajax({
+    url: '/assignment/'+id,
+    type: 'DELETE'
+  })
+
+  request.success(function(e){
+    tableRow.remove()
+  })
+
+}
+
+
+
+var getClassroomId = function(){
+  var classroomURL = window.location.pathname.split('/')
+  return classroomURL[2]
+}
+
+var getId = function(e){
+  return $(e.target).parent().siblings('td')[0].innerHTML
 }
