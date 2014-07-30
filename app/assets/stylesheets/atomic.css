@@ -27,6 +27,19 @@
   padding-bottom: 5px;
 }
 
+.highchart {
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+  padding-top: 50px;
+}
+.piechart{
+  width: 29%;
+}
+.linegraph {
+  width: 70%;
+}
+
 .txt-ctr{ text-align: center; }
 .txt-rt{ text-align: right; }
 .txt-lt{ text-align: left; }
