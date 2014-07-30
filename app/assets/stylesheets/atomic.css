@@ -86,9 +86,12 @@
 .w-101per{ width: 101%; }
 
 .w-70per{ width: 70%; }
+.min-w-7rem{min-width: 7rem;}
 .min-w-350px{ min-width: 350px;}
 .min-w-75per{ min-width: 75%;}
 .max-w-900px{ max-width: 900px;}
+
+.h-5rem{height: 5rem;}
 
 .h-50{ height: 50px; }
 .h-50per{height: 50%; }
@@ -134,6 +137,9 @@ img { height: 150%;}
 
 .pad-bt-15{padding-bottom: 15px;}
 
+.top-0-5rem{top: 0.5rem;}
+.top-1rem{top:1rem;}
+.left-14rem{left:14rem;}
 
 .brd-none{ border: none; }
 .brd-grn{ border: solid #557D73 1px;}
