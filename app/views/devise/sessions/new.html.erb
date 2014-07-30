@@ -3,6 +3,10 @@
 <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0">Sign in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <% flash.each do |name, msg| %>
+    <%= content_tag :section, msg, :id => "flash_#{name}", :class => "flash" %>
+  <% end %>
+
   <div><%= f.label :email, class: "hidden" %><br />
   <%= f.email_field :email, autofocus: true, class: "w-100per ft-sz-1", placeholder: "Email" %></div>
 

@@ -5,7 +5,11 @@ FrogPress::Application.routes.draw do
   devise_scope :user do
     get 'users/sign_out' => 'devise/sessions#destroy'
   end
-  resources :classroom
+  resources :classroom do
+    member do
+      :remove_student
+    end
+  end
   resources :assignment, except: :index
   resources :submission, except: :index
   resources :feedback, only: [:index, :create]

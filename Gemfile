@@ -14,6 +14,8 @@ gem 'ckeditor'
 
 gem 'lingua'
 
+gem 'debugger'
+
 gem 'normalize-rails'
 
 # Use SCSS for stylesheets

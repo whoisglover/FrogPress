@@ -15,4 +15,5 @@ class User < ActiveRecord::Base
     return pending_assignments.sort_by(&:due_date)
   end
 
+
 end

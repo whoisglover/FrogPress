@@ -1,13 +1,2 @@
-<h3> <%= @completed_submission.sub_title %> </h3>
-<br>
+<h3 class ="brd-top pad-top-45"> <%= @completed_submission.sub_title %> </h3>
 <p> <%= @completed_submission.sub_content.html_safe %> </p>
-
-<h4> Flesch-Kincaid Readability Score: <%= Lingua::EN::Readability.new(@completed_submission.sub_content).kincaid %><br>
-Vocabulary Complexity: <%= Lingua::EN::Readability.new(@completed_submission.sub_content).percent_fog_complex_words %><br>
-Avg Sentence Length: <%= Lingua::EN::Readability.new(@completed_submission.sub_content).words_per_sentence %>
-</h4>
-
-
-
-
-
