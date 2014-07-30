@@ -10,7 +10,7 @@ class Assignment < ActiveRecord::Base
     end
     user_submissions.each do |submission|
       if submission.assignment_id == assignment.id
-        if submission.status == "complete"
+        if submission.status == "complete" || submission.status == "reviewed"
           return submission
         else
           return nil
