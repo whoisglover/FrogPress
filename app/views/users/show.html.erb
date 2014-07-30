@@ -5,7 +5,7 @@
 
   <!-- Highcharts stuff -->
 
-  <select class = "w-60per brd-none gill ft-lite ft-sz-1half block mrg-l-40per mrg-top-15">
+  <select id = "highcharts-options"class = "w-60per brd-none gill ft-lite ft-sz-1half block mrg-l-40per mrg-top-15">
       <option value="readability">Flesch-Kincaid Readability Score</option>
       <option value="saab">other</option>
       <option value="mercedes">other</option>
@@ -18,7 +18,7 @@
   </div>
 
 
-  <div id = "readability" class = "highchart linegraph disp-no">
+  <div id = "readability" class = "highchart linegraph">
     <%= high_chart("readability_chart", @readability_chart) %>
   </div>
 
