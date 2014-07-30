@@ -1,11 +1,10 @@
 class PagesController < ApplicationController
-
+  before_filter :redirect_to_classroom
   def index
+  end
 
-    if user_signed_in? == true
-      redirect_to classroom_index_path
-    else
-      render layout: false
-    end
+  private
+  def redirect_to_classroom
+    redirect_to classroom_index_path if user_signed_in?
   end
 end
