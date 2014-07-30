@@ -47,10 +47,11 @@ var nextVideo =""
     // debugger
     if (this.video_count == 6){ this.video_count = 1};
     if(this.video_count ==2){
-      nextVideo = "/assets/video"+this.video_count+".ogv";
+     nextVideo = "http://s3.amazonaws.com/frogpress-assets/video"+this.video_count+".ogv";
+      // nextVideo = "/assets/video"+this.video_count+".ogv";
 
     }else{
-     nextVideo = "/assets/video"+this.video_count+".mp4";
+     nextVideo = "http://s3.amazonaws.com/frogpress-assets/video"+this.video_count+".mp4";
    }
     this.videoPlayer.src = nextVideo;
     this.videoPlayer.play();
