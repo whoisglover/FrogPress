@@ -31,7 +31,7 @@
   display: inline-block;
   margin: 0px;
   padding: 0px;
-  padding-top: 50px;
+  padding-top: 30px;
 }
 .piechart{
   width: 29%;
@@ -93,6 +93,8 @@
 
 
 .w-50per { width: 50%; }
+.w-60per { width: 60%; }
+
 .w-75per { width: 75%; }
 
 .w-100per{ width: 100%; }
@@ -137,6 +139,8 @@ img { height: 150%;}
 .mrg-l-n40{ margin-left: -40px; }
 
 .mrg-l-0{ margin-left: 0px; }
+.mrg-l-40per{ margin-left: 40%; }
+
 .mrg-r-0{ margin-right: 0px; }
 .mrg-r-15{ margin-right: 15px; }
 
@@ -167,6 +171,7 @@ img { height: 150%;}
 
 
 .inln-bk{ display: inline-block; }
+.block {display: block;}
 .inline{ display: inline;}
 .hidden{ visibility: hidden; }
 .disp-no{ display: none;}

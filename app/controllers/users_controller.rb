@@ -49,29 +49,9 @@ class UsersController < ApplicationController
         @submission_readability_scores << Lingua::EN::Readability.new(submission.sub_content).kincaid.round(2)
       end
 
-      @readability_chart = LazyHighCharts::HighChart.new('spline') do |f|
-        f.title(:text => "Flesch-Kincaid Readability Score")
-        f.xAxis(:categories => @submission_titles)
-        f.series(:name => "Readability Score", :yAxis => 0, :data => @submission_readability_scores)
-
-        f.yAxis [
-          {:title => {:text => "Score by Grade Level", :margin => 70} },
-        ]
-
-        f.chart({:defaultSeriesType=>"spline"})
-        f.colors(["#A4CB50"])
-      end
+      @readability_chart = readability_chart()
 
 
-#       .white { color: white; }
-# .black { color: black; }
-# .dk-grn{ color: #557D73;}
-# .green { color: #A4CB50; }
-# .lime-grn{ color: #D6E24F;}
-# .orange{ color: #F47E0C;}
-# .lite-gry{ color: #E7EAE2;}
-# .liter-gry{ color: #edeff0;}
-# .dk-gry{color: #ADB6BA;}
 
       @submissions_chart = LazyHighCharts::HighChart.new('pie') do |f|
         f.colors(["#557D73", "#A4CB50", "#D6E24F"])
@@ -87,7 +67,7 @@ class UsersController < ApplicationController
           ]
         }
         f.series(series)
-        f.options[:title][:text] = "Submissions Turn in Time"
+        f.options[:title][:text] = "Submission Status "
         f.plot_options(:pie=>{
                          :allowPointSelect=>true,
                          :cursor=>"pointer" ,
@@ -107,6 +87,21 @@ class UsersController < ApplicationController
     else
       redirect_to(user_path(current_user.id))
     end
+  end
+  def readability_chart
+    @readability_chart = LazyHighCharts::HighChart.new('spline') do |f|
+        # f.title(:text => "Flesch-Kincaid Readability Score")
+        f.xAxis(:categories => @submission_titles)
+        f.series(:name => "Readability Score", :yAxis => 0, :data => @submission_readability_scores)
+
+        f.yAxis [
+          {:title => {:text => "Score by Grade Level", :margin => 70}, :labels=>{ :style=>{:fontSize=> '16px'}} },
+        ]
+
+        f.chart({:defaultSeriesType=>"spline"})
+        f.colors(["#A4CB50"])
+      end
+      return @readability_chart
   end
 
   private
