@@ -9,11 +9,14 @@
       </tr>
       <%  submissions.each do |sub| %>
 
-      <%  if current_user.user_type == "teacher" %>
+      <%  if current_user.user_type == "teacher" && sub.status != "incomplete" %>
 
       <tr onclick="document.location = '<%= submission_path(sub.id) %>'" class = 'ft-lite mrg-l-n40 ft-sz-1q hov-bkg'>
-
         <% else %>
+        <tr class = 'ft-lite mrg-l-n40 ft-sz-1q '>
+        <%end %>
+
+        <% if current_user.user_type == "student" %>
 
       <tr onclick="document.location = '<%= assignment_path(sub.assignment_id) %>'" class = 'ft-lite mrg-l-n40 ft-sz-1q hov-bkg'>
         <% end%>
