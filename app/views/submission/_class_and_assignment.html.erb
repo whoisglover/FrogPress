@@ -1,0 +1,10 @@
+<h2 class = "ft-lite ft-sz-2q txt-ctr mrg-btm-0  pad-bt-5"><a class = 'no-txt-dec black hov-grn'href = '<%=classroom_path(@classroom)%>'><%= @classroom.name %></a></h2>
+
+
+
+  <h4 class = "ft-lite ft-bold brd-top mrg-btm-0 mrg-top-10 pad-top-15" > <%= @assignment.title %></h4>
+  <h4 class = "ft-lite pad-bt-15 mrg-top-10" ><span class = "">Prompt: </span> <%= @assignment.content %></h4>
+  <h4 class = "ft-lite brd-bt pad-bt-15 mrg-top-10 txt-rt " ><span class = "">Due: </span><%= @assignment.due_date.month %>/<%= @assignment.due_date.day %></h4>
+
+
+

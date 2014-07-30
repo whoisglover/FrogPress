@@ -1,23 +1,25 @@
-
+<div class = 'gill w-70per mrg-auto min-w-350px max-w-900px mrg-top-45'>
 <% if current_user.user_type == "student" %>
 
-  <h1> Add a Class <h1><br>
+  <h1 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0">Register for a Class</h1><br>
   <%= form_for :classroom, url: {action: "create"} do |f| %>
-    <%= f.text_field :join_code, placeholder: "Join Code" %><br>
+    <%= f.text_field :join_code, placeholder: "Join Code", class: "w-100per mrg-btm-15" %><br>
     <%= f.hidden_field :id, :value => current_user.id %>
-    <%= f.submit "Add" %>
+    <%= f.submit "Add Class", class: "brd-none w-101per green bkg-wt brd-grn"  %>
   <% end %>
 
 <% elsif current_user.user_type == "teacher" %>
 
-  <h1> Create a New Class <h1><br>
+  <h1 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0"> Create a New Class </h1><br>
   <%= form_for :classroom, url: {action: "create"} do |f| %>
-    <%= f.text_field :name, placeholder: "Class Name" %><br>
-    <%= f.select :grade_level, [['K', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6], ['7', 7], ['8', 8], ['9', 9], ['10', 10], ['11', 11], ['12', 12]] %> <br>
-    <%= f.text_field :join_code, placeholder: "Class Access Code" %><br>
-    <%= f.submit "Create Class" %>
+    <%= f.text_field :name, placeholder: "Class Name", class: "w-100per mrg-btm-15" %><br>
+    <%= f.select :grade_level, [['K', 0], ['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6], ['7', 7], ['8', 8], ['9', 9], ['10', 10], ['11', 11], ['12', 12]]%> <br>
+    <%= f.text_field :join_code, placeholder: "Class Access Code", class: "w-100per mrg-btm-15" %><br>
+    <%= f.submit "Create Class", class: "brd-none w-101per green bkg-wt brd-grn" %>
   <% end %>
 
 <% else %>
  <% redirect_to '/' %>
 <% end %>
+
+</div>

@@ -13,58 +13,36 @@ class AssignmentController < ApplicationController
     assignment_hash = assignment_hash.to_hash
     assignment_hash.symbolize_keys!
     assignment = Assignment.create(assignment_hash)
+
     redirect_to (classroom_path(assignment.classroom_id))
   end
 
   def show
     @assignment = Assignment.find_by_id(params[:id])
+
+    if @assignment == nil
+      redirect_to (root_path)
+      p "!"
+    end
+
     @classroom = @assignment.classroom
+
     @students = student_roster(@classroom)
 
-    # Move to model when MVP done
     if current_user.user_type == "student"
-      user_submissions = Submission.where(user_id: current_user.id)
-      if user_submissions.length != 0 # User has submissions
-        user_submissions.each do |submission|
-          if submission.assignment_id == @assignment.id && submission.status == "incomplete" # Not complete
-            @completed_submission = nil
-            break
-          elsif submission.assignment_id == @assignment.id  && submission.status == "complete" # Assignment Complete
-           @completed_submission = submission
-           break
-          end
-        end
-      else
-        @completed_submission = nil # User has no submissions so this is nil, Not complete
-      end
-    end
+      @completed_submission = Assignment.find_submission_and_status(current_user, @assignment)
 
-    if @completed_submission == nil
-      @user_submissions = User.find(current_user.id).submissions
-      if @user_submissions.length == 0
-        @submission = Submission.new
-        @sub_title_placeholder = "Your Essay Title"
-        @sub_content_placeholder = "Write your essay here!"
-      else
-        @user_submissions.each do |sub|
-          if sub.assignment_id == @assignment.id
-            @submission = sub
-            @sub_title_placeholder = @submission.sub_title
-            @sub_content_placeholder = @submission.sub_content
-            break
-          else
-            @submission = Submission.new
-            @sub_title_placeholder = "Your Essay Title"
-            @sub_content_placeholder = "Write your essay here!"
-          end
-      end
-    end
-  end
 
+      @submission_data = Assignment.create_submission_data(current_user, @completed_submission, @assignment)
+      @submission = @submission_data[:submission]
+      @sub_title_placeholder = @submission_data[:sub_title_placeholder]
+      @sub_content_placeholder = @submission_data[:sub_content_placeholder]
+    end
   end
 
   def edit
     @assignment = Assignment.find_by_id(params[:id])
+    @classroom = @assignment.classroom_id
   end
 
   def update
@@ -73,17 +51,18 @@ class AssignmentController < ApplicationController
     assignment_hash.symbolize_keys!
     assignment_to_change = Assignment.find_by_id(params[:id])
     assignment_to_change.update(assignment_hash)
-    redirect_to (classroom_path(assignment_to_change.classroom_id))
+    redirect_to (assignment_path(assignment_to_change))
   end
 
   def destroy
     assignment = Assignment.find(params[:id])
     assignment.destroy
-    redirect_to (classroom_path(assignment.classroom_id))
+
+    render :json => {:success => true}
   end
 
 
-private
+  private
   def verify_user
     if current_user.user_type == 'teacher' || current_user.user_type == 'student'
     else

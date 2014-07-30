@@ -1,0 +1,30 @@
+ <% @submissions_by_classroom.each do |klass_id, submissions| %>
+    <h3 class = "hov-grn ft-lite brd-bt pad-bt-5 mrg-btm-0 pad-top-15"><a class = "no-txt-dec black hov-grn ft-sz-2" href="<%= classroom_path(klass_id) %>"><%= Classroom.find(klass_id).name %></a></h3>
+    <!-- Visit Class Page (put as a link for class) -->
+    <table class = "w-100per brd-clpse">
+      <tr class = "ft-lite ft-sz-1half mrg-top-45 mrg-btm-0 brd-bt pad-bt-5 orange">
+        <th class = "ft-lite txt-lt w-50per">Assignment</th>
+        <th class = "ft-lite txt-ctr">Status</th>
+        <th class = "ft-lite txt-rt">Due Date</th>
+      </tr>
+      <%  submissions.each do |sub| %>
+
+      <%  if current_user.user_type == "teacher" && sub.status != "incomplete" %>
+
+      <tr onclick="document.location = '<%= submission_path(sub.id) %>'" class = 'ft-lite mrg-l-n40 ft-sz-1q hov-bkg'>
+        <% else %>
+        <tr class = 'ft-lite mrg-l-n40 ft-sz-1q '>
+        <%end %>
+
+        <% if current_user.user_type == "student" %>
+
+      <tr onclick="document.location = '<%= assignment_path(sub.assignment_id) %>'" class = 'ft-lite mrg-l-n40 ft-sz-1q hov-bkg'>
+        <% end%>
+
+        <td class = "ft-lite pad-top-15 pad-l-5 txt-lt"><%= sub.assignment.title %></td>
+        <td class = "ft-lite pad-top-15 txt-ctr"><%= sub.status %></td>
+        <td class = "ft-lite pad-top-15 pad-r-5 txt-rt"><%= sub.assignment.due_date.month %>/<%= sub.assignment.due_date.day %></td>
+      </tr>
+      <% end %>
+    </table>
+<% end %>

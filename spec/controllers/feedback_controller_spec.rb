@@ -1,25 +1,10 @@
 require 'spec_helper'
 
 describe FeedbackController do
-  describe "#index" do
-    # it 'should return all feedback'
-    it 'should return feedback for a given submission' do
-      #arrange
-      login_teacher
-      submission = FactoryGirl.create(:submission)
-      feedback = Feedback.create(content: "hey this was a great paper", submission_id: submission.id)
-      feedback2 = Feedback.create(content: "I lied it actually wasnt great", submission_id: submission.id)
-      #act
-      get :index, submission_id: submission.id
-      #assert
-      expect(assigns(:feedback)).to include(Feedback.find_by_id(feedback.id))
-      expect(assigns(:feedback)).to include(Feedback.find_by_id(feedback2.id))
-    end
 
     describe "#show" do
       #is there ever a need to show a piece of feedback without the submission it is associated with?
     end
-  end
 
   describe "#create" do
     it 'should create a new piece of feedback if content and submission_id are provided' do
@@ -27,8 +12,9 @@ describe FeedbackController do
       login_teacher
       submission = FactoryGirl.create(:submission)
       content = "Giving some feedback to my student here"
+      feedback = {submission_id: submission.id, content: content}
       #act
-      post :create, submission_id: submission.id, content: content
+      post :create, feedback: feedback
       #assert
       expect(Feedback.count).to eq(1)
     end
@@ -37,19 +23,22 @@ describe FeedbackController do
       login_teacher
       submission = FactoryGirl.create(:submission)
       content = "Giving some feedback to my student here"
+      feedback = {submission_id: nil, content: content}
       #act
-      post :create, content: content
+      post :create, feedback: feedback
       #assert
       expect(Feedback.count).to eq(0)
     end
+
     it 'should redirect to submission page' do
       #arrange
       login_teacher
 
       submission = FactoryGirl.create(:submission)
       content = "Giving some feedback to my student here"
+      feedback = {submission_id: submission.id, content: content}
       #act
-      post :create, submission_id: submission.id, content: content
+      post :create, feedback: feedback
       #assert
       expect(response).to redirect_to(submission_path(submission.id))
     end
@@ -58,8 +47,9 @@ describe FeedbackController do
       #arrange
       submission = FactoryGirl.create(:submission)
       content = "Giving some feedback to my student here"
+      feedback = {submission_id: submission.id, content: content}
       #act
-      post :create, submission_id: submission.id, content: content
+      post :create, feedback: feedback
       #assert
       expect(Feedback.count).to eq(0)
     end
@@ -68,8 +58,10 @@ describe FeedbackController do
       login_student
       submission = FactoryGirl.create(:submission)
       content = "Giving some feedback to my student here"
+      feedback = {submission_id: submission.id, content: content}
+
       #act
-      post :create, submission_id: submission.id, content: content
+      post :create, feedback: feedback
       #assert
       expect(Feedback.count).to eq(0)
     end
