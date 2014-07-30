@@ -2,7 +2,6 @@
 
   <%= render partial: "submission/class_and_assignment" %>
 
-
   <% if current_user.user_type == "teacher" %>
   <%= render 'assignment_overview' %>
   <% end %>
@@ -10,7 +9,7 @@
   <% if current_user.user_type == "student" %>
     <% if @completed_submission != nil %>
       <%= render partial: "submission/feedback", locals: {submission: @submission} %>
-      <%= render 'student_assignment_overview' %>
+      <%= render partial: 'student_assignment_overview', locals: {submission: @completed_submission} %>
     <% else %>
       Status: <%= @submission.status %>
       <%= render 'submission/text_editor' %>
