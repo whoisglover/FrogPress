@@ -42,10 +42,25 @@ describe ClassroomController do
         expect(assigns(:classrooms)).to include(student.classrooms.first)
     end
 
-    it 'should show the next 5 assignments due'
-
-
-
+    xit 'should show the next 5 assignments due' do
+      #need to make five assignments in this exact fashion.
+       login = login_student
+       student_id = login[0][0]
+       current_user = User.find_by_id(student_id)
+       classroom = FactoryGirl.create(:classroom)
+       current_user.classrooms << classroom
+      def create_assignments
+        assignments = []
+        5.times do
+           classroom.assignments << FactoryGirl.create(:assignment)
+        end
+      end
+      assignment = FactoryGirl.create(:assignment)
+      current_user.classrooms << classroom
+      classroom.assignments << assignment
+       get :index
+      expect(assigns(:assignments)).to include(current_user.pending_assignments)
+    end
   end
 
   describe '#create' do
