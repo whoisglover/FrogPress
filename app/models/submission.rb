@@ -4,6 +4,7 @@ class Submission < ActiveRecord::Base
   validates :assignment_id, presence: true
   validates :user_id, presence: true
   has_many :feedbacks
+  has_many :rubric_submissions
 
   def get_class_id
     assignment = Assignment.find_by_id(self.assignment_id)
