@@ -10,18 +10,14 @@ class Assignment < ActiveRecord::Base
     end
     user_submissions.each do |submission|
       if submission.assignment_id == assignment.id
-        if submission.status ""
-
+        if submission.status == "complete"
           return submission
         else
           return nil
         end
       end
     end
-
-
     return nil
-
   end
 
   def self.create_submission_data(current_user, completed_submission, assignment)
