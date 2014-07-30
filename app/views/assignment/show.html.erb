@@ -12,6 +12,7 @@
       <%= render partial: "submission/feedback", locals: {submission: @submission} %>
       <%= render 'student_assignment_overview' %>
     <% else %>
+      Status: <%= @submission.status %>
       <%= render 'submission/text_editor' %>
     <% end %>
   <% end %>
