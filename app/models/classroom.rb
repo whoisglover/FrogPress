@@ -13,13 +13,11 @@ class Classroom < ActiveRecord::Base
   end
 
   def pending_assignments
-    @these_pending_assignments = self.all_assignments.where("due_date >= ?", Date.today)
-    @these_pending_assignments = @these_pending_assignments.sort_by(&:due_date).reverse
+    return  self.all_assignments.where("due_date >= ?", Date.today).sort_by(&:due_date)
   end
 
   def past_due_assignments
-    @these_past_due_assignments = self.all_assignments.where("due_date < ?", Date.today)
-    @these_past_due_assignments = @these_past_due_assignments.sort_by(&:due_date).reverse
+    return self.all_assignments.where("due_date < ?", Date.today).sort_by(&:due_date)
   end
 
   def student_roster
@@ -29,6 +27,10 @@ class Classroom < ActiveRecord::Base
   def self.add_student_to_class(user_id, join_code)
     @classroom_to_add_student = Classroom.find_by_join_code(join_code)
     @classroom_to_add_student.users << User.find_by_id(user_id)
+  end
+
+  def teacher
+    return self.users.where('user_type = ?', 'teacher')[0]
   end
 
 end
