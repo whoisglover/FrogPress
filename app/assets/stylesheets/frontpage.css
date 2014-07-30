@@ -3,6 +3,20 @@ html {
 
 }
 
+#video-container {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+video {
+  width: auto;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+}
 
 #header {
   width: 100%;
@@ -26,13 +40,13 @@ html {
   overflow: hidden;
 }
 .login-modal{
-  padding: 1rem;
   position: absolute;
+  padding: 1rem;
   background: none;
+  width: 20rem;
+  left: 50%;
+  margin-left: -10rem;
   margin-top: 12%;
-  margin-left: 40%;
-  margin-right: 45%;
-  height: 30%;
   text-align: center;
 }
 

@@ -29,43 +29,37 @@
       </div>
     </div>
     <div id="first_main">
+
+
       <div class="login-modal">
 
 
         <h1 class=" white ft-sz-4-5 mrg-bot-1 sacramento">FrogPress</h1>
-        <img alt="Frog" class="h-10rem mrg-bot-1" src=<%= asset_path 'logo.gif' %>/>
+        <img alt="Frog" class="h-10rem mrg-bot-1" src=<%= asset_path 'frog-transparent.png' %>/>
 
 
+        <div data-ui="preclick" class=" ">
+         <a class=" btn btn-primary btn-small" style="min-width:75%;" href = "/users/sign_up">Get Started</a>
+         <p class="fw-300"><a href="#" data-ui="signin_button" class="white no-txt-dec">Have an account? <strong>Sign In</strong></a></p>
+        </div>
 
+        <div data-ui="postclick" class="disp-none">
+          <%= form_for(:user, :url => session_path(:user), :html => {:class => "login-form"})  do |f| %>
+            <%= f.text_field :email, :placeholder => "Email" %>
+            <%= f.password_field :password, :placeholder => "Password" %>
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+            <%= f.submit 'Sign in', class: 'btn btn-mini' %>
+            <%= link_to "Forgot your password?", new_password_path(:user) %>
+          <% end %>
+        </div>
 
-
-
-      <div data-ui="preclick" class=" ">
-       <a class=" btn btn-primary btn-small" style="min-width:75%;" href = "/users/sign_up">Get Started</a>
-       <p class="fw-300"><a href="#" data-ui="signin_button" class="white no-txt-dec">Have an account? <strong>Sign In</strong></a></p>
+        <div data-ui="videoControls">
+        </div>
       </div>
 
-
-
-      <div data-ui="postclick" class="disp-none">
-        <%= form_for(:user, :url => session_path(:user), :html => {:class => "login-form"})  do |f| %>
-          <%= f.text_field :email, :placeholder => "Email" %>
-          <%= f.password_field :password, :placeholder => "Password" %>
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
-          <%= f.submit 'Sign in', class: 'btn btn-mini' %>
-          <%= link_to "Forgot your password?", new_password_path(:user) %>
-        <% end %>
-      </div>
-
-
-      <div data-ui="videoControls">
-
-      </div>
-
-
-      </div>
-      <video id="videoPlayer" width="100%" preload="" autoplay="autoplay" muted="muted" poster="" >
+      <div id = "video-container">
+      <video id="videoPlayer" height: "auto", width="100%" preload="" autoplay="autoplay" muted="muted" poster="" >
 
 
         <source src="/assets/video1.mp4" %> >
@@ -77,6 +71,9 @@
 
       </video>
     </div>
+    </div>
+
+
     <div class="footerbar">
 
       <div data-ui="down-arrow" class="down-arrow">
