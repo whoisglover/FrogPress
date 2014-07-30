@@ -19,11 +19,22 @@ class AssignmentController < ApplicationController
 
   def show
     @assignment = Assignment.find_by_id(params[:id])
+
+    if @assignment == nil
+      redirect_to (root_path)
+      p "!"
+    end
+
     @classroom = @assignment.classroom
+
     @students = student_roster(@classroom)
 
     if current_user.user_type == "student"
       @completed_submission = Assignment.find_submission_and_status(current_user, @assignment)
+
+      # p "!"*500
+      p @completed_submission
+
       @submission_data = Assignment.create_submission_data(current_user, @completed_submission, @assignment)
       @submission = @submission_data[:submission]
       @sub_title_placeholder = @submission_data[:sub_title_placeholder]
@@ -42,13 +53,14 @@ class AssignmentController < ApplicationController
     assignment_hash.symbolize_keys!
     assignment_to_change = Assignment.find_by_id(params[:id])
     assignment_to_change.update(assignment_hash)
-    redirect_to (classroom_path(assignment_to_change.classroom_id))
+    redirect_to (assignment_path(assignment_to_change))
   end
 
   def destroy
     assignment = Assignment.find(params[:id])
     assignment.destroy
-    redirect_to (classroom_path(assignment.classroom_id))
+
+    render :json => {:success => true}
   end
 
 

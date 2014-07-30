@@ -146,10 +146,6 @@ img { height: 150%;}
 .disp-none{display: none;}
 .abso{ position: absolute;}
 
-#cke_sometext{
-  border: black solid;
-  width: 100%;
-}
 
 
 .no-blt{ list-style-type: none; }
