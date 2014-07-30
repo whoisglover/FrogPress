@@ -1,15 +1,26 @@
 class RubricsController < ApplicationController
 
+
+  def show
+    @rubric = Rubric.find_by_id(params[:id])
+    if @rubric.nil?
+      redirect_to root_path
+    end
+  end
   def new
     cat1 = RubricCategory.new
-
-    # cat1 = RubricCategory.create(title: "danny", level1: "do")
     cat2 = RubricCategory.new
+    cat3 = RubricCategory.new
+    cat4 = RubricCategory.new
 
     @rubric = Rubric.new
     @users = User.all
-    @rubric.rubric_categories << cat1
-    @rubric.rubric_categories << cat2
+    @rubric.rubric_categories << cat1 << cat2 << cat3 << cat4
+    @rubric_categories = @rubric.rubric_categories
+  end
+
+  def edit
+    @rubric = Rubric.find_by_id(params[:id])
     @rubric_categories = @rubric.rubric_categories
   end
 
@@ -18,6 +29,13 @@ class RubricsController < ApplicationController
     p params[:rubric]
     Rubric.create(params[:rubric].symbolize_keys)
     redirect_to root_path
+  end
+
+  def update
+    p "??"*100
+    p params
+    Rubric.find_by_id(params[:id]).update(params[:rubric].symbolize_keys)
+    redirect_to rubric_path(params[:id])
   end
 
 
