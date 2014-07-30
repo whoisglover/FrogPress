@@ -3,6 +3,20 @@ html {
 
 }
 
+#video-container {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+video {
+  width: auto;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+}
 
 #header {
   width: 100%;
@@ -26,13 +40,13 @@ html {
   overflow: hidden;
 }
 .login-modal{
-  padding: 1rem;
   position: absolute;
+  padding: 1rem;
   background: none;
+  width: 20rem;
+  left: 50%;
+  margin-left: -10rem;
   margin-top: 12%;
-  margin-left: 40%;
-  margin-right: 45%;
-  height: 30%;
   text-align: center;
 }
 
@@ -112,18 +126,18 @@ html {
 }
 
 #about {
-  background: #02C1C1;
+  background: #edeff0;
 }
 
 #portfolio {
-  background: #FB4644;
+  background: #edeff0;
 
 }
 #contact {
-  background: #262E3D;
+  background: #edeff0;
 }
 #resume {
-  background: #FB4644;
+  background: #edeff0;
 }
 
 #first {
@@ -229,7 +243,7 @@ html {
   display: inline-block;
   padding: 9px 15px 10px;
   margin-bottom: 0;
-  background: #009cde;
+  background: #A4CB50;
   font-size: 15px;
   font-size: 1.07142857142857rem;
   font-weight: bold;
@@ -246,7 +260,7 @@ html {
 .btn:hover {
   color: #fff;
   text-decoration: none;
-  background: #0285d2;
+  background: #F47E0C;
 }
 .btn:focus {
   color: #FFF;
