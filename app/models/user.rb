@@ -20,4 +20,8 @@ class User < ActiveRecord::Base
     return "incomplete" if submission.length == 0
     return submission[0].status
   end
+
+  def find_submission(assignment)
+      return self.submissions.where('assignment_id = ?', assignment.id)[0]
+  end
 end
