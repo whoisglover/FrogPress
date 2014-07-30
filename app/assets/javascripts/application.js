@@ -15,5 +15,7 @@
 //= require ckeditor/init
 //= require turbolinks
 //= require ckeditor/ckeditor
+//= require smooth_scroll
 //= require highcharts/highcharts
-//= require_tree .
+//= require_tree ./main
+
