@@ -4,9 +4,13 @@
   <h1 class = "ft-lite ft-sz-2q mrg-btm-0 txt-ctr brd-bt pad-bt-5"><%= @student.first_name %> <%= @student.last_name %> Overview</h1>
 
   <!-- Highcharts stuff -->
-  <%= high_chart("submissions_chart", @submissions_chart) %>
-  <%= high_chart("readability_chart", @readability_chart) %>
+  <div class = "highchart piechart">
+    <%= high_chart("submissions_chart", @submissions_chart) %>
+  </div>
 
+  <div class = "highchart linegraph">
+    <%= high_chart("readability_chart", @readability_chart) %>
+  </div>
 
   <!-- Tables of assignments per class -->
   <%= render partial: "overview_tables" %>

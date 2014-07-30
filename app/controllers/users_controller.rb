@@ -76,7 +76,7 @@ class UsersController < ApplicationController
       @submissions_chart = LazyHighCharts::HighChart.new('pie') do |f|
         f.colors(["#557D73", "#A4CB50", "#D6E24F"])
 
-        f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 200, 60, 170]} )
+        f.chart({:defaultSeriesType=>"pie" } )
         series = {
           :type=> 'pie',
           :name=> 'Submissions',
@@ -87,16 +87,19 @@ class UsersController < ApplicationController
           ]
         }
         f.series(series)
-        f.options[:title][:text] = "Submissions"
-        f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'})
+        f.options[:title][:text] = "Submissions Turn in Time"
         f.plot_options(:pie=>{
                          :allowPointSelect=>true,
                          :cursor=>"pointer" ,
                          :dataLabels=>{
-                           :enabled=>true,
-                           :color=>"black",
-                           :style=>{
-                             :font=>"13px Trebuchet MS, Verdana, sans-serif"
+                            :enabled=>true,
+                            :distance=> -50,
+                            :color=>"black",
+                            :style=>{
+                              :fontWeight=> 'bold',
+                              :fontSize=> '10pt',
+
+                              :textShadow=> '0px 1px 2px white'
                            }
                          }
         })
