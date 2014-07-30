@@ -3,9 +3,15 @@
   <% assignments.each do |assignment| %>
   <tr  class = 'pad-5 ft-lite mrg-l-n40 ft-sz-1q hov-bkg'>
     <td class = "disp-no"><%= assignment.id %></a>
-        </td>
-    <td onclick='document.location = "<%= assignment_path(assignment.id) %>"' class = "pad-l-5 pad-top-15"><%= assignment.title %></a></td>
-    <td onclick='document.location = "<%= assignment_path(assignment.id) %>"' class = "pad-top-15 pad-l-20 pad-r-5 txt-rt">due: </td>
+    </td>
+    <td onclick='document.location = "<%= assignment_path(assignment.id) %>"' class = "pad-l-5 pad-top-15 w-50per"><%= assignment.title %></td>
+
+    <% if current_user.user_type == "student" %>
+    <td onclick='document.location = "<%= assignment_path(assignment.id) %>"' class = "pad-l-5 pad-top-15 txt-rt w-100 "><%= current_user.submission_status(assignment) %></td>
+    <% end %>
+
+
+    <td onclick='document.location = "<%= assignment_path(assignment.id) %>"' class = "pad-top-15 pad-l-20 pad-r-5 txt-rt ">due: </td>
     <td onclick='document.location = "<%= assignment_path(assignment.id) %>"' class = "pad-top-15 pad-l-20 pad-r-5 txt-rt"><%= assignment.due_date.month %>/<%= assignment.due_date.day %></td>
   </tr>
   <% end %>
