@@ -2,56 +2,48 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!
   before_filter :verify_user
   protect_from_forgery
+
+  def make_classroom_hash(classrooms)
+    classroom_hash = {}
+
+    classrooms.each do |klass|
+      if (current_user.user_type == "student" || klass.teacher == current_user)
+        classroom_hash[klass.id] = []
+      end
+    end
+
+    return classroom_hash
+  end
+
   def show
+    # IF YOU ARE THE STUDENT OR TEACHER
+    if current_user.id == params[:id].to_i || current_user.user_type == 'teacher'
 
-    if current_user.id == params[:id].to_i
-      # IF YOU ARE THE STUDENT YOU SEE ALL
-      student = User.find_by_id(params[:id])
-      submissions = []
-      student.classrooms.each do |klass|
-        subs_final =[]
-        subs = student.submissions
-        subs.each do |s|
-          if s.get_class_id == klass.id
-            subs_final << s
-          end
+      @student = User.find_by_id(params[:id])
+      @submissions_by_classroom = make_classroom_hash(@student.classrooms)
+      @submissions = Submission.where(user_id: @student.id)
+      @num_complete_submissions = @submissions.where(status: "complete").length
+      @num_not_submitted = @submissions.length - @submissions.where(status: "complete").length
+      @num_late_submissions = 0
+
+      # go through all submissions and sort by classroom
+      # check against assignment due date to get # of late submissions
+      @student.submissions.each do |s|
+        if Assignment.find_by_id(s.assignment_id).due_date < s.updated_at
+          @num_late_submissions += 1
         end
-        class_and_subs = {klass: klass.id, submissions: subs_final}
-        submissions << class_and_subs
-      end
-      @data = {student: student, submissions: submissions}
-    elsif current_user.user_type == 'teacher'
-      # IF YOU ARE THE TEACHER YOU ONLY SEE CLASSES YOU TEACH THAT THIS STUDENT IS IN
-      submissions = []
-      student = User.find_by_id(params[:id])
-      class_matches = []
-      possible_classes = student.classrooms
-      possible_classes.each do |klass|
-        klass.users.each do |user|
-          if user.id == current_user.id
-            class_matches << klass
-          end
+
+        if @submissions_by_classroom[s.get_class_id]
+          @submissions_by_classroom[s.get_class_id] << s
         end
-      end
-      class_matches.each do |klass|
-        subs_final =[]
-        subs = student.submissions
-        subs.each do |s|
-          if s.get_class_id == klass.id
-            subs_final << s
-          end
-        end
-        class_and_subs = {klass: klass.id, submissions: subs_final}
-        submissions << class_and_subs
       end
 
-      @data = {student: student, submissions: submissions}
+
+
     else
       redirect_to(user_path(current_user.id))
     end
   end
-
-
 
   private
   def verify_user

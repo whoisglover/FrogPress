@@ -1,0 +1,8 @@
+<% @feedback = Feedback.new %>
+<br>
+<%= form_for @feedback, url: feedback_index_path(@submission.id)  do |f| %>
+<%= f.text_area :content, placeholder: "write student feedback here", class: "w-100per mrg-btm-15 ft-lite" %><br>
+<%= f.hidden_field :submission_id, value: @submission.id %>
+<%= f.hidden_field :feedback_provider, value: "#{current_user.first_name} #{current_user.last_name}" %>
+<%= f.submit "Publish Feedback", class: "brd-none w-101per dk-grn bkg-wt brd-grn ft-lite" %>
+<% end %>

@@ -1,15 +1,17 @@
 class FeedbackController < ApplicationController
   before_filter :authenticate_user!
-  def index
-    p "!"*100
-    p params
-    @feedback = Feedback.where("submission_id=?", params[:submission_id])
-  end
+
 
   def create
     if current_user.user_type == 'teacher'
-      Feedback.create(submission_id: params[:submission_id], content: params[:content])
+      # ////////////////////////// p params to see double nested hash feedback=>{submission_id: 5}
+      subid = params[:feedback][:submission_id]
+      content = params[:feedback][:content]
+      feedbackprovider = params[:feedback][:feedback_provider]
+      Submission.find(subid).update_attributes({status: "reviewed"})
+
+      Feedback.create(submission_id: subid, content: content, feedback_provider: feedbackprovider)
     end
-      redirect_to (submission_path(params[:submission_id]))
+      redirect_to (submission_path(subid))
   end
 end

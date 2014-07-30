@@ -1,42 +1,16 @@
-  <div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
+<div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
 
-<h1 class = "ft-lite ft-sz-2 mrg-btm-0 txt-ctr brd-bt pad-bt-5"><%= @data[:student].first_name %> <%= @data[:student].last_name %> OverView</h1>
-<p>LOTS OF DATA HERE</p>
-<% if current_user.user_type == 'student' %>
-  <% @data[:submissions].each do |entry| %>
-    <h3 class = "hov-grn ft-lite ft-sz-1half brd-bt pad-bt-5 mrg-btm-0 pad-top-15"><a class = "no-txt-dec black hov-grn" href="<%= classroom_path(entry[:klass]) %>"><%= Classroom.find(entry[:klass]).name %></a></h3>
-    <!-- Visit Class Page (put as a link for class) -->
+  <!-- Student's Name  -->
+  <h1 class = "ft-lite ft-sz-2q mrg-btm-0 txt-ctr brd-bt pad-bt-5"><%= @student.first_name %> <%= @student.last_name %> Overview</h1>
 
+  <!-- Highcharts stuff -->
+  <p>DATA</p>
+  Total Submissions: <%= @submissions.length %><br>
+  Complete Submissions: <%= @num_complete_submissions %><br>
+  Not Submitted: <%= @num_not_submitted %><br>
+  Late Submissions: <%= @num_late_submissions %>
 
-
-    <ul class= 'no-blt mrg-l-n40 mrg-top-0'>
-      <%  entry[:submissions].each do |sub| %>
-        <li class = "pad-top-15"><a class = "no-txt-dec black hov-grn ft-lite ft-sz-1q hov-grn " href="<%= submission_path(sub.id) %>"><%= sub.sub_title %></a></li>
-      <% end %>
-    </ul>
-  <% end %>
-
-
-
-
-
-<% elsif current_user.user_type == 'teacher' %>
-  <% if @data[:submissions][0] %>
-    <h3>Classes You Teach:</h3>
-    <% @data[:submissions].each do |entry| %>
-      <h4>Class: <%= Classroom.find(entry[:klass]).name %></h4>
-      <a class = "no-txt-dec black hov-grn" href="<%= classroom_path(entry[:klass]) %>">Visit Class Page</a>
-      <p><%= @data[:student].first_name %>'s Submissions: </p>
-      <ul class= 'no-blt '>
-        <%entry[:submissions].each do |sub| %>
-          <% assignment = sub.assignment %>
-          <li> <a class = "o-txt-dec black hov-grn pad-5 ft-lite ft-sz-1q hov-grn" href="<%= submission_path(sub.id) %>"> <%= sub.sub_title %></a></li>
-        <% end %>
-      </ul>
-    <% end %>
-  <% else %>
-    <h3>This student is not in any of your current classes.</h3>
-  <% end %>
-<% end %>
+  <!-- Tables of assignments per class -->
+  <%= render partial: "overview_tables" %>
 
 </div>

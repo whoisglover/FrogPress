@@ -12,6 +12,10 @@ gem 'pg'
 # For text editor. Add paperclip gem if we decide to allow image uploads
 gem 'ckeditor'
 
+gem 'lingua'
+
+gem 'debugger'
+
 gem 'normalize-rails'
 
 # Use SCSS for stylesheets
@@ -39,14 +43,19 @@ gem 'jbuilder', '~> 1.2'
 gem 'devise'
 gem 'rails_12factor'
 gem 'rake'
+
 # gem 'travis'
-gem 'dotgpg'
+# gem 'dotgpg'
+
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 
 group :development, :test do
+  gem 'travis'
+  gem 'dotgpg'
   gem 'rspec-rails', '~>2.14'
   gem 'factory_girl_rails'
   gem 'faker'

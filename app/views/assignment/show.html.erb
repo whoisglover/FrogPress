@@ -1,7 +1,6 @@
 <div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
-  <h2 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0"><a class = 'no-txt-dec black hov-grn'href = '<%=classroom_path(@classroom)%>'><%= @classroom.name %></a></h2>
-    <h4 class = "ft-lite ft-bold brd-top mrg-btm-0 mrg-top-10 pad-top-15" > <%= @assignment.title %></h4>
-  <h4 class = "ft-lite brd-bt pad-bt-15 mrg-top-10" ><span class = "">Prompt: </span> <%= @assignment.content %></h4>
+
+  <%= render partial: "submission/class_and_assignment" %>
 
   <% if current_user.user_type == "teacher" %>
   <%= render 'assignment_overview' %>
@@ -9,9 +8,12 @@
 
   <% if current_user.user_type == "student" %>
     <% if @completed_submission != nil %>
-      <%= render 'student_assignment_overview' %>
+      <%= render partial: "submission/feedback", locals: {submission: @submission} %>
+      <%= render partial: 'student_assignment_overview', locals: {submission: @completed_submission} %>
     <% else %>
+      Status: <%= @submission.status %>
       <%= render 'submission/text_editor' %>
     <% end %>
   <% end %>
 </div>
+

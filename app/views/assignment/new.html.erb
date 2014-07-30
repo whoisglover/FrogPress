@@ -1,11 +1,15 @@
+<div class = 'gill w-70per mrg-auto min-w-350px max-w-900px mrg-top-45'>
+  <h1 class = "ft-lite ft-sz-2 txt-ctr mrg-btm-0">Create New Assignment</h1><br>
 <%= form_for :assignment, url: assignment_index_path do |f| %>
 <%= f.label :title %>
-<%= f.text_field :title %>
+<%= f.text_field :title, placeholder:"Title", class: "w-100per mrg-btm-15 " %>
 <%= f.label :due_date %>
-<%= f.date_field :due_date %>
+<%= f.date_field :due_date, class: "w-100per mrg-btm-15" %>
 <br>
-<%= f.label :content %><br>
-<%= f.text_area :content %><br>
-<%= f.submit "Submit" %>
+<%= f.label :content, "Prompt" %><br>
+<%= f.text_area :content, placeholder:"Prompt",class: "w-100per mrg-btm-15 " %><br>
+<%= f.submit "Submit", class: "brd-none w-101per green bkg-wt brd-grn" %>
 <%= f.hidden_field :classroom_id, value: params[:classroom_id] %>
 <% end %>
+
+</div>
