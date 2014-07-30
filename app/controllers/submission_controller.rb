@@ -1,5 +1,5 @@
-
 class SubmissionController < ApplicationController
+  include SubmissionsHelper
   before_filter :authenticate_user!
   before_filter :verify_user
   protect_from_forgery
@@ -14,6 +14,8 @@ class SubmissionController < ApplicationController
     @student = @submission.user
     @assignment = @submission.assignment
     @classroom = @assignment.classroom
+    feedback = @submission.feedbacks.first
+    feedback?(feedback)
   end
 
   def create
@@ -48,8 +50,10 @@ class SubmissionController < ApplicationController
     else
       p "WARNING: submission status unknown. Consult Brennon if this confuses you."
     end
-    p @submission = Submission.find_by_id(params[:submission][:submission_id])
+    #debugger
+    @submission = Submission.find_by_id(params[:submission][:submission_id])
     @submission.update(sub_title: params[:submission][:sub_title], sub_content: params[:submission][:sub_content], status: @status)
+    @submission.save
     @classroom_id = Assignment.find_by_id(params[:submission][:assignment_id]).classroom_id
     redirect_to (classroom_path(@classroom_id))
     #redirect_to (submission_path(@submission.id))
