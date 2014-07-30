@@ -30,8 +30,8 @@ View.prototype = {
     this.videoPlayer.onended = this.playNextVideo.bind(this);
 
 
-    this.pauseButton.addEventListener('click', this.pauseVideo.bind(this));
-    this.playButton.addEventListener('click', this.playVideo.bind(this));
+    // this.pauseButton.addEventListener('click', this.pauseVideo.bind(this));
+    // this.playButton.addEventListener('click', this.playVideo.bind(this));
   },
 
   bindLoginButton: function(){

@@ -7,23 +7,17 @@ class ClassroomController < ApplicationController
   def remove_student
     classid = params[:classid].to_i
     userid = params[:userid].to_i
+
     this_class = Classroom.find_by_id(classid)
     this_class.users.delete(userid)
-    redirect_to(classroom_path(params[:classid]))
-  end
 
+    render :json => {:success => true}
+
+  end
 
   def index
     @classrooms = current_user.classrooms
-    @assignments = []
-    @classrooms.each do |klass|
-      if klass.assignments[0]
-         @assignments << klass.assignments
-      end
-    end
-    @assignments.flatten!
-    @assignments = @assignments.sort_by(&:due_date).reverse
-    @data = {classrooms: @classrooms, assignments: @assignments}
+    @assignments = current_user.pending_assignments[0..4]
   end
 
   def create
@@ -38,16 +32,20 @@ class ClassroomController < ApplicationController
 
   def show
     @classroom = Classroom.find_by_id(params[:id])
-    if current_user.user_type == 'teacher'
-      render '_teacher', locals: {classroom: @classroom}
-    else
-      render '_student', locals: {classroom: @classroom}
-    end
-
+    @teacher = @classroom.teacher
+    render "_#{current_user.user_type}"
   end
 
+
   def update
-    attr_hash = params[:attrs]
+
+    if (params[:flag] == "true")
+      p "!"*500
+      p params
+
+      render :json => {:success => true}
+    else
+      attr_hash = params[:attrs]
     # attr_hash[:grade_level] = attr_hash[:grade_level].to_i
     attr_hash = attr_hash.to_hash
     # symbolize the keys of hash of update params
@@ -58,20 +56,21 @@ class ClassroomController < ApplicationController
     @classroom_to_change.update(attr_hash)
     redirect_to classroom_path(@classroom_to_change.id)
   end
+end
 
-  def destroy
-    Classroom.find_by_id(params[:id]).destroy
-    redirect_to(classroom_index_path)
-  end
+def destroy
+  Classroom.find_by_id(params[:id]).destroy
+  redirect_to(classroom_index_path)
+end
 
 
-  def new
+def new
 
-  end
+end
 
-  private
-  def verify_user
-    if current_user.user_type == 'teacher'
+private
+def verify_user
+  if current_user.user_type == 'teacher'
       # nothing to see here, move along
     elsif current_user.user_type == 'student'
     else

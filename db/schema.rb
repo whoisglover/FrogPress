@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140727183844) do
   create_table "feedbacks", force: true do |t|
     t.text     "content"
     t.integer  "submission_id"
+    t.string   "feedback_provider"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

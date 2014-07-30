@@ -16,21 +16,25 @@
   <!-- fa-google-plus -->
 
   <!-- http://en.ony.ru/upload/BlocksPagesProperties/video_ogv/f1043baf3e69cf94736c08e559c0e187.ogv -->
-  <section class="info" id="first">
+  <section class="info " id="first">
 
     <div class="navbar">
-      <div id="login_buttons">
-       <a class=" btn btn-secondary btn-mini" href = "/users/sign_in">Log In</a>
+      <div id="login_buttons" class = "">
+       <a class=" btn btn-secondary btn-mini min-w-7rem " href = "/users/sign_in">Log In</a>
        <a class=" btn btn-mini btn-primary" href = "/users/sign_up">Sign Up</a>
       </div>
       <div id="page_links">
-        <img alt="Frog" class="h-50per pad-l-5" src=<%= asset_path 'frog.png' %>/>
-        <span class="fw-300">FrogPress</span>
+
       </div>
     </div>
     <div id="first_main">
       <div class="login-modal">
         <h1 class="white ft-sz-4-5 mrg-bot-2">FrogPress</h1>
+        <img alt="Frog" class="abso h-5rem top-0-5rem left-14rem pad-l-5" src=<%= asset_path 'logo.gif' %>/>
+
+
+
+
       <div data-ui="preclick" class=" ">
        <a class=" btn btn-primary btn-small" style="min-width:75%;" href = "/users/sign_up">Get Started</a>
        <p class="fw-300"><a href="#" data-ui="signin_button" class="white no-txt-dec">Have an account? <strong>Sign In</strong></a></p>
@@ -58,6 +62,7 @@
         <source src=<%= asset_path "video1.mp4" %> >
 
         <source src="video2.ogv" type="video/ogg">
+
       </video>
     </div>
     <div class="footerbar">
