@@ -1,6 +1,41 @@
 <% @feedback = Feedback.new %>
+<% @rubric_submissions = @feedback.rubric_submissions %>
+<% @rubric_categories_count = 0 %>
 <br>
+
 <%= form_for @feedback, url: feedback_index_path(@submission.id)  do |f| %>
+
+  <% @classroom.rubrics.each do |rubric| %>
+    <% rubric.rubric_categories.each_with_index do |rc, index| %>
+      <% @rubric_categories_count +=1 %>
+      <table class="txt-ctr ">
+      <th style="text-align:left;">
+      <%= rc.title %></th>
+      <tr>
+        <td class="w-8rem">Level 1</td>
+        <td class="w-8rem">Level 2</td>
+        <td class="w-8rem">Level 3</td>
+        <td class="w-8rem">Level 4</td>
+        <td class="w-8rem">Level 5</td>
+      </tr>
+      <tr>
+          <td class="w-8rem"><input type ="radio" name=<%= rc.id %> value='1' data-feedback=<%= @feedback.id %> >      </td>
+          <td class="w-8rem"><input type ="radio" name=<%= rc.id %> value='2' data-feedback=<%= @feedback.id %> >      </td>
+          <td class="w-8rem"><input type ="radio" name=<%= rc.id %> value='3' data-feedback=<%= @feedback.id %> >      </td>
+          <td class="w-8rem"><input type ="radio" name=<%= rc.id %> value='4' data-feedback=<%= @feedback.id %> >      </td>
+          <td class="w-8rem"><input type ="radio" name=<%= rc.id %> value='5' data-feedback=<%= @feedback.id %> >      </td>
+      </input>
+      </tr>
+      </table>
+    <br>
+    <% end %>
+  <% end %>
+
+  <input type='hidden' name="rc_count" value=<%= @rubric_categories_count%>>
+
+
+
+
 <%= f.text_area :content, placeholder: "write student feedback here", class: "w-100per mrg-btm-15 ft-lite" %><br>
 <%= f.hidden_field :submission_id, value: @submission.id %>
 <%= f.hidden_field :feedback_provider, value: "#{current_user.first_name} #{current_user.last_name}" %>

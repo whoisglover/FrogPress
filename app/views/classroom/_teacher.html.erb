@@ -4,9 +4,15 @@
   <h2 class = "ft-lite ft-sz-2q txt-ctr mrg-btm-0  pad-bt-5" ><%= @classroom.name %></h2>
 
   <!-- Create new assignment button -->
+
   <form action="<%= new_assignment_path %>/?classroom_id=<%=@classroom.id%>" method="get">
     <input type="text" name="classroom_id" class = "hidden" value= <%= @classroom.id %>>
-    <input type = 'submit' class = 'brd-none w-100per dk-grn bkg-wt brd-grn' value = "Create a new assignment" >
+    <input type = 'submit' class = 'brd-none w-100per dk-grn bkg-wt brd-grn' value = "Create a New Assignment" >
+  </form>
+
+  <form action="<%= new_rubric_path %>/?classroom_id=<%=@classroom.id%>" method="get">
+    <input type="text" name="classroom_id" class = "hidden" value= <%= @classroom.id %>>
+    <input type = 'submit' class = 'brd-none w-100per dk-grn bkg-wt brd-grn' value = "Create a New Rubric" >
   </form>
 
   <!-- Roster: List of students in L column -->
