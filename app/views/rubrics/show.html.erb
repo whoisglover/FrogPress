@@ -1,41 +1,43 @@
 
 <div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
 
-<h1>Rubric for *CLASSROOM NAME*</h1>
+<h1 class = "classroom-name">Rubric for *CLASSROOM NAME*</h1>
+
 <%= "Object Passed: " %>
 <%= @rubric %><br>
-<br>
-<%= @rubric.title %><br>
+
+<h2 class = "txt-ctr"><%= @rubric.title %></h2><br>
 
 <table class = "w-100per brd-clpse">
 
 
-    <tr>
-    <th>Category</th>
-    <th>Level 1 Criteria</th>
-    <th>Level 2 Criteria</th>
-    <th>Level 3 Criteria</th>
-    <th>Level 4 Criteria</th>
-    <th>Level 5 Criteria</th>
+    <tr class = " ft-lite ft-sz-1half mrg-top-45 mrg-btm-0 brd-bt pad-bt-5 orange">
+    <th class = "ft-lite txt-ctr">Category</th>
+    <th class = "ft-lite txt-ctr">Level 1</th>
+    <th class = "ft-lite txt-ctr">Level 2</th>
+    <th class = "ft-lite txt-ctr">Level 3</th>
+    <th class = "ft-lite txt-ctr">Level 4</th>
+    <th class = "ft-lite txt-ctr">Level 5</th>
     </tr>
 
-    <tr>
+    <tr class = "brd-bt">
 
-      <td>Yoshi</td>
-      <td>Yoshi (ヨッシー Yosshī?) /ˈjoʊʃi/ or /ˈjɒʃi/, once romanized as Yossy,[1][2] is a fictional anthropomorphic dinosaur (referred to as a dragon at times) who appears in video games published by Nintendo.[3] He debuted in Super Mario World (1990) on the Super Nintendo Entertainment System[4] as Mario and Luigi's sidekick (a role he has often reprised), and he later established his own series with several platform and puzzle games, including Super Mario World 2: Yoshi's Island.</td>
-      <td>Yoshi (ヨッシー Yosshī?) /ˈjoʊʃi/ or /ˈjɒʃi/, once romanized as Yossy,[1][2] is a fictional anthropomorphic dinosaur (referred to as a dragon at times) who appears in video games published by Nintendo.[3] He debuted in Super Mario World (1990) on the Super Nintendo Entertainment System[4] as Mario and Luigi's sidekick (a role he has often reprised), and he later established his own series with several platform and puzzle games, including Super Mario World 2: Yoshi's Island.</td>
-      <td>Yoshi (ヨッシー Yosshī?) /ˈjoʊʃi/ or /ˈjɒʃi/, once romanized as Yossy,[1][2] is a fictional anthropomorphic dinosaur (referred to as a dragon at times) who appears in video games published by Nintendo.[3] He debuted in Super Mario World (1990) on the Super Nintendo Entertainment System[4] as Mario and Luigi's sidekick (a role he has often reprised), and he later established his own series with several platform and puzzle games, including Super Mario World 2: Yoshi's Island.</td>
-      <td>Yoshi (ヨッシー Yosshī?) /ˈjoʊʃi/ or /ˈjɒʃi/, once romanized as Yossy,[1][2] is a fictional anthropomorphic dinosaur (referred to as a dragon at times) who appears in video games published by Nintendo.[3] He debuted in Super Mario World (1990) on the Super Nintendo Entertainment System[4] as Mario and Luigi's sidekick (a role he has often reprised), and he later established his own series with several platform and puzzle games, including Super Mario World 2: Yoshi's Island.</td>
-      <td>Yoshi (ヨッシー Yosshī?) /ˈjoʊʃi/ or /ˈjɒʃi/, once romanized as Yossy,[1][2] is a fictional anthropomorphic dinosaur (referred to as a dragon at times) who appears in video games published by Nintendo.[3] He debuted in Super Mario World (1990) on the Super Nintendo Entertainment System[4] as Mario and Luigi's sidekick (a role he has often reprised), and he later established his own series with several platform and puzzle games, including Super Mario World 2: Yoshi's Island.</td>
+      <td class = "pad-top-15 pad-l-5">Yoshi</td>
+      <td class = "ft-lite pad-top-15 pad-l-5"> is a fictional anthropomorphic dinosaur (referred to as a dragon at times) who appears in video games published by Nintendo.[3] He debuted in Super Mario World </td>
+      <td class = "ft-lite pad-top-15 pad-l-5">He debuted in Super Mario World (1990) on the Super Nintendo Entertainment System[4] as Mario and Luigi's sidekick (a role he has often reprised), and he later established his own series with several platform and puzzle games, including Super Mario World 2: Yoshi's Island.</td>
+      <td class = "ft-lite pad-top-15 pad-l-5"> is a fictional anthropomorphic dinosaur (referred to as a dragon at times) who appears in video games published by Nintendo.Yoshi's Island.</td>
+      <td class = "ft-lite pad-top-15 pad-l-5"> and he later established his own series with several platform and puzzle games, including Super Mario World 2: Yoshi's Island.</td>
+      <td class = "ft-lite pad-top-15 pad-l-5">and he later established his own series with several platform and puzzle games, including Super Mario World 2: Yoshi's Island.</td>
     </tr>
+
    <% @rubric.rubric_categories.each do |category| %>
-    <tr>
-      <td><%= category.title%></td>
-      <td><%= category.level1%></td>
-      <td><%= category.level2%></td>
-      <td><%= category.level3%></td>
-      <td><%= category.level4%></td>
-      <td><%= category.level5%></td>
+    <tr class = "brd-bt">
+      <td class = " pad-top-15 pad-l-5"><%= category.title%></td>
+      <td class = "ft-lite pad-top-15 pad-l-5"><%= category.level1%></td>
+      <td class = "ft-lite pad-top-15 pad-l-5"><%= category.level2%></td>
+      <td class = "ft-lite pad-top-15 pad-l-5"><%= category.level3%></td>
+      <td class = "ft-lite pad-top-15 pad-l-5"><%= category.level4%></td>
+      <td class = "ft-lite pad-top-15 pad-l-5"><%= category.level5%></td>
 
     </tr>
    <% end %>
