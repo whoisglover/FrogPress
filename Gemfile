@@ -69,6 +69,10 @@ end
 group :test do
 end
 
+group :production do
+  gem 'rails_12factor'
+end
+
 # group :assets do
 #   gem 'jquery-ui-rails'
 #   gem 'jquery-modal-rails'
@@ -95,4 +99,4 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
- #gem 'debugger', group: [:development, :test]
+#gem 'debugger', group: [:development, :test]
