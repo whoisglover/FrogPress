@@ -26,6 +26,7 @@ class UsersController < ApplicationController
       @num_not_submitted = @submissions.length - @submissions.where(status: "complete").length
       @num_late_submissions = 0
 
+
       @student.submissions.each do |s|
         if s.late?
           @num_late_submissions += 1
@@ -46,13 +47,43 @@ class UsersController < ApplicationController
         @submission_titles << submission.sub_title.split[0...4].join(' ')
         @submission_readability_scores << Lingua::EN::Readability.new(submission.sub_content).kincaid.round(2)
       end
-
       @readability_chart = User.new_readability_chart(@submission_titles, @submission_readability_scores)
 
       @submissions_chart = User.new_status_chart(@num_on_time, @num_not_submitted, @num_late_submissions)
     else
       redirect_to(user_path(current_user.id))
     end
+  end
+  def readability_chart
+    @readability_chart = LazyHighCharts::HighChart.new('spline') do |f|
+        # f.title(:text => "Flesch-Kincaid Readability Score")
+        f.xAxis(:categories => @submission_titles)
+        f.series(:name => "Readability Score", :yAxis => 0, :data => @submission_readability_scores)
+
+        f.yAxis [
+          {:title => {:text => "Score by Grade Level", :margin => 70}, :labels=>{ :style=>{:fontSize=> '16px'}} },
+        ]
+
+        f.chart({:defaultSeriesType=>"spline"})
+        f.colors(["#A4CB50"])
+      end
+      return @readability_chart
+
+  end
+  def readability_chart
+    @readability_chart = LazyHighCharts::HighChart.new('spline') do |f|
+        # f.title(:text => "Flesch-Kincaid Readability Score")
+        f.xAxis(:categories => @submission_titles)
+        f.series(:name => "Readability Score", :yAxis => 0, :data => @submission_readability_scores)
+
+        f.yAxis [
+          {:title => {:text => "Score by Grade Level", :margin => 70}, :labels=>{ :style=>{:fontSize=> '16px'}} },
+        ]
+
+        f.chart({:defaultSeriesType=>"spline"})
+        f.colors(["#A4CB50"])
+      end
+      return @readability_chart
   end
 
   private

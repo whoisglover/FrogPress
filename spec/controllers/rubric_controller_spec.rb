@@ -1,6 +1,8 @@
 require 'spec_helper'
 
-describe RubricsController do
+
+describe RubricController do
+
 
   describe "new" do
     it 'should assign instance variable with a new rubric object' do

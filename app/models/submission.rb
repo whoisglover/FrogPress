@@ -6,6 +6,7 @@ class Submission < ActiveRecord::Base
   has_many :feedbacks
   has_many :rubric_submissions
 
+
   def late?
     assignment.due_date < updated_at.to_date
   end
