@@ -4,6 +4,7 @@ FrogPress::Application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
+  config.assets.precompile = true
   config.assets.compile = true
 
   # Eager load code on boot. This eager loads most of Rails and
