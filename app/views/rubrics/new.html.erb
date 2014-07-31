@@ -6,7 +6,7 @@
 <%= form_for(@rubric) do |f| %>
       <%= f.label :title, "Rubric Title" %><br>
       <%= f.text_field :title %><br><br><br>
-      <%= f.hidden_field :classroom_id, value: params[:class] %>
+      <%= f.hidden_field :classroom_id, value: params[:classroom_id] %>
   <% @rubric_categories.each do |rubric_category| -%>
     <%= f.fields_for :rubric_categories, rubric_category do |q| -%>
             <%= q.label :title, "Category title" %>

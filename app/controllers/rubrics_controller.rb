@@ -25,8 +25,8 @@ class RubricsController < ApplicationController
   end
 
   def create
-    p "!"*100
-    p params[:rubric]
+
+    p "classroom id from params is : #{params[:classroom_id]}"
     Rubric.create(params[:rubric].symbolize_keys)
     redirect_to root_path
   end
@@ -50,6 +50,3 @@ class RubricsController < ApplicationController
       :rubric_categories_attributes => [:id, :rubric_id, :title, :level1, :level2, :level3, :level4, :level5])
   end
 end
-
-
-{"title"=>"DANNYSRUBRIC", "rubric_categories_attributes"=>{"0"=>{"title"=>"CAT!", "level1"=>"level 1 yoshi", "level2"=>"lvl 2 bowser", "level3"=>"lvl3 peach", "level4"=>"lvl4 toad", "level5"=>"lvl5 luigi"}}}
