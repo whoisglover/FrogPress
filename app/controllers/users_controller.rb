@@ -68,6 +68,22 @@ class UsersController < ApplicationController
         f.colors(["#A4CB50"])
       end
       return @readability_chart
+
+  end
+  def readability_chart
+    @readability_chart = LazyHighCharts::HighChart.new('spline') do |f|
+        # f.title(:text => "Flesch-Kincaid Readability Score")
+        f.xAxis(:categories => @submission_titles)
+        f.series(:name => "Readability Score", :yAxis => 0, :data => @submission_readability_scores)
+
+        f.yAxis [
+          {:title => {:text => "Score by Grade Level", :margin => 70}, :labels=>{ :style=>{:fontSize=> '16px'}} },
+        ]
+
+        f.chart({:defaultSeriesType=>"spline"})
+        f.colors(["#A4CB50"])
+      end
+      return @readability_chart
   end
 
   private
