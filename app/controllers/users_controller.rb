@@ -20,26 +20,45 @@ class UsersController < ApplicationController
     if current_user.id == params[:id].to_i || current_user.user_type == 'teacher'
 
       @student = User.find_by_id(params[:id])
+
+      # Get all student's submissions
+      @submissions = @student.submissions
+
+      # get all the student's classes with their submissions in hash for display
       @submissions_by_classroom = make_classroom_hash(@student.classrooms)
-      @submissions = Submission.where(user_id: @student.id)
-      @num_complete_submissions = @submissions.where(status: "complete").length
-      @num_not_submitted = @submissions.length - @submissions.where(status: "complete").length
-      @num_late_submissions = 0
+      @submissions.each do |s|
+         if @submissions_by_classroom[s.assignment.classroom.id]
+          @submissions_by_classroom[s.assignment.classroom.id] << s
+         end
+      end
 
 
-      @student.submissions.each do |s|
-        if s.late?
-          @num_late_submissions += 1
-        end
-
-        if @submissions_by_classroom[s.get_class_id]
-          @submissions_by_classroom[s.get_class_id] << s
+      # get the submissions where the assignments have already passed their due date
+      submissions_past_due = []
+      @submissions.each do |s|
+        if s.assignment.due_date < Date.today
+          submissions_past_due << s
         end
       end
 
-      @num_on_time = @num_complete_submissions - @num_late_submissions
+      @num_on_time = 0
+      @num_not_submitted = 0
+      @num_late_submissions = 0
 
-      @submissions = Submission.where(user_id: @student.id)
+
+      # Sort into submitted late OR submitted on time OR not turned in
+      submissions_past_due.each do |s|
+        if s.status == 'incomplete'
+          @num_not_submitted +=1
+        elsif s.updated_at > s.assignment.due_date + 1
+          @num_late_submissions +=1
+        else
+          @num_on_time +=1
+        end
+      end
+
+
+      # get data for the Readability graph
       @submission_titles = []
       @submission_readability_scores = []
 
@@ -54,37 +73,7 @@ class UsersController < ApplicationController
       redirect_to(user_path(current_user.id))
     end
   end
-  def readability_chart
-    @readability_chart = LazyHighCharts::HighChart.new('spline') do |f|
-        # f.title(:text => "Flesch-Kincaid Readability Score")
-        f.xAxis(:categories => @submission_titles)
-        f.series(:name => "Readability Score", :yAxis => 0, :data => @submission_readability_scores)
 
-        f.yAxis [
-          {:title => {:text => "Score by Grade Level", :margin => 70}, :labels=>{ :style=>{:fontSize=> '16px'}} },
-        ]
-
-        f.chart({:defaultSeriesType=>"spline"})
-        f.colors(["#A4CB50"])
-      end
-      return @readability_chart
-
-  end
-  def readability_chart
-    @readability_chart = LazyHighCharts::HighChart.new('spline') do |f|
-        # f.title(:text => "Flesch-Kincaid Readability Score")
-        f.xAxis(:categories => @submission_titles)
-        f.series(:name => "Readability Score", :yAxis => 0, :data => @submission_readability_scores)
-
-        f.yAxis [
-          {:title => {:text => "Score by Grade Level", :margin => 70}, :labels=>{ :style=>{:fontSize=> '16px'}} },
-        ]
-
-        f.chart({:defaultSeriesType=>"spline"})
-        f.colors(["#A4CB50"])
-      end
-      return @readability_chart
-  end
 
   private
   def verify_user

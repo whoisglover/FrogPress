@@ -3,17 +3,13 @@ class Assignment < ActiveRecord::Base
   has_many :submissions
   validates :classroom_id, presence: true
 
-  def self.new_submission_data_chart(num_on_time, num_not_submitted, num_late_submissions)
+  def self.new_submission_data_chart(students_stats)
     LazyHighCharts::HighChart.new('pie') do |f|
         f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 200, 60, 170]} )
         series = {
           :type=> 'pie',
           :name=> 'Submissions',
-          :data=> [
-            ['On Time', num_on_time],
-            ['Not Submitted', num_not_submitted],
-            ['Late', num_late_submissions]
-          ]
+          :data=> students_stats
         }
         f.series(series)
         f.options[:title][:text] = "Submissions"
