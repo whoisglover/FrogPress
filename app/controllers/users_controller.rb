@@ -67,7 +67,7 @@ class UsersController < ApplicationController
           ]
         }
         f.series(series)
-        f.options[:title][:text] = "Submission Status "
+        f.options[:title][:text] = ""
         f.plot_options(:pie=>{
                          :allowPointSelect=>true,
                          :cursor=>"pointer" ,
