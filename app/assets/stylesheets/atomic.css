@@ -28,17 +28,12 @@
 }
 
 .highchart {
-  display: inline-block;
-  margin: 0px;
+  width: 40rem;
+  margin: auto;
   padding: 0px;
   padding-top: 30px;
 }
-.piechart{
-  width: 29%;
-}
-.linegraph {
-  width: 70%;
-}
+
 
 .txt-ctr{ text-align: center; }
 .txt-rt{ text-align: right; }

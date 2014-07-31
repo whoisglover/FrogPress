@@ -12,4 +12,6 @@ var switchCharts = function(e) {
 var hideAllCharts = function(){
 
   $('#readability').addClass('disp-no')
+  $('#submissions').addClass('disp-no')
+
 }
