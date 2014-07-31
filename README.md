@@ -1,6 +1,8 @@
 FrogPress
 =========
 
+http://frogpress.herokuapp.com/assets/frog-transparent-e0a3ab57389c0c9660d8043222f477c4.png/
+
 ##The Problem
 
 When our dear leader Matt was a teacher in Teach for America, he found that students didn't know how to apply teacher feedback to their future work. His students weren't able to quantitatively see how they were progressing throughout the school year. Well fear no more past Matt, there is now FrogPress. 
