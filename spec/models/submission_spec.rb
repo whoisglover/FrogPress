@@ -12,6 +12,10 @@ describe Submission do
   end
 
   it "should check the class id" do
+    assignment = FactoryGirl.create(:assignment)
+    submission = FactoryGirl.create(:submission)
+    assignment.submissions << submission
+    expect(submission.check_class_id(assignment.classroom.id)).to be_true
   end
 
 end

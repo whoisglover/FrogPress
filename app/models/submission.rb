@@ -20,9 +20,7 @@ class Submission < ActiveRecord::Base
   end
 
   def check_class_id(class_id)
-    assignment = Assignment.find_by_id(self.assignment_id)
-    classroom = Classroom.find_by_id(assignment.classroom_id)
-    classroom.id == class_id
+    self.assignment.classroom.id == class_id
   end
 
   def author_name
