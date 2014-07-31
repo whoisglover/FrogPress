@@ -1,7 +1,7 @@
 FrogPress
 =========
 
-http://frogpress.herokuapp.com/assets/frog-transparent-e0a3ab57389c0c9660d8043222f477c4.png/
+<img style = "width: 100px" src = "http://frogpress.herokuapp.com/assets/frog-transparent-e0a3ab57389c0c9660d8043222f477c4.png/"/>
 
 ##The Problem
 
