@@ -23,9 +23,9 @@
   <h4 class = "ft-lite mrg-top-0 ft-sz-1"><%= feedback.content %><h4>
 <% end %>
 
-
-<h4 class = "table-title brd-bt w-100per" >Rubric Scores</h4>
-<% @submission.rubric_submissions.each do | rs | %>
+<% if @submission_feedback.count != 0 %>
+  <h4 class = "table-title brd-bt w-100per" >Rubric Scores</h4>
+  <% @submission_feedback.rubric_submissions.each do | rs | %>
   <% score = rs.score.to_i %>
   <% category = RubricCategory.find_by_id(rs.rubric_category_id) %>
   <% #if category %>
@@ -65,7 +65,7 @@
     </tr>
 
   </table>
-  <% #end %>
+  <% end %>
 
 <% end %>
 
