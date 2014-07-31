@@ -66,6 +66,6 @@ class User < ActiveRecord::Base
   end
 
   def find_submission(assignment)
-    return self.submissions.where('assignment_id = ?', assignment.id)[0]
+      return self.submissions.where('assignment_id = ?', assignment.id)[0]
   end
 end

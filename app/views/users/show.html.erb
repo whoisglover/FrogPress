@@ -4,9 +4,24 @@
   <h1 class = "ft-lite ft-sz-2q mrg-btm-0 txt-ctr brd-bt pad-bt-5"><%= @student.first_name %> <%= @student.last_name %> Overview</h1>
 
   <!-- Highcharts stuff -->
-  <%= high_chart("submissions_chart", @submissions_chart) %>
-  <%= high_chart("readability_chart", @readability_chart) %>
 
+  <select id = "highcharts-options"class = "w-100per brd-none gill ft-lite ft-sz-1half block mrg-top-15">
+      <option value="submissions">Submission Rate</option>
+      <option value="readability">Flesch-Kincaid Readability Score</option>
+      <option value="other1">other</option>
+      <option value="other2">other</option>
+      <option value="other3">other</option>
+</select>
+
+
+  <div id = "submissions" class = "highchart">
+    <%= high_chart("submissions_chart", @submissions_chart) %>
+  </div>
+
+
+  <div id = "readability" class = "highchart disp-no">
+    <%= high_chart("readability_chart", @readability_chart) %>
+  </div>
 
   <!-- Tables of assignments per class -->
   <%= render partial: "overview_tables" %>

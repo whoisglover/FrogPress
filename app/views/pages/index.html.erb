@@ -1,3 +1,4 @@
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Sacramento" />
 
   <section class="info " id="first">
 
@@ -5,46 +6,46 @@
       <div id="login_buttons" class = "">
        <a class=" btn btn-secondary btn-mini min-w-7rem " href = "/users/sign_in">Log In</a>
        <a class=" btn btn-mini btn-primary" href = "/users/sign_up">Sign Up</a>
-      </div>
-      <div id="page_links">
+     </div>
+     <div id="page_links">
 
-      </div>
+     </div>
+   </div>
+   <div id="first_main">
+
+
+    <div class="login-modal">
+
+
+      <h1 class=" white ft-sz-4-5 mrg-bot-1 sacramento">FrogPress</h1>
+      <img alt="Frog" class="h-10rem mrg-bot-1" src=<%= asset_path 'frog-transparent.png' %>/>
+
+
+      <div data-ui="preclick" class=" ">
+       <a class=" btn btn-primary btn-small" style="min-width:75%;" href = "/users/sign_up">Get Started</a>
+       <p class="fw-300"><a href="#" data-ui="signin_button" class="white no-txt-dec">Have an account? <strong>Sign In</strong></a></p>
+     </div>
+
+     <div data-ui="postclick" class="disp-none">
+      <%= form_for(:user, :url => session_path(:user), :html => {:class => "login-form"})  do |f| %>
+      <%= f.text_field :email, :placeholder => "Email" %>
+      <%= f.password_field :password, :placeholder => "Password" %>
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+      <%= f.submit 'Sign in', class: 'btn btn-mini' %>
+      <%= link_to "Forgot your password?", new_password_path(:user) %>
+      <% end %>
     </div>
-    <div id="first_main">
+
+    <div data-ui="videoControls">
+    </div>
+  </div>
+
+  <div id = "video-container">
+    <video id="videoPlayer" height: "auto", width="100%" preload="" autoplay="autoplay" muted="muted" poster="" >
 
 
-      <div class="login-modal">
-
-
-        <h1 class=" white ft-sz-4-5 mrg-bot-1 sacramento">FrogPress</h1>
-        <img alt="Frog" class="h-10rem mrg-bot-1" src=<%= asset_path 'frog-transparent.png' %>/>
-
-
-        <div data-ui="preclick" class=" ">
-         <a class=" btn btn-primary btn-small" style="min-width:75%;" href = "/users/sign_up">Get Started</a>
-         <p class="fw-300"><a href="#" data-ui="signin_button" class="white no-txt-dec">Have an account? <strong>Sign In</strong></a></p>
-        </div>
-
-        <div data-ui="postclick" class="disp-none">
-          <%= form_for(:user, :url => session_path(:user), :html => {:class => "login-form"})  do |f| %>
-            <%= f.text_field :email, :placeholder => "Email" %>
-            <%= f.password_field :password, :placeholder => "Password" %>
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
-            <%= f.submit 'Sign in', class: 'btn btn-mini' %>
-            <%= link_to "Forgot your password?", new_password_path(:user) %>
-          <% end %>
-        </div>
-
-        <div data-ui="videoControls">
-        </div>
-      </div>
-
-      <div id = "video-container">
-      <video id="videoPlayer" height: "auto", width="100%" preload="" autoplay="autoplay" muted="muted" poster="" >
-
-
-        <source src="/assets/video1.mp4" %> >
+      <source src="/assets/video1.mp4" %> >
 
         <!-- <source src="http://frogpress-assets.s3.amazonaws.com/video1.mp4" %> > -->
 
@@ -53,22 +54,89 @@
 
       </video>
     </div>
-    </div>
+  </div>
 
 
-    <div class="footerbar">
+  <div class="footerbar">
 
-      <div data-ui="down-arrow" class="down-arrow">
+    <div data-ui="down-arrow" class="down-arrow">
       <a href="#about">  <i class="fa fa-angle-down fa-3x mrg-top-0.3" style="margin-top: -0.3rem;"></i> </a>
-      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class = "info" id = "about">
+
+  <div>
+  </div>
+  <h1 class = 'gill ft-lite ft-sz-3 orange pad-top-15 txt-ctr'>Classroom Writing Made Simple</h1>
+
+  <!-- Writing Platform -->
+  <div class = "w-75per mrg-auto mrg-top-150">
+    <i class="fa fa-pencil ft-sz-10 green inln-bk vert-top flt-r"></i>
+
+    <div class = 'inln-bk w-50per flt-r'>
+      <h3 class = 'inln-bk vert-top pad-l-200 gill ft-lite ft-sz-2 mrg-top-0'>Writing Platform</h3>
+      <p class = "inln-bk ft-sz-1q gill ft-lite">FrogPress provides a simple interface and management system to place the emphasis back on writing.  Features include:</p>
+      <ul>
+        <li class = "ft-sz-1q gill ft-lite">Distraction Free Text Editor </li>
+        <li class = "ft-sz-1q gill ft-lite">Assignment Tracker</li>
+        <li class = "ft-sz-1q gill ft-lite">Paperless Environment – no more ‘lost’ papers</li>
+      </ul>
 
     </div>
-  </section>
+  </div>
 
-  <section class = "info" id = "about">
+  <!-- Real-Time Feedback -->
+  <div class = "w-75per mrg-auto ">
 
-  </section>
-  <section class = "info" id = "portfolio">
-  </section>
-  <section class = "info" id = "contact">
-  </section>
+    <div class = 'inln-bk w-50per mrg-top-150'>
+      <h3 class = 'inln-bk vert-top pad-l-200 gill ft-lite ft-sz-2 mrg-top-0'>Real-Time Feedback</h3>
+      <p class = "inln-bk ft-sz-1q gill ft-lite">FrogPress’s rubric generator empowers educators to easily provide feedback and track a student’s progress throughout the year.  Rubrics allow you to:</p>
+      <ul>
+        <li class = "ft-sz-1q gill ft-lite">Customize individual feedback fields for each class  </li>
+        <li class = "ft-sz-1q gill ft-lite">Quickly comment and provide feedback on each assignment</li>
+        <li class = "ft-sz-1q gill ft-lite">Graphically communicate feedback to students </li>
+      </ul>
+    </div>
+    <i class="fa fa-comments-o ft-sz-10 dk-grn inln-bk vert-top mrg-top-150"></i>
+  </div>
+
+  <!-- Student Progress Charts -->
+  <div class = "w-75per mrg-auto mrg-top-150">
+    <i class="fa fa-bar-chart-o ft-sz-10 green inln-bk vert-top flt-r"></i>
+
+    <div class = 'inln-bk w-50per flt-r'>
+      <h3 class = 'inln-bk vert-top pad-l-200 gill ft-lite ft-sz-2 mrg-top-0'>Student Progress Charts</h3>
+      <p class = "inln-bk ft-sz-1q gill ft-lite">FrogPress helps guide student learning through visually mapping each student’s progress over the course of the year.  Specialized visualizations include:</p>
+      <ul>
+        <li class = "ft-sz-1q gill ft-lite">Individual assignment metrics</li>
+        <li class = "ft-sz-1q gill ft-lite">Individual assignment metrics</li>
+        <li class = "ft-sz-1q gill ft-lite">Macro-level views for educators</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Achievement Communicator -->
+  <div class = "w-75per mrg-auto ">
+
+    <div class = 'inln-bk w-50per mrg-top-150'>
+      <h3 class = 'inln-bk vert-top pad-l-200 gill ft-lite ft-sz-2 mrg-top-0'>Achievement Communicator</h3>
+      <p class = "inln-bk ft-sz-1q gill ft-lite">FrogPress connects all stakeholders to help create a supportive ecosystem across school and home environments for each student. Communication tools include:
+      </p>
+      <ul>
+        <li class = "ft-sz-1q gill ft-lite">Progress emails sent after every assignment</li>
+        <li class = "ft-sz-1q gill ft-lite">Online Portal Access for Students and Parents </li>
+      </ul>
+
+    </div>
+    <i class="fa fa-envelope-o ft-sz-10 mrg-top-150 dk-grn inln-bk vert-top"></i>
+  </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+</section>
+
