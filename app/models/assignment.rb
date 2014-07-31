@@ -3,6 +3,35 @@ class Assignment < ActiveRecord::Base
   has_many :submissions
   validates :classroom_id, presence: true
 
+  def self.new_submission_data_chart(num_on_time, num_not_submitted, num_late_submissions)
+    LazyHighCharts::HighChart.new('pie') do |f|
+        f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 200, 60, 170]} )
+        series = {
+          :type=> 'pie',
+          :name=> 'Submissions',
+          :data=> [
+            ['On Time', num_on_time],
+            ['Not Submitted', num_not_submitted],
+            ['Late', num_late_submissions]
+          ]
+        }
+        f.series(series)
+        f.options[:title][:text] = "Submissions"
+        f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'})
+        f.plot_options(:pie=>{
+                         :allowPointSelect=>true,
+                         :cursor=>"pointer" ,
+                         :dataLabels=>{
+                           :enabled=>true,
+                           :color=>"black",
+                           :style=>{
+                             :font=>"13px Trebuchet MS, Verdana, sans-serif"
+                           }
+                         }
+        })
+      end
+  end
+
   def self.find_submission_and_status(current_user, assignment)
     user_submissions = Submission.where(user_id: current_user.id)
     if user_submissions.length.zero?
