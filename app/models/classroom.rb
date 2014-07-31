@@ -11,11 +11,11 @@ class Classroom < ActiveRecord::Base
   alias :all_assignments :assignments
 
   def pending_assignments
-    return  self.all_assignments.where("due_date >= ?", Date.today).sort_by(&:due_date)
+    return  all_assignments.where("due_date >= ?", Date.today).sort_by(&:due_date)
   end
 
   def past_due_assignments
-    return self.all_assignments.where("due_date < ?", Date.today).sort_by(&:due_date)
+    return all_assignments.where("due_date < ?", Date.today).sort_by(&:due_date)
   end
 
   def student_roster
@@ -28,7 +28,7 @@ class Classroom < ActiveRecord::Base
   end
 
   def teacher
-    return self.users.where('user_type = ?', 'teacher')[0]
+    return users.where('user_type = ?', 'teacher')[0]
   end
 
 end
