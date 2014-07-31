@@ -23,6 +23,55 @@
   <h4 class = "ft-lite mrg-top-0 ft-sz-1"><%= feedback.content %><h4>
 <% end %>
 
+
+<h4 class = "table-title brd-bt w-100per" >Rubric Scores</h4>
+<% @submission.rubric_submissions.each do | rs | %>
+  <% score = rs.score.to_i %>
+  <% category = RubricCategory.find_by_id(rs.rubric_category_id) %>
+  <% if category %>
+  <table class="rubric_feedback w-100per">
+    <tr>
+      <td><%= category.title %></td>
+
+      <% if score == 1 %>
+        <td class="selected"><%= category.level1 %></td>
+      <% else %>
+        <td><%= category.level1 %></td>
+      <% end %>
+
+      <% if score == 2 %>
+        <td class="selected"><%= category.level2 %></td>
+      <% else %>
+        <td><%= category.level2 %></td>
+      <% end %>
+
+      <% if score == 3 %>
+        <td class="selected"><%= category.level3 %></td>
+      <% else %>
+        <td><%= category.level3 %></td>
+      <% end %>
+
+      <% if score == 4 %>
+        <td class="selected"><%= category.level4 %></td>
+      <% else %>
+        <td><%= category.level4 %></td>
+      <% end %>
+
+      <% if score == 5 %>
+        <td class="selected"><%= category.level5 %></td>
+      <% else %>
+        <td><%= category.level5 %></td>
+      <% end %>
+    </tr>
+
+  </table>
+  <% end %>
+
+<% end %>
+
+
+
+
 <% if current_user.user_type == "student" %>
 <p class = "w-100per brd-bt"> </p>
 <% end %>

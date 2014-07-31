@@ -4,7 +4,7 @@
 
 4) run this with all filetypes that matter:
 git filter-branch --force --index-filter \
-'git rm --cached --ignore-unmatch app/assets/images/*.ogv' \
+'git rm --cached --ignore-unmatch app/assets/images/*.wmv' \
 --prune-empty --tag-name-filter cat -- --all
 
 5) run this

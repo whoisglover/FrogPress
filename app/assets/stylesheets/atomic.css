@@ -178,3 +178,14 @@ img { height: 150%;}
   }
 }
 
+td {
+  /*padding: 1rem;*/
+  width: 8rem;
+}
+
+.selected {
+  background: #ADB6BA;
+}
+.rubric_feedback {
+  border-bottom: 1px solid #F47E0C;
+}
