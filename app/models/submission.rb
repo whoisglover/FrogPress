@@ -6,6 +6,15 @@ class Submission < ActiveRecord::Base
   has_many :feedbacks
   has_many :rubric_submissions
 
+
+  def late?
+    assignment.due_date < updated_at.to_date
+  end
+
+  def complete?
+    status == "complete"
+  end
+
   def get_class_id
     assignment = Assignment.find_by_id(self.assignment_id)
     return nil if assignment == nil
