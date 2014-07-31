@@ -33,7 +33,27 @@ class ClassroomController < ApplicationController
   def show
     @classroom = Classroom.find_by_id(params[:id])
     @teacher = @classroom.teacher
-    render "_#{current_user.user_type}"
+
+    # X axis is assignments
+    @assignment_titles = []
+    # Y axis is scores
+    @assignment_avg_scores = []
+
+    @classroom.assignments.each do |assignment|
+      @assignment_titles << assignment.title
+      assignment_total_score = 0
+      @classroom.users.each do |student|
+        submission = Submission.where(assignment_id: assignment.id, user_id: student.id).first
+        if submission != nil
+          assignment_total_score += Lingua::EN::Readability.new(submission.sub_content).kincaid.round(2)
+        end
+      end
+      @assignment_avg_scores << (assignment_total_score/@classroom.users.length)
+    end
+
+    @class_readability_chart = Classroom.new_readability_chart(@assignment_titles, @assignment_avg_scores)
+
+  render "_#{current_user.user_type}"
   end
 
 
@@ -46,31 +66,31 @@ class ClassroomController < ApplicationController
       render :json => {:success => true}
     else
       attr_hash = params[:attrs]
-    # attr_hash[:grade_level] = attr_hash[:grade_level].to_i
-    attr_hash = attr_hash.to_hash
-    # symbolize the keys of hash of update params
-    attr_hash.symbolize_keys!
-    #find the classroom to change
-    @classroom_to_change = Classroom.find_by_id(params[:id])
-    # perform update
-    @classroom_to_change.update(attr_hash)
-    redirect_to classroom_path(@classroom_to_change.id)
+      # attr_hash[:grade_level] = attr_hash[:grade_level].to_i
+      attr_hash = attr_hash.to_hash
+      # symbolize the keys of hash of update params
+      attr_hash.symbolize_keys!
+      #find the classroom to change
+      @classroom_to_change = Classroom.find_by_id(params[:id])
+      # perform update
+      @classroom_to_change.update(attr_hash)
+      redirect_to classroom_path(@classroom_to_change.id)
+    end
   end
-end
 
-def destroy
-  Classroom.find_by_id(params[:id]).destroy
-  redirect_to(classroom_index_path)
-end
+  def destroy
+    Classroom.find_by_id(params[:id]).destroy
+    redirect_to(classroom_index_path)
+  end
 
 
-def new
+  def new
 
-end
+  end
 
-private
-def verify_user
-  if current_user.user_type == 'teacher'
+  private
+  def verify_user
+    if current_user.user_type == 'teacher'
       # nothing to see here, move along
     elsif current_user.user_type == 'student'
     else

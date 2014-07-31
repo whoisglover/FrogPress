@@ -8,6 +8,20 @@ class Classroom < ActiveRecord::Base
   validates :join_code, presence: true
   validates :join_code, uniqueness: true
 
+  def self.new_readability_chart(submission_titles, submission_readability_scores)
+    LazyHighCharts::HighChart.new('spline') do |f|
+      f.title(:text => "Flesch-Kincaid Readability Score")
+      f.xAxis(:categories => submission_titles)
+      f.series(:name => "Readability Score", :yAxis => 0, :data => submission_readability_scores)
+
+      f.yAxis [
+        {:title => {:text => "Score by Grade Level", :margin => 70} },
+      ]
+
+      f.chart({:defaultSeriesType=>"spline"})
+    end
+  end
+
 
   def all_assignments
     @these_assignments = self.assignments
@@ -35,4 +49,3 @@ class Classroom < ActiveRecord::Base
   end
 
 end
-
