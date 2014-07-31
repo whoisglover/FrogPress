@@ -29,6 +29,7 @@ class UsersController < ApplicationController
       # go through all submissions and sort by classroom
       # check against assignment due date to get # of late submissions
       @student.submissions.each do |s|
+        # Refactor to s.late? in new branch
         if Assignment.find_by_id(s.assignment_id).due_date < s.updated_at
           @num_late_submissions += 1
         end
@@ -49,17 +50,7 @@ class UsersController < ApplicationController
         @submission_readability_scores << Lingua::EN::Readability.new(submission.sub_content).kincaid.round(2)
       end
 
-      @readability_chart = LazyHighCharts::HighChart.new('spline') do |f|
-        f.title(:text => "Flesch-Kincaid Readability Score")
-        f.xAxis(:categories => @submission_titles)
-        f.series(:name => "Readability Score", :yAxis => 0, :data => @submission_readability_scores)
-
-        f.yAxis [
-          {:title => {:text => "Score by Grade Level", :margin => 70} },
-        ]
-
-        f.chart({:defaultSeriesType=>"spline"})
-      end
+      @readability_chart =
 
       @submissions_chart = LazyHighCharts::HighChart.new('pie') do |f|
         f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 200, 60, 170]} )
