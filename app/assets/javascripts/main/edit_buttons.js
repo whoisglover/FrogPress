@@ -3,7 +3,6 @@ $(document).ready(function(){
   $(document).on('click', '#edit-teacher-classroom', showXs)
   $(document).on('click', '#roster i', removeStudent)
   $(document).on('click', '#assignments i', deleteAssignment)
-
 })
 
 var showXs = function(e){

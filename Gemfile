@@ -9,6 +9,8 @@ gem 'rails', '4.0.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem 'lazy_high_charts'
+
 # For text editor. Add paperclip gem if we decide to allow image uploads
 gem 'ckeditor'
 
@@ -43,14 +45,19 @@ gem 'jbuilder', '~> 1.2'
 gem 'devise'
 gem 'rails_12factor'
 gem 'rake'
-gem 'travis'
-gem 'dotgpg'
+
+# gem 'travis'
+# gem 'dotgpg'
+
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 
 group :development, :test do
+  gem 'travis'
+  gem 'dotgpg'
   gem 'rspec-rails', '~>2.14'
   gem 'factory_girl_rails'
   gem 'faker'
@@ -88,4 +95,4 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
- gem 'debugger', group: [:development, :test]
+ #gem 'debugger', group: [:development, :test]

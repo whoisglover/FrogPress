@@ -1,0 +1,37 @@
+<div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
+
+<h6>The link that gets you here needs to include ?class=id in the url params</h6>
+<h6>i.e. /rubrics/new?class=4</h6>
+
+<h1 class = 'classroom-name'>Rubric for *CLASSROOM NAME*</h1>
+
+
+<%= form_for(@rubric) do |f| %>
+      <%= f.label :title, "Rubric Title" %><br>
+      <%= f.text_field :title %><br><br><br>
+      <%= f.hidden_field :classroom_id, value: params[:classroom_id] %>
+
+  <% @rubric_categories.each do |rubric_category| -%>
+    <%= f.fields_for :rubric_categories, rubric_category do |q| -%>
+            <%= q.label :title, "Category title" %><br>
+            <%= q.text_field :title %><br><br>
+            <%= q.label :level1, "Level 1 Criteria" %>
+            <%= q.text_area :level1, rows: 3, class: "w-100per"%><br>
+            <%= q.label :level2, "Level 2 Criteria" %>
+            <%= q.text_area :level2, rows: 3, class: "w-100per"%><br>
+            <%= q.label :level3, "Level 3 Criteria" %>
+            <%= q.text_area :level3, rows: 3, class: "w-100per"%><br>
+            <%= q.label :level4, "Level 4 Criteria" %>
+            <%= q.text_area :level4, rows: 3, class: "w-100per"%><br>
+            <%= q.label :level5, "Level 5 Criteria" %>
+            <%= q.text_area :level5, rows: 3, class: "w-100per"%><br>
+            <br>
+          <% end -%>
+          <br><br><br><br>
+  <% end -%>
+
+  <%= f.submit class: "brd-none w-101per dk-grn bkg-wt brd-grn"%>
+<% end -%>
+
+
+</div>

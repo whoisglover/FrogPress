@@ -1,33 +1,36 @@
 
-<center>
-<h1>This is the page to view a Rubric</h1>
+<div class = 'gill w-70per mrg-auto min-w-350px max-w-900px'>
+
+<h1 class = "classroom-name">Rubric for *CLASSROOM NAME*</h1>
+
 <%= "Object Passed: " %>
 <%= @rubric %><br>
-<br>
-<%= @rubric.title %><br>
 
-<table style="border:1px solid blue; width:80%;">
+<h2 class = "txt-ctr"><%= @rubric.title %></h2><br>
+
+<table class = "w-100per brd-clpse">
 
 
+    <tr class = " ft-lite ft-sz-1half mrg-top-45 mrg-btm-0 brd-bt pad-bt-5 orange">
+    <th class = "ft-lite txt-ctr">Category</th>
+    <th class = "ft-lite txt-ctr">Level 1</th>
+    <th class = "ft-lite txt-ctr">Level 2</th>
+    <th class = "ft-lite txt-ctr">Level 3</th>
+    <th class = "ft-lite txt-ctr">Level 4</th>
+    <th class = "ft-lite txt-ctr">Level 5</th>
+    </tr>
 
-    <th>Category</th>
-    <th>Level 1 Criteria</th>
-    <th>Level 2 Criteria</th>
+    <tr class = "brd-bt">
 
-    <th>Level 3 Criteria</th>
-
-    <th>Level 4 Criteria</th>
-
-    <th>Level 5 Criteria</th>
 
    <% @rubric.rubric_categories.each do |category| %>
-    <tr>
-      <td><%= category.title%></td>
-      <td><%= category.level1%></td>
-      <td><%= category.level2%></td>
-      <td><%= category.level3%></td>
-      <td><%= category.level4%></td>
-      <td><%= category.level5%></td>
+    <tr class = "brd-bt">
+      <td class = " pad-top-15 pad-l-5"><%= category.title%></td>
+      <td class = "ft-lite pad-top-15 pad-l-5"><%= category.level1%></td>
+      <td class = "ft-lite pad-top-15 pad-l-5"><%= category.level2%></td>
+      <td class = "ft-lite pad-top-15 pad-l-5"><%= category.level3%></td>
+      <td class = "ft-lite pad-top-15 pad-l-5"><%= category.level4%></td>
+      <td class = "ft-lite pad-top-15 pad-l-5"><%= category.level5%></td>
 
     </tr>
    <% end %>
@@ -37,4 +40,4 @@
 
 </table>
 
-</center>
+</div>
