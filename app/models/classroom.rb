@@ -7,10 +7,7 @@ class Classroom < ActiveRecord::Base
   validates :join_code, presence: true
   validates :join_code, uniqueness: true
 
-
-  def all_assignments
-    @these_assignments = self.assignments
-  end
+  alias :all_assignments :assignments
 
   def pending_assignments
     return  self.all_assignments.where("due_date >= ?", Date.today).sort_by(&:due_date)
