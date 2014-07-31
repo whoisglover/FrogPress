@@ -1,6 +1,10 @@
 html {
   font-family: 'lato', sans-serif;
+}
 
+
+.about-items{
+ padding-top: 300px;
 }
 
 #video-container {

@@ -51,8 +51,8 @@
 
 .ft-sz-5{ font-size: 5rem; }
 .ft-sz-4-5{ font-size: 4.5rem; }
+.ft-sz-3{ font-size: 3rem; }
 .ft-sz-2q{ font-size: 2.25rem; }
-
 .ft-sz-2{ font-size: 2rem; }
 
 .ft-sz-1half{ font-size: 1.5rem; }
@@ -86,12 +86,10 @@
 .w-300{ width: 300px; }
 .w-100{ width: 100px; }
 
-
+.w-25per { width: 25%; }
 .w-50per { width: 50%; }
 .w-60per { width: 60%; }
-
 .w-75per { width: 75%; }
-
 .w-100per{ width: 100%; }
 .w-101per{ width: 101%; }
 
@@ -106,6 +104,8 @@
 
 
 .h-50{ height: 50px; }
+.h-500{ height: 500px; }
+
 .h-50per{height: 50%; }
 .h-90per{height: 90%; }
 
