@@ -1,6 +1,6 @@
 class Classroom < ActiveRecord::Base
-  has_many :users_classroom
-  has_many :users, through: :users_classroom
+  has_many :users_classrooms
+  has_many :users, through: :users_classrooms
   has_many :assignments
   has_many :rubrics
   validates :name, presence: true
