@@ -26,10 +26,9 @@ class UsersController < ApplicationController
       @num_not_submitted = @submissions.length - @submissions.where(status: "complete").length
       @num_late_submissions = 0
 
-      # go through all submissions and sort by classroom
-      # check against assignment due date to get # of late submissions
+
       @student.submissions.each do |s|
-        if Assignment.find_by_id(s.assignment_id).due_date < s.updated_at
+        if s.late?
           @num_late_submissions += 1
         end
 
@@ -48,42 +47,9 @@ class UsersController < ApplicationController
         @submission_titles << submission.sub_title.split[0...4].join(' ')
         @submission_readability_scores << Lingua::EN::Readability.new(submission.sub_content).kincaid.round(2)
       end
+      @readability_chart = User.new_readability_chart(@submission_titles, @submission_readability_scores)
 
-      @readability_chart = readability_chart()
-
-
-
-      @submissions_chart = LazyHighCharts::HighChart.new('pie') do |f|
-        f.colors(["#557D73", "#A4CB50", "#D6E24F"])
-
-        f.chart({:defaultSeriesType=>"pie" } )
-        series = {
-          :type=> 'pie',
-          :name=> 'Submissions',
-          :data=> [
-            ['On Time', @num_on_time],
-            ['Not Submitted', @num_not_submitted],
-            ['Late', @num_late_submissions]
-          ]
-        }
-        f.series(series)
-        f.options[:title][:text] = ""
-        f.plot_options(:pie=>{
-                         :allowPointSelect=>true,
-                         :cursor=>"pointer" ,
-                         :dataLabels=>{
-                            :enabled=>true,
-                            :distance=> -50,
-                            :color=>"black",
-                            :style=>{
-                              :fontWeight=> 'bold',
-                              :fontSize=> '10pt',
-
-                              :textShadow=> '0px 1px 2px white'
-                           }
-                         }
-        })
-      end
+      @submissions_chart = User.new_status_chart(@num_on_time, @num_not_submitted, @num_late_submissions)
     else
       redirect_to(user_path(current_user.id))
     end
