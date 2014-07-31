@@ -28,7 +28,7 @@
 <% @submission.rubric_submissions.each do | rs | %>
   <% score = rs.score.to_i %>
   <% category = RubricCategory.find_by_id(rs.rubric_category_id) %>
-  <% if category %>
+  <% #if category %>
   <table class="rubric_feedback w-100per">
     <tr>
       <td><%= category.title %></td>
@@ -65,7 +65,7 @@
     </tr>
 
   </table>
-  <% end %>
+  <% #end %>
 
 <% end %>
 
