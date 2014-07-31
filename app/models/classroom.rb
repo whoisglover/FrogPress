@@ -18,7 +18,7 @@ class Classroom < ActiveRecord::Base
   end
 
   def student_roster
-    @these_students = self.users.where("user_type = ?", "student")
+    users.where("user_type = ?", "student")
   end
 
   def self.add_student_to_class(user_id, join_code)
