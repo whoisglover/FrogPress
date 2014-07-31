@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
         f.chart({:defaultSeriesType=>"pie" , :margin=> [50, 200, 60, 170]} )
         series = {
           :type=> 'pie',
-          :name=> 'Submissions',
+          :name=> '',
           :data=> [
             ['On Time', num_on_time],
             ['Not Submitted', num_not_submitted],
@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
           ]
         }
         f.series(series)
-        f.options[:title][:text] = "Submissions"
+        f.options[:title][:text] = ""
         f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'})
         f.plot_options(:pie=>{
                          :allowPointSelect=>true,

@@ -31,35 +31,38 @@ class AssignmentController < ApplicationController
 
     if current_user.user_type == "student"
       @completed_submission = Assignment.find_submission_and_status(current_user, @assignment)
-
       @submission_data = Assignment.create_submission_data(current_user, @completed_submission, @assignment)
       @submission = @submission_data[:submission]
       @sub_title_placeholder = @submission_data[:sub_title_placeholder]
       @sub_content_placeholder = @submission_data[:sub_content_placeholder]
 
     else
-
-      @num_not_submitted = 0
-      @num_late_submissions = 0
-      @num_on_time = 0
-
-      @students.each do |student|
-        submission = student.submissions.find_by_assignment_id(@assignment.id)
-
-        if submission.nil?
-           @num_not_submitted += 1
-        elsif submission.complete?
-          if submission.late?
-            @num_late_submissions += 1
-          else
-            @num_on_time += 1
+      submissions = @assignment.submissions
+      # Before the due date
+      if @assignment.due_date >= Date.today
+        not_started = @students.count - submissions.count
+        started = submissions.where("status = ?", "incomplete").count
+        finished = submissions.where("status = ? OR status = ?", "complete", "reviewed").count
+        student_stats = [["not_started", not_started], ["finished", finished], ["started", started]]
+      else
+      #after the due date
+        not_started = @students.count - submissions.count
+        not_finished = submissions.where("status = ?", "incomplete").count
+        not_submitted = not_started + not_finished
+        on_time = 0
+        late = 0
+        submissions.each do |s|
+          if s.status != 'incomplete' && s.updated_at <= @assignment.due_date
+            on_time +=1
+          elsif s.status != 'incomplete'
+            late +=1
           end
-        else
-          @num_not_submitted += 1
         end
+        student_stats = [['Not Submitted', not_submitted], ['On Time', on_time], ['Late', late]]
       end
 
-      @submissions_chart = Assignment.new_submission_data_chart(@num_on_time, @num_not_submitted, @num_late_submissions)
+
+      @submissions_chart = Assignment.new_submission_data_chart(student_stats)
     end
   end
 
