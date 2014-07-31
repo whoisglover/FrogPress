@@ -1,5 +1,5 @@
 <% @feedback = Feedback.new %>
-<%= @rubric_submissions = @feedback.rubric_submissions %>
+<% @rubric_submissions = @feedback.rubric_submissions %>
 <%= @classroom.id %>
 
 <br>
@@ -8,23 +8,25 @@
 
   <% @classroom.rubrics.each do |rubric| %>
     <% rubric.rubric_categories.each_with_index do |rc, index| %>
-      <%= index + 1 %>
-      <%= rc.title %>
-      <% this_submission = RubricSubmission.new %>
-      <%= fields_for :rubric_submissions, this_submission do |q| %>
-        <%= q.hidden_field :rubric_category_id, value: rc.id %>
-        <%= q.hidden_field :feedback_id, value: @feedback.id %>
-        <%= q.label :score, "1" %>
-        <%= q.radio_button :score, checked: 1%>
-        <%= q.label :score, "2" %>
-        <%= q.radio_button :score, checked: 2%>
-        <%= q.label :score, "3" %>
-        <%= q.radio_button :score, checked: 3%>
-        <%= q.label :score, "4" %>
-        <%= q.radio_button :score, checked: 4%>
-        <%= q.label :score, "5" %>
-        <%= q.radio_button :score, checked: 5%>
-      <% end %>
+      <table class="txt-ctr">
+      <th>
+      <%= rc.title %></th>
+      <tr>
+        <td class="w-8rem">Level 1</td>
+        <td class="w-8rem">Level 2</td>
+        <td class="w-8rem">Level 3</td>
+        <td class="w-8rem">Level 4</td>
+        <td class="w-8rem">Level 5</td>
+      </tr>
+      <tr>
+
+        <td class="w-8rem"><input type ="radio" name=<%= rc.id %> value='1'></td>
+        <td class="w-8rem"><input type ="radio" name=<%= rc.id %> value='2'></td>
+        <td class="w-8rem"><input type ="radio" name=<%= rc.id %> value='3'></td>
+        <td class="w-8rem"><input type ="radio" name=<%= rc.id %> value='4'></td>
+        <td class="w-8rem"><input type ="radio" name=<%= rc.id %> value='5'$(></td>
+      </tr>
+      </table>
     <br>
     <% end %>
   <% end %>
