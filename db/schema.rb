@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20140730045459) do
   end
 
   create_table "rubric_submissions", force: true do |t|
-    t.integer  "submission_id"
+    t.integer  "feedback_id"
     t.integer  "rubric_category_id"
     t.integer  "score"
     t.datetime "created_at"
