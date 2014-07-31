@@ -22,8 +22,7 @@ class Classroom < ActiveRecord::Base
   end
 
   def self.add_student_to_class(user_id, join_code)
-    @classroom_to_add_student = Classroom.find_by_join_code(join_code)
-    @classroom_to_add_student.users << User.find_by_id(user_id)
+    find_by(join_code: join_code).users_classrooms.create(user_id: user_id)
   end
 
   def teacher
