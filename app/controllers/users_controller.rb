@@ -26,11 +26,8 @@ class UsersController < ApplicationController
       @num_not_submitted = @submissions.length - @submissions.where(status: "complete").length
       @num_late_submissions = 0
 
-      # go through all submissions and sort by classroom
-      # check against assignment due date to get # of late submissions
       @student.submissions.each do |s|
-        # Refactor to s.late? in new branch
-        if Assignment.find_by_id(s.assignment_id).due_date < s.updated_at
+        if s.late?
           @num_late_submissions += 1
         end
 
