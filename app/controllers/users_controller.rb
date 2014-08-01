@@ -26,15 +26,14 @@ class UsersController < ApplicationController
       @num_not_submitted = @submissions.length - @submissions.where(status: "complete").length
       @num_late_submissions = 0
 
-
       @student.submissions.each do |s|
         if s.late?
           @num_late_submissions += 1
         end
-
         if @submissions_by_classroom[s.get_class_id]
           @submissions_by_classroom[s.get_class_id] << s
         end
+
       end
 
       @num_on_time = @num_complete_submissions - @num_late_submissions
