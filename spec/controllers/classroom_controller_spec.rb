@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe ClassroomController do
-  describe '#index' do
     let(:classroom){FactoryGirl.create(:classroom)}
+
+  describe '#index' do
     it 'redirects to home if user is not logged in' do
       get :index
       expect(response).to redirect_to(new_user_session_path)
@@ -43,7 +44,6 @@ describe ClassroomController do
     it 'should show the next 5 assignments due' do
       current_user = User.find(login_student[0][0])
       current_user.classrooms << classroom
-      assignment = FactoryGirl.create(:assignment)
       5.times { classroom.assignments << FactoryGirl.create(:assignment) }
       get :index
 
@@ -78,7 +78,6 @@ describe ClassroomController do
     end
 
     describe '#show' do
-      let(:classroom){FactoryGirl.create(:classroom)}
       it 'returns the correct classroom' do
       #arrange
       login = login_teacher
@@ -98,7 +97,6 @@ describe ClassroomController do
 
   end
   describe '#update' do
-    let(:classroom) { FactoryGirl.create(:classroom) }
     it 'updates the classroom in the database' do
       #arrange
       login_teacher
@@ -112,7 +110,6 @@ describe ClassroomController do
   end #end edit
 
   describe '#destroy' do
-    let(:classroom) { FactoryGirl.create(:classroom) }
     it 'should remove the classroom from the database' do
       #arrange
       login_teacher
@@ -128,7 +125,6 @@ describe ClassroomController do
       #arrange
       login_teacher
       student = FactoryGirl.create(:student)
-      classroom = FactoryGirl.create(:classroom)
       classroom.users << student
       #act
 
