@@ -3,7 +3,7 @@
 
 <table id = "assignments" class = "brd-clpse w-100per brd-top ft-lite ft-sz-1q">
   <tr class = "hov-bkg">
-  <td class = "pad-l-5 pad-top-15">Flesch-Kincaid Readability Score</td>
+  <td class = "pad-l-5 pad-top-15">Flesch-Kincaid Writing Level</td>
   <td class = "txt-rt pad-r-5"><%= Lingua::EN::Readability.new(@submission.sub_content).kincaid.round(2) %></td>
   </tr>
   <tr class = "hov-bkg">

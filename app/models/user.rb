@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   def self.new_readability_chart(submission_titles, submission_readability_scores)
     LazyHighCharts::HighChart.new('spline') do |f|
-      f.title(:text => "Flesch-Kincaid Readability Score")
+      f.title(:text => "Flesch-Kincaid Writing Level")
       f.xAxis(:categories => submission_titles)
       f.series(:name => "Readability Score", :yAxis => 0, :data => submission_readability_scores)
 
