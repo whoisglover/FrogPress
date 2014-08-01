@@ -26,9 +26,16 @@ describe Submission do
         expect(submission.late?).to be_false
       end
     it "shows a completed assignment" do
+     submission_two = FactoryGirl.create(:submission, status:"complete")
+     assignment.submissions << submission_two
+     submission_two.reload
+      expect(submission_two.complete?).to be_true
+    end
+    it "returns false for an incompleted assignment" do
       assignment.submissions << submission
       expect(submission.complete?).to be_false
     end
+    #next test to add is when the submission is actually complete to come out to true. How do I change that attr?
   end
   context "author" do
     it "returns the first and last name of the user who submitted" do
