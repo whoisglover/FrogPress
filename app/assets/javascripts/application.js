@@ -18,4 +18,5 @@
 //= require smooth_scroll
 //= require highcharts/highcharts
 //= require_tree ./main
+//= require_tree ./ckeditor
 
