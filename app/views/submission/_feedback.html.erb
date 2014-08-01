@@ -23,6 +23,7 @@
   <h4 class = "ft-lite mrg-top-0 ft-sz-1"><%= feedback.content %><h4>
 <% end %>
 
+<% if @submission_feedback.count != 0 %>
 
 <h4 class = "table-title brd-bt w-100per" >Rubric Scores</h4>
 <% @submission.rubric_submissions.each do | rs | %>
@@ -65,7 +66,7 @@
     </tr>
 
   </table>
-  <% #end %>
+  <% end %>
 
 <% end %>
 
