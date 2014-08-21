@@ -4,3 +4,12 @@
 require File.expand_path('../config/application', __FILE__)
 
 FrogPress::Application.load_tasks
+
+namespace :test do
+  desc 'runs all rspec files'
+  task "spec" do
+    exec "rspec"
+  end
+end
+
+

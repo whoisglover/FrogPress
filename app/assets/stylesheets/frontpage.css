@@ -47,10 +47,11 @@ video {
   position: absolute;
   padding: 1rem;
   background: none;
-  width: 20rem;
-  left: 50%;
-  margin-left: -10rem;
-  margin-top: 12%;
+  margin-top: 13%;
+  margin-left: 40%;
+  margin-right: 45%;
+  width: 20%;
+  height: 30%;
   text-align: center;
 }
 
